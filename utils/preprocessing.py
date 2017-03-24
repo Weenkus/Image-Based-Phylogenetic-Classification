@@ -76,10 +76,10 @@ class Preprocessor(object):
         return dataset
 
     @staticmethod
-    def get_dataset_paths_from_wnid(wnids):
+    def get_dataset_paths_from_wnid(wnids, dataset_path=DATASET_DIR):
         dataset = []
         for wnid in wnids:
-            dataset_dir = Preprocessor.DATASET_DIR + wnid + '/'
+            dataset_dir = dataset_path + wnid + '/'
             image_paths = Preprocessor.get_dataset_paths(dataset_dir)
             dataset.extend(image_paths)
 
