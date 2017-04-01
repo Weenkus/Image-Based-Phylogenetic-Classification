@@ -1,21 +1,15 @@
 import glob
+import shutil
 import os
 import re
 import numpy as np
+import random
 import matplotlib.pyplot as plt
 import PIL
 from PIL import Image
 
 
-class Preprocessor(object):
-    DATASET_DIR = '../input/'
-
-    @staticmethod
-    def natural_key(string_):
-        """
-        Define sort key that is integer-aware
-        """
-        return [int(s) if s.isdigit() else s for s in re.split(r'(\d+)', string_)]
+class ImageProcessor(object):
 
     @staticmethod
     def norm_image(image):
@@ -70,6 +64,79 @@ class Preprocessor(object):
         return img_pad
 
     @staticmethod
+    def get_image(image_path):
+        return Image.open(image_path)
+
+    @staticmethod
+    def get_processed_image(image, size=224):
+        image_normalized = ImageProcessor.norm_image(image)
+        image_resized = ImageProcessor.resize_image(image_normalized, size)
+        return image_resized
+
+    @staticmethod
+    def set_image_size(width=18.5, height=10.5, dpi=160):
+        fig = plt.gcf()
+        fig.set_size_inches(width, height)
+        fig.set_dpi(dpi)
+
+    @staticmethod
+    def get_processed_image_from_path(path, image_size=64):
+        image = ImageProcessor.get_image(path)
+        processed_image = ImageProcessor.get_processed_image(image, size=image_size)
+        return np.array(processed_image)
+
+
+class DatasetProcessor(object):
+    DATASET_DIR = '../input'
+    TRAIN_DIR = DATASET_DIR + '/train'
+    TEST_DIR = DATASET_DIR + '/validation'
+
+    @staticmethod
+    def __get_percent_of_files_within_directory(filename, percent=0.1):
+        filenames = os.listdir(os.path.join(DatasetProcessor.TRAIN_DIR, filename))
+        num_filenames = float(len(filenames))
+
+        print(num_filenames)
+
+        new_files = []
+        while ((len(new_files) + 1) / num_filenames) < percent:
+            random_filename = random.choice(filenames)
+
+            if random_filename not in new_files:
+                new_files.append(random_filename)
+
+        return new_files
+
+    @staticmethod
+    def __move_files(filenames, src=TRAIN_DIR, des=TEST_DIR):
+        for filename in filenames:
+            shutil.move(os.path.join(src, filename), os.path.join(des, filename))
+
+    @staticmethod
+    def file_train_test_split(train_dir=TRAIN_DIR, test_dir=TEST_DIR, test_size=0.1):
+        print('Moved from dirs:')
+        for filename in os.listdir(train_dir):
+            dir = os.path.join(DatasetProcessor.TEST_DIR, filename)
+            os.makedirs(dir)
+            print('  %s' % filename)
+
+            if os.path.isdir(os.path.join(DatasetProcessor.TRAIN_DIR, filename)):
+                test_files = DatasetProcessor.__get_percent_of_files_within_directory(filename, test_size)
+
+                print('     %d' % len(test_files))
+                src = os.path.join(train_dir, filename)
+                des = os.path.join(test_dir, filename)
+                DatasetProcessor.__move_files(test_files, src, des)
+
+
+    @staticmethod
+    def natural_key(string_):
+        """
+        Define sort key that is integer-aware
+        """
+        return [int(s) if s.isdigit() else s for s in re.split(r'(\d+)', string_)]
+
+    @staticmethod
     def get_dataset_paths(dataset_dir=DATASET_DIR, data_regex='*.JPEG', key=natural_key.__func__):
         dataset = sorted(glob.glob(os.path.join(dataset_dir, data_regex)), key=key)
 
@@ -80,20 +147,10 @@ class Preprocessor(object):
         dataset = []
         for wnid in wnids:
             dataset_dir = dataset_path + wnid + '/'
-            image_paths = Preprocessor.get_dataset_paths(dataset_dir)
+            image_paths = DatasetProcessor.get_dataset_paths(dataset_dir)
             dataset.extend(image_paths)
 
         return dataset
-
-    @staticmethod
-    def get_image(image_path):
-        return Image.open(image_path)
-
-    @staticmethod
-    def get_processed_image(image, size=224):
-        image_normalized = Preprocessor.norm_image(image)
-        image_resized = Preprocessor.resize_image(image_normalized, size)
-        return image_resized
 
     @staticmethod
     def get_wnid_table(table_directory='../input/wnid_to_labels.txt'):
@@ -130,12 +187,6 @@ class Preprocessor(object):
 
         return wnid_to_one_hot
 
-    @staticmethod
-    def get_processed_image_from_path(path, image_size=64):
-        image = Preprocessor.get_image(path)
-        processed_image = Preprocessor.get_processed_image(image, size=image_size)
-        return np.array(processed_image)
-
 
 class Analytics(object):
 
@@ -143,13 +194,7 @@ class Analytics(object):
     def extract_class_distribution(dataset):
         class_counter = dict()
         for image_path in dataset:
-            class_wnid = Preprocessor.extract_wnid(image_path)
+            class_wnid = DatasetProcessor.extract_wnid(image_path)
             class_counter[class_wnid] = class_counter.get(class_wnid, 0) + 1
 
         return class_counter
-
-    @staticmethod
-    def set_image_size(width=18.5, height=10.5, dpi=160):
-        fig = plt.gcf()
-        fig.set_size_inches(width, height)
-        fig.set_dpi(dpi)
