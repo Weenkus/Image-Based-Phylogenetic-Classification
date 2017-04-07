@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+The style file: fer.bst
+Database file #1: master_thesis.bib
+Warning--empty journal in samuel_studies_1959
+Warning--empty year in samuel_studies_1959
+Warning--empty year in samuel_studies_1959
+You've used 1 entry,
+            2773 wiz_defined-function locations,
+            600 strings with 5002 characters,
+and the built_in function-call counts, 454 in all, are:
+= -- 42
+> -- 10
+< -- 1
++ -- 4
+- -- 3
+* -- 37
+:= -- 73
+add.period$ -- 5
+call.type$ -- 1
+change.case$ -- 4
+chr.to.int$ -- 1
+cite$ -- 5
+duplicate$ -- 20
+empty$ -- 41
+format.name$ -- 4
+if$ -- 87
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 1
+newline$ -- 15
+num.names$ -- 4
+pop$ -- 11
+preamble$ -- 1
+purify$ -- 3
+quote$ -- 0
+skip$ -- 11
+stack$ -- 0
+substring$ -- 27
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 11
+warning$ -- 3
+while$ -- 5
+width$ -- 0
+write$ -- 22
+(There were 3 warnings)

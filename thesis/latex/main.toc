@@ -1,0 +1,12 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Introduction}{1}
+\contentsline {chapter}{\numberline {2}Research context}{2}
+\contentsline {section}{\numberline {2.1}Definitions and notation}{2}
+\contentsline {section}{\numberline {2.2}Machine learning}{2}
+\contentsline {section}{\numberline {2.3}Deep learning}{2}
+\contentsline {subsection}{\numberline {2.3.1}Feedforward Neural Networks}{2}
+\contentsline {subsection}{\numberline {2.3.2}Convolutional Neural Networks}{2}
+\contentsline {chapter}{\numberline {3}TaxNet}{3}
+\contentsline {chapter}{\numberline {4}Results}{4}
+\contentsline {chapter}{\numberline {5}Conclusion}{5}
+\contentsline {chapter}{Bibliography}{6}
