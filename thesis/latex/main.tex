@@ -1,5 +1,7 @@
 \documentclass[times, utf8, diplomski]{fer}
 \usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{matrix,calc}
 
 \begin{document}
 
@@ -18,14 +20,62 @@
 \tableofcontents
 
 \chapter{Introduction}
-Since the dawn of time, people have tried to explain their surroundings. Life is all around us in many forms, and as such people have tried to categorize t by keen observation, both through its visual and genetic features. Today, it is organised into a taxonomic hierarchy of eight major taxonomic ranks. The number of known species on Earth is in the millions and climbing every year. \par
-Machine learning allows computers the ability to learn without being explicitly programmed \citep{samuel_studies_1959}. It, together with an incrase in data  
+Since the dawn of time, people have tried to explain their surroundings. Life is all around us in many forms, and as such people have tried to categorize it by keen observation, both through its visual and genetic features. Today, it is organised into a taxonomic hierarchy of eight major taxonomic ranks. The number of known species on Earth is in the millions and climbing every year. Great numbers of species make it difficult to classify species based on images and requires domain knowledge. Therefore, an algorithm with the capability to classify species on the filed or from an image using only the image itself could provide great benefits for field researches. \par
+Machine learning allows computers the ability to learn without being explicitly programmed \citep{samuel_studies_1959}. It, together with an incrase in avaiable quallity data (ImageNet, CIFAR -> dodati reference) has yielded great results in the area of deep learning - a class of machine learning algorithms. Deep learning algorithm's accuracy scales with the amount of data used by the algorithm (referenca), that together with the improvements in hardware - mainly general purpose graphic units (GPUs) - has yielded significant perfomance gains in the last couple of years. One of the most rapidly advancing filed of deep learning is image recognition (VGG16, Inception, Resnet -> reference) with new neural network architectures being developed almost at a yearly basis, the pefromance of deep neural networks on image recognition has achived results perviously tought 	impossible. \par
+In this thesis I propose a solution for a scalable classification of species from images, based on convolution neural networks and recent modern deep learning techqniues.
 
 \chapter{Research context}
-Papers please.
+To fully understand the depth of the image recognition using deep learning, we need a better understand of the underlying algorithms and methods in machine learning, as well as fundemental terms and concepts. In the next section, an introduction of basic terms is given, followed by a detailed explenation of fundemental machine learning algorithms.
 
 \section{Definitions and notation}
-Matrix is..
+Matrix is a rectangular array of numberes. It is used because some numbers are naturally represented as matricies. Matrix $A$ with $m$ rows and $n$ columns often writtens as $m \times n$ has $m*n$ elements and is denoted as $A_{m,n}$. Elements are denoted as $a_{i,j}$ where $i$ and $j$ corespond to row and column number respectivly, as shown in \ref{eq_2d_matrix}. 
+
+\begin{equation} \label{eq_2d_matrix}
+A_{m,n} = 
+ \begin{bmatrix}
+  a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
+  a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
+  \vdots  & \vdots  & \ddots & \vdots  \\
+  a_{m,1} & a_{m,2} & \cdots & a_{m,n} 
+ \end{bmatrix}
+\end{equation}
+
+Each image is represented as a 3 dimensional matrix. One pixel in the image represent a single element in the matrix and as images have multiple channels (RGB) each channel is a 2 dimensional matrix. Image $I$ denoted as $I_{k,m,n}$ where $k\in[0,2]$ represent the channel - red, green or blue - and $m,n\in[0,255]$ represent the pixels in a particular channel as 2 dimensional matricies. Figure \ref{fig:image_matrix} shows a representation of an image as a 3 dimensional matrix where each pixel is denote as $I_{k,m,n}$.
+
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\def\xs{1} %shift in x direction
+\def\ys{0.5} %shift in y direction
+\def\nm{3} % number of 2d matrices in the 3d matrix
+\foreach \x in {1,2,...,\nm}
+{
+
+\matrix [draw, % for the rectangle border
+         fill=white, % so that it is not transparent
+         ampersand replacement=\&] %see explanation
+(mm\x)%give the matrix a name
+at(-\x * \xs, -\x * \ys) %shift the matrix
+{
+    \node {(\x,1,1)}; \& \node {(\x,1,2)};\\
+    \node {(\x,2,1)}; \& \node {(\x,2,2)};\\
+};
+}
+
+\draw [dashed,gray](mm1.north west) -- (mm\nm.north west);
+\draw [dashed,gray](mm1.north east) -- (mm\nm.north east);
+\draw [dashed,gray](mm1.south east) -- (mm\nm.south east);
+\end{tikzpicture}
+\caption{RGB image with 4 pixels  represented as a 3 dimensional matrix}
+\label{fig:image_matrix}
+\end{figure}
+
+A gradient is generalization of the derivative in multi-variable space and as such it is represented as a vector. Like the derivative, it represents the slope of the tanget of the graph of the function. Therefore, it points in the direction of the greatest rate of incrase of the function. Gradients are widely used in optimization theory as they allow the parameters to shift in a direction which will minimize or maximize a given function. In machine learning the function we want to minimize will be the loss function, which we will define in further chapters in more detail. Gradient of $f$ is denoted as $\nabla{f}$, where every component of $\nabla{f}$ is a partial derivavate of $f$, denoted as $\frac{\partial{f}}{\partial{x}}\mathbf{e}$. Notice that components are vectors denoted as $\mathbf{e}$. Every vector is written as a bolded letter. The gradient for a $n$ dimensional space is defined in \ref{eq_gradient}.
+
+\begin{equation} \label{eq_gradient}
+    \nabla{f}= \frac{\partial{f}}{\partial{x_{1}}}\mathbf{e_1} + \hdots + 	   \frac{\partial{f}}{\partial{x_{n}}}\mathbf{e_n}
+\end{equation}
 
 \section{Machine learning}
 
