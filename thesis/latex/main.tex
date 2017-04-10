@@ -1,6 +1,14 @@
 \documentclass[times, utf8, diplomski]{fer}
+
 \usepackage{booktabs}
 \usepackage{tikz}
+\usepackage{indentfirst}
+\usepackage{pgfplots}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+
 \usetikzlibrary{matrix,calc}
 
 \begin{document}
@@ -20,8 +28,10 @@
 \tableofcontents
 
 \chapter{Introduction}
-Since the dawn of time, people have tried to explain their surroundings. Life is all around us in many forms, and as such people have tried to categorize it by keen observation, both through its visual and genetic features. Today, it is organised into a taxonomic hierarchy of eight major taxonomic ranks. The number of known species on Earth is in the millions and climbing every year. Great numbers of species make it difficult to classify species based on images and requires domain knowledge. Therefore, an algorithm with the capability to classify species on the filed or from an image using only the image itself could provide great benefits for field researches. \par
-Machine learning allows computers the ability to learn without being explicitly programmed \citep{samuel_studies_1959}. It, together with an incrase in avaiable quallity data (ImageNet, CIFAR -> dodati reference) has yielded great results in the area of deep learning - a class of machine learning algorithms. Deep learning algorithm's accuracy scales with the amount of data used by the algorithm (referenca), that together with the improvements in hardware - mainly general purpose graphic units (GPUs) - has yielded significant perfomance gains in the last couple of years. One of the most rapidly advancing filed of deep learning is image recognition (VGG16, Inception, Resnet -> reference) with new neural network architectures being developed almost at a yearly basis, the pefromance of deep neural networks on image recognition has achived results perviously tought 	impossible. \par
+Since the dawn of time, people have tried to explain their surroundings. Life is all around us in many forms, and as such people have tried to categorize it by keen observation, both through its visual and genetic features. Today, it is organised into a taxonomic hierarchy of eight major taxonomic ranks. The number of known species on Earth is in the millions and climbing every year. Great numbers of species make it difficult to classify species based on images and requires domain knowledge. Therefore, an algorithm with the capability to classify species on the filed or from an image using only the image itself could provide great benefits for field researches.
+
+Machine learning allows computers the ability to learn without being explicitly programmed \citep{samuel_studies_1959}. It, together with an incrase in avaiable quallity data (ImageNet, CIFAR -> dodati reference) has yielded great results in the area of deep learning - a class of machine learning algorithms. Deep learning algorithm's accuracy scales with the amount of data used by the algorithm (referenca), that together with the improvements in hardware - mainly general purpose graphic units (GPUs) - has yielded significant perfomance gains in the last couple of years. One of the most rapidly advancing filed of deep learning is image recognition (VGG16, Inception, Resnet -> reference) with new neural network architectures being developed almost at a yearly basis, the pefromance of deep neural networks on image recognition has achived results perviously tought 	impossible.
+
 In this thesis I propose a solution for a scalable classification of species from images, based on convolution neural networks and recent modern deep learning techqniues.
 
 \chapter{Research context}
@@ -39,6 +49,7 @@ A_{m,n} =
   a_{m,1} & a_{m,2} & \cdots & a_{m,n} 
  \end{bmatrix}
 \end{equation}
+
 
 Each image is represented as a 3 dimensional matrix. One pixel in the image represent a single element in the matrix and as images have multiple channels (RGB) each channel is a 2 dimensional matrix. Image $I$ denoted as $I_{k,m,n}$ where $k\in[0,2]$ represent the channel - red, green or blue - and $m,n\in[0,255]$ represent the pixels in a particular channel as 2 dimensional matricies. Figure \ref{fig:image_matrix} shows a representation of an image as a 3 dimensional matrix where each pixel is denote as $I_{k,m,n}$.
 
@@ -71,11 +82,80 @@ at(-\x * \xs, -\x * \ys) %shift the matrix
 \label{fig:image_matrix}
 \end{figure}
 
-A gradient is generalization of the derivative in multi-variable space and as such it is represented as a vector. Like the derivative, it represents the slope of the tanget of the graph of the function. Therefore, it points in the direction of the greatest rate of incrase of the function. Gradients are widely used in optimization theory as they allow the parameters to shift in a direction which will minimize or maximize a given function. In machine learning the function we want to minimize will be the loss function, which we will define in further chapters in more detail. Gradient of $f$ is denoted as $\nabla{f}$, where every component of $\nabla{f}$ is a partial derivavate of $f$, denoted as $\frac{\partial{f}}{\partial{x}}\mathbf{e}$. Notice that components are vectors denoted as $\mathbf{e}$. Every vector is written as a bolded letter. The gradient for a $n$ dimensional space is defined in \ref{eq_gradient}.
+A gradient is a generalization of the derivative in multi-variable space and as such it is represented as a vector. Like the derivative, it represents the slope of the tanget of the graph of the function. Therefore, it points in the direction of the greatest rate of incrase of the function. Gradients are widely used in optimization theory as they allow the parameters to shift in a direction which will minimize or maximize a given function. In machine learning the function we want to minimize will be the loss function, which we will define in further chapters in more detail. Gradient of $f$ is denoted as $\nabla{f}$, where every component of $\nabla{f}$ is a partial derivavate of $f$, denoted as $\frac{\partial{f}}{\partial{x}}\mathbf{e}$. Notice that gradient components are vectors denoted as $\mathbf{e}$. Every vector is written as a bolded letter. The gradient for a $n$ dimensional space is defined in \ref{eq_gradient}.
 
 \begin{equation} \label{eq_gradient}
     \nabla{f}= \frac{\partial{f}}{\partial{x_{1}}}\mathbf{e_1} + \hdots + 	   \frac{\partial{f}}{\partial{x_{n}}}\mathbf{e_n}
 \end{equation}
+
+Machine learning models use nonlinear functions to gain more capacity - expressiveness. The most popular nonlinear functions are $sigmoid$, $tanh$, $relu$. All nonlinear functions have to have easy to compute gradients, as they are compunted on parameters in order to reduce loss as explained above. 
+\begin{equation} \label{sigmoid}
+	sigmoid(x) = \frac{1}{1 + e^-x}
+\end{equation}
+
+\begin{equation} \label{tanh}
+	tanh(x) = \frac{1 - e^-2x}{1 + e^-2}
+\end{equation}
+
+\begin{equation} \label{relu}
+	relu(x) = max(0, x)
+\end{equation}
+The order of nonlinear functions is given in order of their discoveries. Today relu is used the most, since it solves the problem of vanishing gradiens for very deep neural networks, this does not apply to all network types. Reccurent neural networks (RNN) a class of neural networks often uses $tanh$ as it is better suited for the particular reccurent architecture.
+
+\begin{figure}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \resizebox{\linewidth}{!}{
+            \begin{tikzpicture}
+  			\begin{axis}[ 
+	  			mark=none,
+    			xlabel=$x$,
+		    	ylabel={$f(x) = x^2 - x +4$}
+		    	] 
+	   	 	\addplot {1 /(1 + e^-x)}; 
+  			\end{axis}
+            \end{tikzpicture}
+        }
+        \caption{$simgoid$}
+        \label{fig:sigmoid}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.32\textwidth}
+    \centering
+        \resizebox{\linewidth}{!}{
+            \begin{tikzpicture}
+  			\begin{axis}[ 
+	  			mark=none,
+    			xlabel=$x$,
+		    	ylabel={$f(x) = tanh(x)$}
+		    	] 
+	   	 	\addplot {tanh(x)}; 
+  			\end{axis}
+            \end{tikzpicture}
+        }
+        \caption{$tanh$}   
+        \label{fig:tanh}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \resizebox{\linewidth}{!}{
+            \begin{tikzpicture}
+  			\begin{axis}[
+  				mark=none,
+    			xlabel=$x$,
+		    	ylabel={$f(x) = max(0, x)$}
+		    	] 
+	   	 	\addplot {max(0,x)}; 
+  			\end{axis}
+            \end{tikzpicture}
+        }
+        \caption{$relu$}
+        \label{fig:relu}
+    \end{subfigure}
+\caption{aasdas} 
+\label{fig:subfig1.a.4}
+\end{figure}
+
+
 
 \section{Machine learning}
 
@@ -84,10 +164,17 @@ GPUs
 
 \subsection{Feedforward Neural Networks}
 \subsection{Convolutional Neural Networks}
+\subsection{Backpropagation}
+\subsection{Vanishing Gradient}
+\subsection{Batch Normalization}
+\subsection{Data Augmentation}
 
 
 \chapter{TaxNet}
 Let's hope it is anygood.
+
+\chapter{Dataset}
+\subsection{ImageNet}
 
 \chapter{Results}
 Graphs graphs graphs...
