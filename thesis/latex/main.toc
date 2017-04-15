@@ -6,21 +6,22 @@
 \contentsline {subsection}{\numberline {2.1.2}Gradient}{3}
 \contentsline {subsection}{\numberline {2.1.3}Activation functions}{3}
 \contentsline {subsection}{\numberline {2.1.4}Metrics}{4}
+\contentsline {subsection}{\numberline {2.1.5}Data}{5}
 \contentsline {section}{\numberline {2.2}Machine learning}{5}
-\contentsline {subsection}{\numberline {2.2.1}Supervised and unsupervised learning}{5}
-\contentsline {subsection}{\numberline {2.2.2}Models}{5}
-\contentsline {subsection}{\numberline {2.2.3}Model selection}{5}
-\contentsline {section}{\numberline {2.3}Deep learning}{5}
-\contentsline {subsection}{\numberline {2.3.1}Feedforward Neural Networks}{6}
-\contentsline {subsection}{\numberline {2.3.2}Convolutional Neural Networks}{6}
-\contentsline {subsection}{\numberline {2.3.3}Backpropagation}{6}
-\contentsline {subsection}{\numberline {2.3.4}Vanishing Gradient}{6}
-\contentsline {subsection}{\numberline {2.3.5}Batch Normalization}{6}
-\contentsline {subsection}{\numberline {2.3.6}Data Augmentation}{6}
-\contentsline {chapter}{\numberline {3}TaxNet}{7}
-\contentsline {section}{\numberline {3.1}Implementation}{7}
-\contentsline {chapter}{\numberline {4}Dataset}{8}
-\contentsline {subsection}{\numberline {4.0.1}ImageNet}{8}
-\contentsline {chapter}{\numberline {5}Results}{9}
-\contentsline {chapter}{\numberline {6}Conclusion}{10}
-\contentsline {chapter}{Bibliography}{11}
+\contentsline {subsection}{\numberline {2.2.1}Supervised and unsupervised learning}{6}
+\contentsline {subsection}{\numberline {2.2.2}Models}{6}
+\contentsline {subsection}{\numberline {2.2.3}Model selection}{6}
+\contentsline {section}{\numberline {2.3}Deep learning}{6}
+\contentsline {subsection}{\numberline {2.3.1}Feedforward Neural Networks}{7}
+\contentsline {subsection}{\numberline {2.3.2}Convolutional Neural Networks}{7}
+\contentsline {subsection}{\numberline {2.3.3}Backpropagation}{7}
+\contentsline {subsection}{\numberline {2.3.4}Vanishing Gradient}{7}
+\contentsline {subsection}{\numberline {2.3.5}Batch Normalization}{7}
+\contentsline {subsection}{\numberline {2.3.6}Data Augmentation}{7}
+\contentsline {chapter}{\numberline {3}TaxNet}{8}
+\contentsline {section}{\numberline {3.1}Implementation}{8}
+\contentsline {chapter}{\numberline {4}Dataset}{9}
+\contentsline {subsection}{\numberline {4.0.1}ImageNet}{9}
+\contentsline {chapter}{\numberline {5}Results}{10}
+\contentsline {chapter}{\numberline {6}Conclusion}{11}
+\contentsline {chapter}{Bibliography}{12}

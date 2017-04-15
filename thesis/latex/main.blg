@@ -3,48 +3,58 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: fer.bst
 Database file #1: master_thesis.bib
+Warning--I didn't find a database entry for "_cifar-10_"
+Warning--empty year in he_deep_2016
+Warning--empty year in he_deep_2016
+Warning--empty year in krizhevsky_imagenet_2012
+Warning--empty year in krizhevsky_imagenet_2012
 Warning--empty journal in samuel_studies_1959
 Warning--empty year in samuel_studies_1959
 Warning--empty year in samuel_studies_1959
-You've used 1 entry,
+Warning--empty journal in simonyan_very_2014
+Warning--empty year in simonyan_very_2014
+Warning--empty year in simonyan_very_2014
+Warning--empty year in szegedy_going_2015
+Warning--empty year in szegedy_going_2015
+You've used 5 entries,
             2773 wiz_defined-function locations,
-            600 strings with 5002 characters,
-and the built_in function-call counts, 454 in all, are:
-= -- 42
-> -- 10
-< -- 1
-+ -- 4
-- -- 3
-* -- 37
-:= -- 73
-add.period$ -- 5
-call.type$ -- 1
-change.case$ -- 4
-chr.to.int$ -- 1
-cite$ -- 5
-duplicate$ -- 20
-empty$ -- 41
-format.name$ -- 4
-if$ -- 87
+            622 strings with 6115 characters,
+and the built_in function-call counts, 3061 in all, are:
+= -- 270
+> -- 184
+< -- 5
++ -- 62
+- -- 57
+* -- 259
+:= -- 446
+add.period$ -- 20
+call.type$ -- 5
+change.case$ -- 34
+chr.to.int$ -- 5
+cite$ -- 22
+duplicate$ -- 136
+empty$ -- 230
+format.name$ -- 64
+if$ -- 645
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 1
-newline$ -- 15
-num.names$ -- 4
-pop$ -- 11
+missing$ -- 5
+newline$ -- 38
+num.names$ -- 20
+pop$ -- 97
 preamble$ -- 1
-purify$ -- 3
+purify$ -- 29
 quote$ -- 0
-skip$ -- 11
+skip$ -- 100
 stack$ -- 0
-substring$ -- 27
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 123
+swap$ -- 31
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 11
-warning$ -- 3
-while$ -- 5
+type$ -- 55
+warning$ -- 12
+while$ -- 26
 width$ -- 0
-write$ -- 22
-(There were 3 warnings)
+write$ -- 75
+(There were 13 warnings)

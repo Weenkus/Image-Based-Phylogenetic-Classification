@@ -30,7 +30,7 @@
 \chapter{Introduction}
 Since the dawn of time, people have tried to explain their surroundings. Life is all around us in many forms, and as such people have tried to categorize it by keen observation, both through its visual and genetic features. Today, it is organised into a taxonomic hierarchy of eight major taxonomic ranks. The number of known species on Earth is in the millions and climbing every year. Great numbers of species make it difficult to classify species based on images and requires domain knowledge. Therefore, an algorithm with the capability to classify species on the filed or from an image using only the image itself could provide great benefits for field researches.
 
-Machine learning allows computers the ability to learn without being explicitly programmed \citep{samuel_studies_1959}. It, together with an incrase in avaiable quallity data (ImageNet, CIFAR -> dodati reference) has yielded great results in the area of deep learning - a class of machine learning algorithms. Deep learning algorithm's accuracy scales with the amount of data used by the algorithm (referenca), that together with the improvements in hardware - mainly general purpose graphic units (GPUs) - has yielded significant perfomance gains in the last couple of years. One of the most rapidly advancing filed of deep learning is image recognition (VGG16, Inception, Resnet -> reference) with new neural network architectures being developed almost at a yearly basis, the pefromance of deep neural networks on image recognition has achived results perviously tought 	impossible.
+Machine learning allows computers the ability to learn without being explicitly programmed \citep{samuel_studies_1959}. It, together with an incrase in avaiable quallity data (CIFAR, Imagenet) has yielded great results in the area of deep learning - a class of machine learning algorithms. Deep learning algorithm's accuracy scales with the amount of data used by the algorithm (referenca), that together with the improvements in hardware - mainly general purpose graphic units (GPUs) - has yielded significant perfomance gains in the last couple of years. One of the most rapidly advancing filed of deep learning is image recognition \citep{krizhevsky_imagenet_2012, simonyan_very_2014, szegedy_going_2015, he_deep_2016} with new neural network architectures being developed almost at a yearly basis, the pefromance of deep neural networks on image recognition has achived results perviously tought 	impossible.
 
 In this thesis I propose a solution for a scalable classification of species from images, based on convolution neural networks and recent modern deep learning techqniues.
 
@@ -85,10 +85,10 @@ at(-\x * \xs, -\x * \ys) %shift the matrix
 \end{figure}
 
 \subsection{Gradient}
-A gradient is a generalization of the derivative in multi-variable space and as such it is represented as a vector. Like the derivative, it represents the slope of the tanget of the graph of the function. Therefore, it points in the direction of the greatest rate of incrase of the function. Gradients are widely used in optimization theory as they allow the parameters to shift in a direction which will minimize or maximize a given function. In machine learning the function we want to minimize will be the loss function, which we will define in further chapters in more detail. Gradient of $f$ is denoted as $\nabla{f}$, where every component of $\nabla{f}$ is a partial derivavate of $f$, denoted as $\frac{\partial{f}}{\partial{x}}\mathbf{e}$. Notice that gradient components are vectors denoted as $\mathbf{e}$. Every vector is written as a bolded letter. The gradient for a $n$ dimensional space is defined in \ref{eq:gradient}.
+A gradient is a generalization of the derivative in multi-variable space and as such it is represented as a vector. Like the derivative, it represents the slope of the tanget of the graph of the function. Therefore, it points in the direction of the greatest rate of incrase of the function. Gradients are widely used in optimization theory as they allow the parameters to shift in a direction which will minimize or maximize a given function. In machine learning the function we want to minimize will be the loss function, which we will define in further chapters in more detail. Gradient of $f$ is denoted as $\nabla{f}$, where every component of $\nabla{f}$ is a partial derivavate of $f$, denoted as $\frac{\partial{f}}{\partial{x}}\vec{e}$. Notice that gradient components are vectors denoted as $\vec{e}$. Every vector is written as a bolded letter. The gradient for a $n$ dimensional space is defined in \ref{eq:gradient}.
 
 \begin{equation} \label{eq:gradient}
-    \nabla{f}= \frac{\partial{f}}{\partial{x_{1}}}\mathbf{e_1} + \hdots + 	   \frac{\partial{f}}{\partial{x_{n}}}\mathbf{e_n}
+    \nabla{f}= \frac{\partial{f}}{\partial{x_{1}}}\vec{e_1} + \hdots + 	   \frac{\partial{f}}{\partial{x_{n}}}\vec{e_n}
 \end{equation}
 
 \subsection{Activation functions}
@@ -196,10 +196,46 @@ Classification results are often represented as a confusion matrix, also known a
 \end{tabular}
 \end{table}
 
-\section{Machine learning}
-What is,,..
+\subsection{Data}
+The input data of the machine learning algorithm is labled as $D$, and it consists of $X$ and $y_{t}$, where $X$ is one input data (an image in our case) and $y_{t}$ is the true lable of the picture - species' name. Written formally the whole input dataset is represented as $D = \{{X}^{\,i},y^{\,i}\}^{N}_{i=1}$, where $i$ is the $i$-th data point and $N$ in the number of data points. Prediction of the algorithm is labeled as $y_{p}$.
 
-Classification, regression, ....
+The input data set is usually split into two datasets called the \textit{training} a \textit{test} dataset. The training dataset is used to optimize them models parameters while the test data is used to evaluate the model's performance. Sometimes the training dataset is split further into training and \textit{validation} where the validation dataset is used to tune the models \textit{hyperparameters}. Hyperparameters are parameters that do not belong to the model but non the less effect the model's performance. Depth of the neural network is a hyperparameter and will be discussed in later chater in more detail.
+
+
+\section{Machine learning}
+As said in the Introduction chapter, machine learning allows computers the ability to learn. Giving data to a machine learning algorithm - model - allows it to find patterns withing the dataset and to infere. The function that maps the input $X$ to $y_p$ is called a \textit{hypotesis} and is denoted as $h$ (\ref{eq:hypotesis}). The hypotesis $h(X ; \vec{\theta})$ is parametrized with $\vec{\theta}$ - model's parameters.
+
+\begin{equation} \label{eq:hypotesis}
+	h(X ; \vec{\theta}) : X \to y
+\end{equation}
+
+
+The model is defined as a ste of hypotesis $H$, $h \in H$. Machine learing is the search of the best hypotesis $h$ from the hypotesis space $H$ - typical optimization problem. The algorithm tries to minimize the emircal error function $E(h|D)$ - loss function. The error indicates the accuracy of the hypotesis and is called empirical because it is computed on $D$. Therefore, every machine learning algorithm is defined with the model (\ref{eq:model}), error function (\ref{eq:error_function}) and the optimization method (\ref{eq:optimization_function}).
+
+\begin{equation} \label{eq:model}
+	H = \{ h(X ; \vec{\theta}) \}_{\theta}
+\end{equation}
+
+\begin{equation} \label{eq:error_function}
+	E(h|D) =  \frac{1}{N} \displaystyle\sum_{i=1}^{N} I\{h(X^{\,i}) \neq y^{i}\}
+\end{equation}
+
+\begin{equation} \label{eq:optimization_function}
+	\theta^{*} = argmin_{\theta} E(\theta | D)
+\end{equation}
+
+
+Machine learning algorithms are devided into groups depending on the task, the groups are classification and regression. Each can be represented as a result of $h(X ; \vec{\theta})$. Classification hypotesis takes the input $X$ and returns a klass $k$, example of this method would be image classification. Regression hypotesis takes the input $X$ and returns a number, for example predicting house prices.
+
+\begin{equation} \label{eq:accuracy}
+	Regression \equiv h(X ; \vec{\theta}) : X \to y, y \in \mathbb{R}
+\end{equation}
+
+\begin{equation} \label{eq:precision}
+	Classificatio  \equiv h(X ; \vec{\theta}) : X \to y, y \in K = \{k_{0}, ..., k_{n}\}
+\end{equation}
+
+
 \subsection{Supervised and unsupervised learning}
 Supervised vs unsupervised.
 

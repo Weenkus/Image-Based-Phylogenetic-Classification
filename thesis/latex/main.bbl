@@ -1,9 +1,26 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{5}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[He et~al.()He, Zhang, Ren, i Sun]{he_deep_2016}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, i Jian Sun.
+\newblock Deep residual learning for image recognition.
+\newblock U \emph{Proceedings of the {IEEE} Conference on Computer Vision and
+  Pattern Recognition}, stranice 770--778.
+\newblock URL
+  \url{http://www.cv-foundation.org/openaccess/content_cvpr_2016/html/He_Deep_Residual_Learning_CVPR_2016_paper.html}.
+
+\bibitem[Krizhevsky et~al.()Krizhevsky, Sutskever, i
+  Hinton]{krizhevsky_imagenet_2012}
+Alex Krizhevsky, Ilya Sutskever, i Geoffrey~E. Hinton.
+\newblock Imagenet classification with deep convolutional neural networks.
+\newblock U \emph{Advances in neural information processing systems}, stranice
+  1097--1105.
+\newblock URL
+  \url{http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks}.
 
 \bibitem[Samuel()]{samuel_studies_1959}
 A.~L. Samuel.
@@ -11,5 +28,20 @@ A.~L. Samuel.
 \newblock 3\penalty0 (3):\penalty0 210--229.
 \newblock ISSN 0018-8646.
 \newblock \doi{10.1147/rd.33.0210}.
+
+\bibitem[Simonyan i Zisserman()]{simonyan_very_2014}
+Karen Simonyan i Andrew Zisserman.
+\newblock Very deep convolutional networks for large-scale image recognition.
+\newblock URL \url{https://arxiv.org/abs/1409.1556}.
+
+\bibitem[Szegedy et~al.()Szegedy, Liu, Jia, Sermanet, Reed, Anguelov, Erhan,
+  Vanhoucke, i Rabinovich]{szegedy_going_2015}
+Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir
+  Anguelov, Dumitru Erhan, Vincent Vanhoucke, i Andrew Rabinovich.
+\newblock Going deeper with convolutions.
+\newblock U \emph{Proceedings of the {IEEE} Conference on Computer Vision and
+  Pattern Recognition}, stranice 1--9.
+\newblock URL
+  \url{http://www.cv-foundation.org/openaccess/content_cvpr_2015/html/Szegedy_Going_Deeper_With_2015_CVPR_paper.html}.
 
 \end{thebibliography}
