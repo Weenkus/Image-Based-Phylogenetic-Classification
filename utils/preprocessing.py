@@ -239,7 +239,7 @@ class Analytics(object):
         plt.title(title)
         plt.colorbar()
         tick_marks = np.arange(len(classes))
-        plt.xticks(tick_marks, classes, rotation=45)
+        plt.xticks(tick_marks, classes, rotation=75)
         plt.yticks(tick_marks, classes)
 
         if normalize:
