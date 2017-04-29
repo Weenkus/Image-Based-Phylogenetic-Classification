@@ -3,11 +3,16 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: fer.bst
 Database file #1: master_thesis.bib
-Warning--I didn't find a database entry for "_cifar-10_"
+Warning--entry type for "kleene_representation_1951" isn't style-file defined
+--line 129 of file master_thesis.bib
 Warning--empty year in he_deep_2016
 Warning--empty year in he_deep_2016
+Warning--empty year in kleene_representation_1951
 Warning--empty year in krizhevsky_imagenet_2012
 Warning--empty year in krizhevsky_imagenet_2012
+Warning--empty journal in mcculloch_logical_1943
+Warning--empty year in mcculloch_logical_1943
+Warning--empty year in mcculloch_logical_1943
 Warning--empty journal in samuel_studies_1959
 Warning--empty year in samuel_studies_1959
 Warning--empty year in samuel_studies_1959
@@ -16,45 +21,45 @@ Warning--empty year in simonyan_very_2014
 Warning--empty year in simonyan_very_2014
 Warning--empty year in szegedy_going_2015
 Warning--empty year in szegedy_going_2015
-You've used 5 entries,
+You've used 7 entries,
             2773 wiz_defined-function locations,
-            622 strings with 6115 characters,
-and the built_in function-call counts, 3061 in all, are:
-= -- 270
-> -- 184
-< -- 5
-+ -- 62
-- -- 57
-* -- 259
-:= -- 446
-add.period$ -- 20
-call.type$ -- 5
-change.case$ -- 34
-chr.to.int$ -- 5
-cite$ -- 22
-duplicate$ -- 136
-empty$ -- 230
-format.name$ -- 64
-if$ -- 645
+            632 strings with 6489 characters,
+and the built_in function-call counts, 3830 in all, are:
+= -- 340
+> -- 215
+< -- 7
++ -- 73
+- -- 66
+* -- 316
+:= -- 559
+add.period$ -- 27
+call.type$ -- 7
+change.case$ -- 43
+chr.to.int$ -- 7
+cite$ -- 30
+duplicate$ -- 171
+empty$ -- 302
+format.name$ -- 77
+if$ -- 805
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 5
-newline$ -- 38
-num.names$ -- 20
-pop$ -- 97
+missing$ -- 6
+newline$ -- 49
+num.names$ -- 28
+pop$ -- 123
 preamble$ -- 1
-purify$ -- 29
+purify$ -- 36
 quote$ -- 0
-skip$ -- 100
+skip$ -- 127
 stack$ -- 0
-substring$ -- 123
-swap$ -- 31
+substring$ -- 152
+swap$ -- 32
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 55
-warning$ -- 12
-while$ -- 26
+type$ -- 77
+warning$ -- 16
+while$ -- 34
 width$ -- 0
-write$ -- 75
-(There were 13 warnings)
+write$ -- 99
+(There were 17 warnings)
