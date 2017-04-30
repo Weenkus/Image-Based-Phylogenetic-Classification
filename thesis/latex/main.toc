@@ -8,19 +8,19 @@
 \contentsline {subsection}{\numberline {2.1.4}Metrics}{4}
 \contentsline {subsection}{\numberline {2.1.5}Data}{5}
 \contentsline {section}{\numberline {2.2}Machine learning}{5}
-\contentsline {subsection}{\numberline {2.2.1}Supervised and unsupervised learning}{6}
-\contentsline {subsection}{\numberline {2.2.2}Artificial neural network (ANN)}{7}
-\contentsline {section}{\numberline {2.3}Deep learning}{9}
-\contentsline {subsection}{\numberline {2.3.1}Feedforward Neural Networks}{9}
-\contentsline {subsection}{\numberline {2.3.2}Convolutional Neural Networks}{9}
-\contentsline {subsection}{\numberline {2.3.3}Backpropagation}{9}
-\contentsline {subsection}{\numberline {2.3.4}Vanishing Gradient}{9}
-\contentsline {subsection}{\numberline {2.3.5}Batch Normalization}{9}
-\contentsline {subsection}{\numberline {2.3.6}Data Augmentation}{9}
-\contentsline {chapter}{\numberline {3}TaxNet}{10}
-\contentsline {section}{\numberline {3.1}Implementation}{10}
-\contentsline {chapter}{\numberline {4}Dataset}{11}
-\contentsline {subsection}{\numberline {4.0.1}ImageNet}{11}
-\contentsline {chapter}{\numberline {5}Results}{12}
-\contentsline {chapter}{\numberline {6}Conclusion}{13}
-\contentsline {chapter}{Bibliography}{14}
+\contentsline {subsection}{\numberline {2.2.1}Supervised and unsupervised learning}{7}
+\contentsline {subsection}{\numberline {2.2.2}Artificial neural network (ANN)}{8}
+\contentsline {section}{\numberline {2.3}Deep learning}{10}
+\contentsline {subsection}{\numberline {2.3.1}Convolutional Neural Network (CNN / ConvNet)}{10}
+\contentsline {subsection}{\numberline {2.3.2}Dropout}{10}
+\contentsline {subsection}{\numberline {2.3.3}Data Augmentation}{10}
+\contentsline {subsection}{\numberline {2.3.4}Backpropagation}{10}
+\contentsline {subsection}{\numberline {2.3.5}Vanishing Gradient}{10}
+\contentsline {subsection}{\numberline {2.3.6}Batch Normalization}{10}
+\contentsline {chapter}{\numberline {3}TaxNet}{11}
+\contentsline {section}{\numberline {3.1}Implementation}{11}
+\contentsline {chapter}{\numberline {4}Dataset}{12}
+\contentsline {subsection}{\numberline {4.0.1}ImageNet}{12}
+\contentsline {chapter}{\numberline {5}Results}{13}
+\contentsline {chapter}{\numberline {6}Conclusion}{14}
+\contentsline {chapter}{Bibliography}{15}

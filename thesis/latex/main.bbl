@@ -1,4 +1,4 @@
-\begin{thebibliography}{7}
+\begin{thebibliography}{8}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -45,6 +45,15 @@ A.~L. Samuel.
 Karen Simonyan i Andrew Zisserman.
 \newblock Very deep convolutional networks for large-scale image recognition.
 \newblock URL \url{https://arxiv.org/abs/1409.1556}.
+
+\bibitem[Srivastava et~al.()Srivastava, Hinton, Krizhevsky, Sutskever, i
+  Salakhutdinov]{srivastava_dropout:_2014}
+Nitish Srivastava, Geoffrey~E. Hinton, Alex Krizhevsky, Ilya Sutskever, i
+  Ruslan Salakhutdinov.
+\newblock Dropout: a simple way to prevent neural networks from overfitting.
+\newblock 15\penalty0 (1):\penalty0 1929--1958.
+\newblock URL
+  \url{http://www.jmlr.org/papers/volume15/srivastava14a.old/source/srivastava14a.pdf}.
 
 \bibitem[Szegedy et~al.()Szegedy, Liu, Jia, Sermanet, Reed, Anguelov, Erhan,
   Vanhoucke, i Rabinovich]{szegedy_going_2015}

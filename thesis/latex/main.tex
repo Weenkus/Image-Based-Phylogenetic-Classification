@@ -87,6 +87,7 @@ at(-\x * \xs, -\x * \ys) %shift the matrix
 \subsection{Gradient}
 A gradient is a generalization of the derivative in multi-variable space and as such it is represented as a vector. Like the derivative, it represents the slope of the tangent of the graph of the function. Therefore, it points in the direction of the greatest rate of increase of the function. Gradients are widely used in optimization theory as they allow the parameters to shift in a direction which will minimize or maximize a given function. In machine learning the function we want to minimize will be the loss function, which we will define in further chapters in more detail. Gradient of $f$ is denoted as $\nabla{f}$, where every component of $\nabla{f}$ is a partial derivative of $f$, denoted as $\frac{\partial{f}}{\partial{x}}\vec{e}$. Notice that gradient components are vectors denoted as $\vec{e}$. Every vector is written with an horizontal arrow above the letter - $\vec{a}$. The gradient for a $n$ dimensional space is defined in \ref{eq:gradient}.
 
+
 \begin{equation} \label{eq:gradient}
     \nabla{f}= \frac{\partial{f}}{\partial{x_{1}}}\vec{e_1} + \hdots + 	   \frac{\partial{f}}{\partial{x_{n}}}\vec{e_n}
 \end{equation}
@@ -235,7 +236,19 @@ Machine learning algorithms are divided into groups depending on the task, the g
 	Classificatio  \equiv h(X ; \vec{\theta}) : X \to y, y \in K = \{k_{0}, ..., k_{n}\}
 \end{equation}
 
-In this chapter we mentioned that machine learning algorithms are trained by minimizing the empirical loss, and in the subsection \ref{se:data} we mentioned the idea of having a training and test set. The goal of the machine learning model is to have good generalization - the ability to work well on never before seen data $X$.
+In this chapter we mentioned that machine learning algorithms are trained by minimizing the empirical loss, and in the subsection \ref{se:data} we mentioned the idea of having a training and test set. The goal of the machine learning model is to have good generalization - the ability to work well on never before seen data $X$. The training set $X_{train}$ is used by the optimization algorithm to tune the model's parameters, while the test set $X_{test}$ is used to evaluate the generalization performance of the model. If the optimization algorithm does not know when to stop it can learn the whole training set and be able to predict every value, this is called overfitting and it is to be avoided. When the model overfits, it learns to predict based on the data points in $X_{train}$ instead of the learning the underlying patterns in $X_{train}$, which in turn leads to poor generalization performance. This is commonly seen in models with high capacity. On the other hand, if the model has low capacity, it will under-perform - work below its potential. That is referred to as underfitting. To goal is to find the sweat spot of the model's performance - between underfitting and overfitting. This behaver can be seen in figure \ref{fig:overfitting}. The x-axis shows the number of training epochs - each epoch increases the capacity of the model. We see that the training error $E_{train}$ is falling asymptotically towards zero while the the generalization performance start to fall certain a point (50 epochs). The ideal situation for the model is to stop the training when the model starts to overfit, which is not that easy as we will see in the future chapters.
+
+
+\begin{figure}
+  \includegraphics[scale=0.35]{figures/overfitting.png}
+  \centering
+  \caption{Performance of a model with time using training and test set}
+  \label{fig:overfitting}
+\end{figure}
+
+
+
+One way to combat overfitting is by early stopping during training. Another, more popular way is to use regularization. Regularization is a technique to increase the generalization performance of the model. There is a broad set of regularization techniques used in machine learning models. Some of the most popular for artificial neural networks are called dropout \citep{srivastava_dropout:_2014} and data augmentation, both of which will be explained in more detail in future chapters (subsections \ref{se:dropout} and \ref{se:data_augmentation}). Regularization techniques usually add additional components to the loss function in order to prevent the model from learning to map $X_{train}$ to $y_{train}$ directly.
 
 
 \subsection{Supervised and unsupervised learning}
@@ -275,18 +288,25 @@ Each neuron consists of connections, bias and activation function. Each connecti
   \label{fig:ann}
 \end{figure}
 
-Artificial neuron networks have the ability to adjust their capacity to the task. Adjusting the number of neurons in a single layer, the number of hidden layers or the type of activation function used in each neuron affects the capacity of the ANN. Such flexibility also leads to a broad number of architectures, and there is no clear way to determine which one suits best. It is often left to the user to test a broad variety of architectures. Looking at the figure \ref{fig:ann} we can see that the number of neurons in the input layer matches the input size, this is true also for the output layer. There fore when designing an ANN the size of input and output layers are determined by the task and the hidden layer by the user.
+
+Artificial neuron networks have the ability to adjust their capacity to the task. Adjusting the number of neurons in a single layer, the number of hidden layers or the type of activation function used in each neuron affects the capacity of the ANN. Such flexibility also leads to a broad number of architectures, and there is no clear way to determine which one suits best. It is often left to the user to test a broad variety of architectures. Looking at the figure \ref{fig:ann} we can see that the number of neurons in the input layer matches the input size, this is true also for the output layer. Therefore, when designing an ANN the size of input and output layers are determined by the task and the number of hidden layers by the user.
 
 
 \section{Deep learning}
-GPUs
+Deep learning is a class - subset - of machine learning algorithms.
 
-\subsection{Feedforward Neural Networks}
-\subsection{Convolutional Neural Networks}
+\subsection{Convolutional Neural Network (CNN /  ConvNet)}
+
+\subsection{Dropout} \label{se:dropout}
+
+\subsection{Data Augmentation} \label{se:data_augmentation}
+
 \subsection{Backpropagation}
+
 \subsection{Vanishing Gradient}
+
 \subsection{Batch Normalization}
-\subsection{Data Augmentation}
+
 
 
 \chapter{TaxNet}
