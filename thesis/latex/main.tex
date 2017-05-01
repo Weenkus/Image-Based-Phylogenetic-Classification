@@ -204,6 +204,8 @@ The input data set is usually split into two datasets called the \textit{trainin
 
 
 \section{Machine learning}
+\label{se:machine_learning}
+
 As said in the Introduction chapter, machine learning allows computers the ability to learn. Giving data to a machine learning algorithm - model - allows it to find patterns within the dataset and to infer. The function that maps the input $X$ to $y_p$ is called a \textit{hypotesis} and is denoted as $h$ (\ref{eq:hypotesis}). The hypotesis $h(X ; \vec{\theta})$ is parametrized with $\vec{\theta}$ - model's parameters.
 
 \begin{equation} \label{eq:hypotesis}
@@ -293,15 +295,91 @@ Artificial neuron networks have the ability to adjust their capacity to the task
 
 
 \section{Deep learning}
-Deep learning is a class - subset - of machine learning algorithms.
+Deep learning is a class - subset - of machine learning algorithms. Even though, deep learning may be connect to using "deep" neural networks - neural networks with many layers - it was created as a subset of algorithms that promised the automation of feature extraction task by using unsupervised learning. Unsupervised feature extraction and feature representation is done through a cascade of many nonlinear layers, each of which contains artificial neurons. 
+
+Visual recognition is one of the fields that is most affected by improvements in deep learning. It's difficult and time consuming to build hand crafted features for each visual recognition problem. Deep learning allows the user to use raw images without any preprocessing - making it applicable with ease to almost any task.
+
+Deep learning algorithms consist enormous numbers of  artificial neurons (hundreds of millions), therefore training them is computational expensive. Recent breakthroughs in deep learning were driven by advances in hardware - graphics processing unit (GPUs). GPUs are made of a lot of processor unites, make them ideal for highly concurrent tasks. Neural networks are easily trained concurrently because of their composite structure and a special training algorithm called stochastic backpropagation (discussed in detail in subsection \ref{se:backprop}), commonly referred to as backprop.
 
 \subsection{Convolutional Neural Network (CNN /  ConvNet)}
+Convolutional neural network is a type of feed-forward network that was inspired by the organization of animal's visual cortex. They are used in recommender systems, natural language processing and image recognition. The architecture was inspired by the works of Huble and Wiesel in 1950s and 60s \citep{hubel_receptive_1968}, their work showed that animal's visual cortex contains neurons that individually responds to small regions in the visual field. Their experiments showed that neighbourhood neurons had similar receptive fields.
+
+The necognitron was introduced in 1980s by Kunihiko Fukushima \citep{fukushima_neocognitron:_1982, eckmiller_hierarchical_1989} and served as an inspiration for today's modern convolutional neural network architecture. The necognitron is a hierarchical multilayered artificial neuron network. It was used for handwritten character recognition, which belongs in the domain of image recognition.
+
+\begin{figure}
+  \includegraphics[scale=0.5]{figures/conv.png}
+  \centering
+  \caption{3D structure of a convolutional filter (on the left painted in pink is the input and the blue rectangle with circle is a filter)}
+  \label{fig:conv}
+\end{figure}
+
+Today's modern convolutional neural network architectures, such as: AlexNet, VGG, Inception, ResNet \citep{krizhevsky_imagenet_2012, simonyan_very_2014, szegedy_going_2015, he_deep_2016} are made mostly of convolutional and pooling layers. These architecture have an enormous number of parameters and are trained on powerful GPUs or clusters of servers over a period of days.
+
+The convolution layer is a building block of modern CNNs. The layer's parameters consist of a set of kernels (filters). Each filter has a small receptive field, but extends through the whole depth of the input. During the forward pass of the input through the network, each filter is convolved across the width and heigh of the input volume. Each time the filter moves to neighbourhood pixels it creates an output pixel (shown in figures \ref{fig:conv} and \ref{fig:conv1}). Each convolutional layer consists of multiple filters, each specialized (because of training) to detect different features in the input. Filters will detect diagonal edges, top edges, corners, etc. Each filter will use the features of the previous layer to create more abstract features. For example, a filter in the first layer might capture edges, while filters in deeper layers may use the edge filters to create corner and circle detectors (shown in detail in figure \ref{fig:filter}) \citep{simonyan_very_2014}.
+
+
+\begin{figure}
+  \includegraphics{figures/conv1.png}
+  \centering
+  \caption{A 3x3 kernel (filter) convolving and input to generate an output}
+  \label{fig:conv1}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[scale=1.4]{figures/filter.png}
+  \centering
+  \caption{Representation of filters through the CNN}
+  \label{fig:filter}
+\end{figure}
+
+The second core layer of almost every modern CNN is the pooling layer. It, in contrast to the convolution layer, does not have any parameters. Pooling layer takes the input and reduces its dimension. CNNs use max pooling, which maps the input into a reduced output by taking only the max values in the mapping (showed in figure \ref{fig:pool}). Use of pooling layer is a heated topic in today's CNN architectures, unfortunately hardware can't keep up with the depth of the modern architectures without the use of pooling layers.
+
+\begin{figure}
+  \includegraphics[scale=0.6]{figures/pool.png}
+  \centering
+  \caption{Max pooling a 4x4 input to 2x2}
+  \label{fig:pool}
+\end{figure}
+
+The typical structure in a CNN network will be a couple of convolution layers followed by a max pool layer. The most common dimension of convolution filters is 3x3, made popular by the huge success of VGG \citep{simonyan_very_2014}. The typical CNN is shown in figure \ref{fig:cnn}.
+
+\begin{figure}
+  \includegraphics[scale=0.43]{figures/cnn.png}
+  \centering
+  \caption{Typical modern CNN}
+  \label{fig:cnn}
+\end{figure}
 
 \subsection{Dropout} \label{se:dropout}
 
-\subsection{Data Augmentation} \label{se:data_augmentation}
+On of the most important techniques in machine learning is regularization (subsection \ref{se:machine_learning}). The modern approach to regularization is called dropout and was introduced in 2014 \citep{srivastava_dropout:_2014}. Dropout "drops" (removes) a percent of neurons on every forward pass (figure \ref{fig:dropout}). The network cannot count that the same neurons will always be active and, as a result it increases the robustest of the model together with its generalization performance. As in every forward pass, the network has a different set of neurons, this technique can be seen as using multiple variations of the same network on the same problem.
 
-\subsection{Backpropagation}
+\begin{figure}
+  \includegraphics[scale=0.91]{figures/dropout.png}
+  \centering
+  \caption{An example of the dropout technique}
+  \label{fig:dropout}
+\end{figure}
+
+\subsection{Data Augmentation}  \label{se:data_augmentation}
+
+Another popular regularization technique is called data augmentation. The model usual trains in tens or even hundreds of epochs - when the training algorithm uses every data point in $X_{train}$. Reusing the same data points can lead to overfitting. To prevent that we can augment $X_{train}$ on every epoch. This approach is commonly called data jittering. Usual the data is augmented with rotation, mirroring, cropping, blurring and etc (all these effects can be seen in figures \ref{fig:data_augmentation_figure} and \ref{fig:data_augmentation}). Using both dropout and data augmentation is in almost every state-of-the-art CNN model today. There are some exceptions due to a new technique called batch normalization \citep{ioffe_batch_2015}.
+
+\begin{figure}
+  \includegraphics[scale=0.7]{figures/data_augmentation.png}
+  \centering
+  \caption{An example of the original image 224x224x3 in $X_{train}$}
+  \label{fig:data_augmentation_figure}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[scale=0.35]{figures/da1.png}
+  \centering
+  \caption{Example of data augmented images based on the original image \ref{fig:data_augmentation_figure}}
+  \label{fig:data_augmentation}
+\end{figure}
+
+\subsection{Backpropagation} \label{se:backprop}
 
 \subsection{Vanishing Gradient}
 

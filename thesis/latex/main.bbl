@@ -1,9 +1,27 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{12}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Fukushima()]{eckmiller_hierarchical_1989}
+Kunihiko Fukushima.
+\newblock A hierarchical neural network model for selective attention.
+\newblock U Rolf Eckmiller i Christoph v.d. Malsburg, urednici, \emph{Neural
+  Computers}, stranice 81--90. Springer Berlin Heidelberg.
+\newblock ISBN 978-3-540-50892-2 978-3-642-83740-1.
+\newblock URL \url{http://link.springer.com/10.1007/978-3-642-83740-1_10}.
+\newblock {DOI}: 10.1007/978-3-642-83740-1\_10.
+
+\bibitem[Fukushima i Miyake()]{fukushima_neocognitron:_1982}
+Kunihiko Fukushima i Sei Miyake.
+\newblock Neocognitron: A self-organizing neural network model for a mechanism
+  of visual pattern recognition.
+\newblock U \emph{Competition and cooperation in neural nets}, stranice
+  267--285. Springer.
+\newblock URL
+  \url{http://link.springer.com/chapter/10.1007/978-3-642-46466-9_18}.
 
 \bibitem[He et~al.()He, Zhang, Ren, i Sun]{he_deep_2016}
 Kaiming He, Xiangyu Zhang, Shaoqing Ren, i Jian Sun.
@@ -12,6 +30,14 @@ Kaiming He, Xiangyu Zhang, Shaoqing Ren, i Jian Sun.
   Pattern Recognition}, stranice 770--778.
 \newblock URL
   \url{http://www.cv-foundation.org/openaccess/content_cvpr_2016/html/He_Deep_Residual_Learning_CVPR_2016_paper.html}.
+
+\bibitem[Hubel i Wiesel()]{hubel_receptive_1968}
+D.~H. Hubel i T.~N. Wiesel.
+\newblock Receptive fields and functional architecture of monkey striate
+  cortex.
+\newblock 195\penalty0 (1):\penalty0 215--243.
+\newblock ISSN 0022-3751.
+\newblock URL \url{http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1557912/}.
 
 \bibitem[Kleene()]{kleene_representation_1951}
 Stephen~Cole Kleene.
@@ -64,5 +90,15 @@ Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir
   Pattern Recognition}, stranice 1--9.
 \newblock URL
   \url{http://www.cv-foundation.org/openaccess/content_cvpr_2015/html/Szegedy_Going_Deeper_With_2015_CVPR_paper.html}.
+
+\bibitem[Zeiler i Fergus()]{fleet_visualizing_2014}
+Matthew~D. Zeiler i Rob Fergus.
+\newblock Visualizing and understanding convolutional networks.
+\newblock U David Fleet, Tomas Pajdla, Bernt Schiele, i Tinne Tuytelaars,
+  urednici, \emph{Computer Vision – {ECCV} 2014}, svezak 8689, stranice
+  818--833. Springer International Publishing.
+\newblock ISBN 978-3-319-10589-5 978-3-319-10590-1.
+\newblock URL \url{http://link.springer.com/10.1007/978-3-319-10590-1_53}.
+\newblock {DOI}: 10.1007/978-3-319-10590-1\_53.
 
 \end{thebibliography}

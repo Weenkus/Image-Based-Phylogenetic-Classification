@@ -5,8 +5,15 @@ The style file: fer.bst
 Database file #1: master_thesis.bib
 Warning--entry type for "kleene_representation_1951" isn't style-file defined
 --line 129 of file master_thesis.bib
+Warning--empty year in eckmiller_hierarchical_1989
+Warning--empty year in eckmiller_hierarchical_1989
+Warning--empty year in fukushima_neocognitron:_1982
+Warning--empty year in fukushima_neocognitron:_1982
 Warning--empty year in he_deep_2016
 Warning--empty year in he_deep_2016
+Warning--empty journal in hubel_receptive_1968
+Warning--empty year in hubel_receptive_1968
+Warning--empty year in hubel_receptive_1968
 Warning--empty year in kleene_representation_1951
 Warning--empty year in krizhevsky_imagenet_2012
 Warning--empty year in krizhevsky_imagenet_2012
@@ -24,45 +31,47 @@ Warning--empty year in srivastava_dropout:_2014
 Warning--empty year in srivastava_dropout:_2014
 Warning--empty year in szegedy_going_2015
 Warning--empty year in szegedy_going_2015
-You've used 8 entries,
+Warning--empty year in fleet_visualizing_2014
+Warning--empty year in fleet_visualizing_2014
+You've used 12 entries,
             2773 wiz_defined-function locations,
-            638 strings with 6778 characters,
-and the built_in function-call counts, 4471 in all, are:
-= -- 395
-> -- 263
-< -- 7
-+ -- 89
-- -- 81
-* -- 383
-:= -- 657
-add.period$ -- 31
-call.type$ -- 8
-change.case$ -- 51
-chr.to.int$ -- 8
-cite$ -- 35
-duplicate$ -- 192
-empty$ -- 345
-format.name$ -- 93
-if$ -- 932
+            673 strings with 7949 characters,
+and the built_in function-call counts, 6834 in all, are:
+= -- 634
+> -- 358
+< -- 15
++ -- 120
+- -- 108
+* -- 559
+:= -- 994
+add.period$ -- 55
+call.type$ -- 12
+change.case$ -- 70
+chr.to.int$ -- 12
+cite$ -- 52
+duplicate$ -- 309
+empty$ -- 543
+format.name$ -- 130
+if$ -- 1458
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 7
-newline$ -- 55
-num.names$ -- 32
-pop$ -- 143
+missing$ -- 11
+newline$ -- 84
+num.names$ -- 52
+pop$ -- 197
 preamble$ -- 1
-purify$ -- 43
+purify$ -- 58
 quote$ -- 0
-skip$ -- 140
+skip$ -- 221
 stack$ -- 0
-substring$ -- 185
-swap$ -- 32
-text.length$ -- 3
+substring$ -- 306
+swap$ -- 61
+text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 88
-warning$ -- 19
-while$ -- 39
+type$ -- 132
+warning$ -- 28
+while$ -- 64
 width$ -- 0
-write$ -- 112
-(There were 20 warnings)
+write$ -- 181
+(There were 29 warnings)
