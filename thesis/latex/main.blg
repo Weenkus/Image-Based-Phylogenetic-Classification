@@ -14,6 +14,9 @@ Warning--empty year in he_deep_2016
 Warning--empty journal in hubel_receptive_1968
 Warning--empty year in hubel_receptive_1968
 Warning--empty year in hubel_receptive_1968
+Warning--empty journal in ioffe_batch_2015
+Warning--empty year in ioffe_batch_2015
+Warning--empty year in ioffe_batch_2015
 Warning--empty year in kleene_representation_1951
 Warning--empty year in krizhevsky_imagenet_2012
 Warning--empty year in krizhevsky_imagenet_2012
@@ -31,47 +34,45 @@ Warning--empty year in srivastava_dropout:_2014
 Warning--empty year in srivastava_dropout:_2014
 Warning--empty year in szegedy_going_2015
 Warning--empty year in szegedy_going_2015
-Warning--empty year in fleet_visualizing_2014
-Warning--empty year in fleet_visualizing_2014
 You've used 12 entries,
             2773 wiz_defined-function locations,
-            673 strings with 7949 characters,
-and the built_in function-call counts, 6834 in all, are:
-= -- 634
-> -- 358
-< -- 15
-+ -- 120
-- -- 108
-* -- 559
-:= -- 994
-add.period$ -- 55
+            666 strings with 7746 characters,
+and the built_in function-call counts, 6503 in all, are:
+= -- 596
+> -- 344
+< -- 13
++ -- 116
+- -- 104
+* -- 533
+:= -- 950
+add.period$ -- 51
 call.type$ -- 12
 change.case$ -- 70
 chr.to.int$ -- 12
-cite$ -- 52
-duplicate$ -- 309
-empty$ -- 543
-format.name$ -- 130
-if$ -- 1458
+cite$ -- 53
+duplicate$ -- 295
+empty$ -- 519
+format.name$ -- 126
+if$ -- 1376
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 11
-newline$ -- 84
-num.names$ -- 52
-pop$ -- 197
+newline$ -- 81
+num.names$ -- 50
+pop$ -- 199
 preamble$ -- 1
 purify$ -- 58
 quote$ -- 0
-skip$ -- 221
+skip$ -- 209
 stack$ -- 0
-substring$ -- 306
-swap$ -- 61
-text.length$ -- 7
+substring$ -- 274
+swap$ -- 50
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 132
-warning$ -- 28
-while$ -- 64
+warning$ -- 29
+while$ -- 60
 width$ -- 0
-write$ -- 181
-(There were 29 warnings)
+write$ -- 172
+(There were 30 warnings)

@@ -39,6 +39,12 @@ D.~H. Hubel i T.~N. Wiesel.
 \newblock ISSN 0022-3751.
 \newblock URL \url{http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1557912/}.
 
+\bibitem[Ioffe i Szegedy()]{ioffe_batch_2015}
+Sergey Ioffe i Christian Szegedy.
+\newblock Batch normalization: Accelerating deep network training by reducing
+  internal covariate shift.
+\newblock URL \url{https://arxiv.org/abs/1502.03167}.
+
 \bibitem[Kleene()]{kleene_representation_1951}
 Stephen~Cole Kleene.
 \newblock Representation of events in nerve nets and finite automata.
@@ -90,15 +96,5 @@ Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir
   Pattern Recognition}, stranice 1--9.
 \newblock URL
   \url{http://www.cv-foundation.org/openaccess/content_cvpr_2015/html/Szegedy_Going_Deeper_With_2015_CVPR_paper.html}.
-
-\bibitem[Zeiler i Fergus()]{fleet_visualizing_2014}
-Matthew~D. Zeiler i Rob Fergus.
-\newblock Visualizing and understanding convolutional networks.
-\newblock U David Fleet, Tomas Pajdla, Bernt Schiele, i Tinne Tuytelaars,
-  urednici, \emph{Computer Vision – {ECCV} 2014}, svezak 8689, stranice
-  818--833. Springer International Publishing.
-\newblock ISBN 978-3-319-10589-5 978-3-319-10590-1.
-\newblock URL \url{http://link.springer.com/10.1007/978-3-319-10590-1_53}.
-\newblock {DOI}: 10.1007/978-3-319-10590-1\_53.
 
 \end{thebibliography}

@@ -10,13 +10,13 @@
 \contentsline {section}{\numberline {2.2}Machine learning}{5}
 \contentsline {subsection}{\numberline {2.2.1}Supervised and unsupervised learning}{7}
 \contentsline {subsection}{\numberline {2.2.2}Artificial neural network (ANN)}{8}
-\contentsline {section}{\numberline {2.3}Deep learning}{10}
+\contentsline {section}{\numberline {2.3}Deep learning}{11}
 \contentsline {subsection}{\numberline {2.3.1}Convolutional Neural Network (CNN / ConvNet)}{11}
 \contentsline {subsection}{\numberline {2.3.2}Dropout}{14}
-\contentsline {subsection}{\numberline {2.3.3}Data Augmentation}{14}
-\contentsline {subsection}{\numberline {2.3.4}Backpropagation}{16}
-\contentsline {subsection}{\numberline {2.3.5}Vanishing Gradient}{16}
-\contentsline {subsection}{\numberline {2.3.6}Batch Normalization}{16}
+\contentsline {subsection}{\numberline {2.3.3}Data Augmentation}{15}
+\contentsline {subsection}{\numberline {2.3.4}Backpropagation}{15}
+\contentsline {subsection}{\numberline {2.3.5}Vanishing Gradient}{15}
+\contentsline {subsection}{\numberline {2.3.6}Batch Normalization}{15}
 \contentsline {chapter}{\numberline {3}TaxNet}{17}
 \contentsline {section}{\numberline {3.1}Implementation}{17}
 \contentsline {chapter}{\numberline {4}Dataset}{18}
