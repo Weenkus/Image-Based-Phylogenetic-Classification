@@ -85,6 +85,7 @@ at(-\x * \xs, -\x * \ys) %shift the matrix
 \end{figure}
 
 \subsection{Gradient}
+\label{se:gradient}
 A gradient is a generalization of the derivative in multi-variable space and as such it is represented as a vector. Like the derivative, it represents the slope of the tangent of the graph of the function. Therefore, it points in the direction of the greatest rate of increase of the function. Gradients are widely used in optimization theory as they allow the parameters to shift in a direction which will minimize or maximize a given function. In machine learning the function we want to minimize will be the loss function, which we will define in further chapters in more detail. Gradient of $f$ is denoted as $\nabla{f}$, where every component of $\nabla{f}$ is a partial derivative of $f$, denoted as $\frac{\partial{f}}{\partial{x}}\vec{e}$. Notice that gradient components are vectors denoted as $\vec{e}$. Every vector is written with an horizontal arrow above the letter - $\vec{a}$. The gradient for a $n$ dimensional space is defined in \ref{eq:gradient}.
 
 
@@ -364,7 +365,7 @@ On of the most important techniques in machine learning is regularization (subse
 
 \subsection{Data Augmentation}  \label{se:data_augmentation}
 
-Another popular regularization technique is called data augmentation. The model usually trains in tens or even hundreds of epochs - a signal epoch is when the training algorithm uses every data point in $X_{train}$ (one pass over $X_{train}$). Reusing the same data points can lead to overfitting. To prevent that we can augment $X_{train}$ on every epoch. This approach is commonly called data jittering. Usually the data is augmented with rotation, mirroring, cropping, blurring and etc (all these effects can be seen in figures \ref{fig:data_augmentation_figure} and \ref{fig:data_augmentation}). Both, dropout and data augmentation is used in almost every state-of-the-art CNN model today. There are some exceptions due to a new technique called batch normalization \citep{ioffe_batch_2015}.
+Another popular regularization technique is called data augmentation. The model usually trains in tens or even hundreds of epochs - a signal epoch is when the training algorithm uses every data point in $X_{train}$ (one pass over $X_{train}$). Reusing the same data points can lead to overfitting. To prevent that we can augment $X_{train}$ on every epoch. This approach is commonly called data jittering. Usually the data is augmented with rotation, mirroring, cropping, blurring (all these effects can be seen in figures \ref{fig:data_augmentation_figure} and \ref{fig:data_augmentation}). Both, dropout and data augmentation is used in almost every state-of-the-art CNN model today. There are some exceptions due to a new technique called batch normalization \citep{ioffe_batch_2015}.
 
 \begin{figure}
   \includegraphics[scale=0.7]{figures/data_augmentation.png}
@@ -382,9 +383,68 @@ Another popular regularization technique is called data augmentation. The model 
 
 \subsection{Backpropagation} \label{se:backprop}
 
+To be able to train the convolution neural network on huge datasets, we need an algorithm that allows us to train the model with a subset of $X_{train}$. Fitting the whole $X_{train}$ in the GPU memory is not possible for datasets of serious size. Also, the algorithm should be highly concurrent in order to use the structure of neural network to its advantage. The backward propagation of errors or more commonly called backpropagation (backprop) used together with gradient descent is the most popular method for training most neural networks.
+
+\subsubsection{Gradient Descent}
+
+Gradient descent is an iterative optimization algorithm. It uses the gradient \ref{se:gradient} of  a function find a point on a domain that minimises or maximises the function's value. Gradient descent does not guarantee to find the global maxima or minima (figure \ref{fig:local_and_global_function_values}). There have been several variations of the gradient descent algorithm that deal with the algorithm being stuck in local maxima, the most famous and most widely used at this moment is Adam \citep{kingma_adam:_2014}.
+
+\begin{figure}
+  \includegraphics[scale=0.5]{figures/local_global_maxima_minima.png}
+  \centering
+  \caption{An example of local and global maxima and minima in a function}
+  \label{fig:local_and_global_function_values}
+\end{figure}
+
+\begin{equation} 
+\label{eq:gradient_descent}
+	x_{n+1} = x_n - \eta * \nabla{f(x_n)}
+\end{equation}
+
+Gradient descent uses the gradient to move in a way that minimises or maximises the given function (\ref{eq:gradient_descent}). The amount that is used to move the data point - called the step ($\eta$) - is crucial for the convergence of the algorithm. If the step is too big the algorithm might diverge, while if the step is too small the algorithm might take too long to converge. Gradient descent, like many other optimization algorithms needs to have its parameters properly tuned.
+
+\begin{figure}
+  \includegraphics[scale=0.5]{figures/gradient_descent.png}
+  \centering
+  \caption{An example of gradient descent converging to global minima in a 2D space (2 variable function)}
+  \label{fig:local_and_global_function_values}
+\end{figure}
+
+\subsubsection{Stochastic Gradient Descent}
+
+The main disadvantage of the gradient descent (\ref{eq:gradient_descent}) is the need to calculate the gradient on all the dataset for the update state. The gradient has to be calculate on the whole $X_{train}$. A huge improvement on the basic gradient descent is a the stochastic gradient descent. It updates the gradient by sampling the dataset in a minibatch, usually the size 64, 128 or 256 data points (depending on GPU memory limitations). After every epoch the the whole training dataset $X_{train}$ is shuffled so that different minibatches will be sampled. The rule of thumb is if you can increase the size of minibatch - do it. The more data points are in the minibatch, the more precise is the gradient approximation, also the model trains faster.
+
+\subsubsection{Optimization Target}
+
+The goal of the gradient descent algorithm is to minimise or maximise a function. In deep learning, when training the model, we want to minimise the loss function $E(h|D)$ by computing its gradient. In classification (\ref{eq:classification_def}) the goal is to predict for the predicted class $y_p$ to match the true class $y_t$. Neural networks for classification usually have a softmax layer as their last layer. Softmax (\ref{eq:softmax}) is a normalization exponential function, which transforms neural network's outputs to probabilities for every class. The sum of the softmax values for all classes is equal to 1.  
+
+\begin{equation}
+\label{eq:softmax}
+	softmax(\vec{z})_j = \frac{e^{z_j}}{\displaystyle\sum_{k=1}^{K} e^{z}_k} \quad \text{for} \quad j = 1, ..., K
+\end{equation} 
+
+For the task of classification, the softmax function is the final layer - the output. Using this information allows us to compute the loss function. The loss of a softmax function is called cross-entropy loss and is computed with negative log likelihood (\ref{eq:cross_entropy_loss}).
+
+\begin{equation}
+\label{eq:cross_entropy_loss}
+	L(y_t, y_p) = - \displaystyle\sum_{d=1}^{D} \sum_{k=1}^{K} y^i_t * log(y^i_p) 
+\end{equation}
+
+To use the cross-entropy loss in the backpropagation we have to calculate its gradient. The gradient for cross-entropy loss is shown in \ref{eq:cross_entropy_graidnet}).
+
+\begin{equation}
+\label{eq:cross_entropy_graidnet}
+ \nabla{L} = \vec{y_t} - \vec{y_p}
+\end{equation}
+
 \subsection{Vanishing Gradient}
+\label{se:vanishing_gradient}
+
+On of the problems in using backpropagation is the propagation of loss gradients in the neural networks. As the neural network is composed of smaller unites called neurons, its output is also a function composed of linear combinations and non-linear activation functions of previous layers. The backpropagation algorithm calculates the gradient losses from the output to the front layers of the neural network. The deeper the network, the deeper the network, the gradients get decayed and eventually vanishes. The vanished gradient means that the network is not efficiently training and leads to poor performance.
+
 
 \subsection{Batch Normalization}
+\label{se:batch_norm}
 
 
 

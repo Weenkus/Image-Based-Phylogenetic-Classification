@@ -1,4 +1,4 @@
-\begin{thebibliography}{12}
+\begin{thebibliography}{13}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -44,6 +44,11 @@ Sergey Ioffe i Christian Szegedy.
 \newblock Batch normalization: Accelerating deep network training by reducing
   internal covariate shift.
 \newblock URL \url{https://arxiv.org/abs/1502.03167}.
+
+\bibitem[Kingma i Ba()]{kingma_adam:_2014}
+Diederik Kingma i Jimmy Ba.
+\newblock Adam: A method for stochastic optimization.
+\newblock URL \url{https://arxiv.org/abs/1412.6980}.
 
 \bibitem[Kleene()]{kleene_representation_1951}
 Stephen~Cole Kleene.
