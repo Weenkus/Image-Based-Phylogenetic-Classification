@@ -1,9 +1,15 @@
-\begin{thebibliography}{13}
+\begin{thebibliography}{16}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Clevert et~al.()Clevert, Unterthiner, i Hochreiter]{clevert_fast_2015}
+Djork-Arné Clevert, Thomas Unterthiner, i Sepp Hochreiter.
+\newblock Fast and accurate deep network learning by exponential linear units
+  (elus).
+\newblock URL \url{https://arxiv.org/abs/1511.07289}.
 
 \bibitem[Fukushima()]{eckmiller_hierarchical_1989}
 Kunihiko Fukushima.
@@ -23,13 +29,22 @@ Kunihiko Fukushima i Sei Miyake.
 \newblock URL
   \url{http://link.springer.com/chapter/10.1007/978-3-642-46466-9_18}.
 
-\bibitem[He et~al.()He, Zhang, Ren, i Sun]{he_deep_2016}
+\bibitem[He et~al.({\natexlab{a}})He, Zhang, Ren, i Sun]{he_deep_2016}
 Kaiming He, Xiangyu Zhang, Shaoqing Ren, i Jian Sun.
 \newblock Deep residual learning for image recognition.
 \newblock U \emph{Proceedings of the {IEEE} Conference on Computer Vision and
-  Pattern Recognition}, stranice 770--778.
+  Pattern Recognition}, stranice 770--778, {\natexlab{a}}.
 \newblock URL
   \url{http://www.cv-foundation.org/openaccess/content_cvpr_2016/html/He_Deep_Residual_Learning_CVPR_2016_paper.html}.
+
+\bibitem[He et~al.({\natexlab{b}})He, Zhang, Ren, i Sun]{he_delving_2015}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, i Jian Sun.
+\newblock Delving deep into rectifiers: Surpassing human-level performance on
+  imagenet classification.
+\newblock U \emph{Proceedings of the {IEEE} international conference on
+  computer vision}, stranice 1026--1034, {\natexlab{b}}.
+\newblock URL
+  \url{http://www.cv-foundation.org/openaccess/content_iccv_2015/html/He_Delving_Deep_into_ICCV_2015_paper.html}.
 
 \bibitem[Hubel i Wiesel()]{hubel_receptive_1968}
 D.~H. Hubel i T.~N. Wiesel.
@@ -101,5 +116,11 @@ Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir
   Pattern Recognition}, stranice 1--9.
 \newblock URL
   \url{http://www.cv-foundation.org/openaccess/content_cvpr_2015/html/Szegedy_Going_Deeper_With_2015_CVPR_paper.html}.
+
+\bibitem[Xu et~al.()Xu, Wang, Chen, i Li]{xu_empirical_2015}
+Bing Xu, Naiyan Wang, Tianqi Chen, i Mu~Li.
+\newblock Empirical evaluation of rectified activations in convolutional
+  network.
+\newblock URL \url{https://arxiv.org/abs/1505.00853}.
 
 \end{thebibliography}
