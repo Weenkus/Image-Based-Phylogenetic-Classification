@@ -5,6 +5,8 @@ The style file: fer.bst
 Database file #1: master_thesis.bib
 Warning--entry type for "kleene_representation_1951" isn't style-file defined
 --line 129 of file master_thesis.bib
+Warning--to sort, need author or key in _tensorflow_????
+Warning--empty year in _tensorflow_????
 Warning--empty journal in clevert_fast_2015
 Warning--empty year in clevert_fast_2015
 Warning--empty year in clevert_fast_2015
@@ -43,45 +45,45 @@ Warning--empty year in szegedy_going_2015
 Warning--empty journal in xu_empirical_2015
 Warning--empty year in xu_empirical_2015
 Warning--empty year in xu_empirical_2015
-You've used 16 entries,
+You've used 17 entries,
             2773 wiz_defined-function locations,
-            683 strings with 8515 characters,
-and the built_in function-call counts, 8508 in all, are:
-= -- 769
+            686 strings with 8570 characters,
+and the built_in function-call counts, 8748 in all, are:
+= -- 792
 > -- 473
 < -- 15
-+ -- 160
++ -- 161
 - -- 143
-* -- 707
-:= -- 1250
-add.period$ -- 64
-call.type$ -- 16
-change.case$ -- 95
-chr.to.int$ -- 15
-cite$ -- 70
-duplicate$ -- 389
-empty$ -- 668
+* -- 723
+:= -- 1269
+add.period$ -- 66
+call.type$ -- 17
+change.case$ -- 98
+chr.to.int$ -- 16
+cite$ -- 75
+duplicate$ -- 404
+empty$ -- 703
 format.name$ -- 171
-if$ -- 1793
+if$ -- 1852
 int.to.chr$ -- 2
 int.to.str$ -- 1
 missing$ -- 15
-newline$ -- 102
+newline$ -- 106
 num.names$ -- 66
-pop$ -- 271
+pop$ -- 285
 preamble$ -- 1
-purify$ -- 79
+purify$ -- 81
 quote$ -- 0
-skip$ -- 270
+skip$ -- 284
 stack$ -- 0
-substring$ -- 322
-swap$ -- 65
+substring$ -- 325
+swap$ -- 66
 text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 176
-warning$ -- 38
+type$ -- 187
+warning$ -- 40
 while$ -- 75
 width$ -- 0
-write$ -- 221
-(There were 39 warnings)
+write$ -- 230
+(There were 41 warnings)

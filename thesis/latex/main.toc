@@ -20,10 +20,11 @@
 \contentsline {subsubsection}{Optimization Target}{18}
 \contentsline {subsection}{\numberline {2.3.5}Vanishing Gradient}{19}
 \contentsline {subsection}{\numberline {2.3.6}Batch Normalization}{19}
-\contentsline {chapter}{\numberline {3}TaxNet}{21}
+\contentsline {chapter}{\numberline {3}Model}{21}
 \contentsline {section}{\numberline {3.1}Implementation}{21}
-\contentsline {chapter}{\numberline {4}Dataset}{22}
-\contentsline {subsection}{\numberline {4.0.1}ImageNet}{22}
-\contentsline {chapter}{\numberline {5}Results}{23}
-\contentsline {chapter}{\numberline {6}Conclusion}{24}
-\contentsline {chapter}{Bibliography}{25}
+\contentsline {subsection}{\numberline {3.1.1}Keras}{21}
+\contentsline {chapter}{\numberline {4}Dataset}{23}
+\contentsline {subsection}{\numberline {4.0.1}ImageNet}{23}
+\contentsline {chapter}{\numberline {5}Results}{24}
+\contentsline {chapter}{\numberline {6}Conclusion}{25}
+\contentsline {chapter}{Bibliography}{26}

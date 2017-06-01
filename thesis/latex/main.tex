@@ -8,6 +8,70 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[utf8]{inputenc}
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Octave,                 % the language of the code
+  morekeywords={*,...},            % if you want to add more keywords to the set
+  numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{black},
+  stringstyle=\color{orange},
+}
+
+\lstdefinestyle{customasm}{
+  belowcaptionskip=1\baselineskip,
+  frame=L,
+  xleftmargin=\parindent,
+  language=[x86masm]Assembler,
+  basicstyle=\footnotesize\ttfamily,
+  commentstyle=\itshape\color{purple!40!black},
+}
+
+\lstset{escapechar=@,style=customc}
+
 
 \usetikzlibrary{matrix,calc}
 
@@ -411,6 +475,7 @@ Gradient descent uses the gradient to move in a way that minimises or maximises 
 \end{figure}
 
 \subsubsection{Stochastic Gradient Descent}
+\label{se:stochastic_gd}
 
 The main disadvantage of the gradient descent (\ref{eq:gradient_descent}) is the need to calculate the gradient on all the dataset for the update state. The gradient has to be calculate on the whole $X_{train}$. A huge improvement on the basic gradient descent is a the stochastic gradient descent. It updates the gradient by sampling the dataset in a minibatch, usually the size 64, 128 or 256 data points (depending on GPU memory limitations). After every epoch the the whole training dataset $X_{train}$ is shuffled so that different minibatches will be sampled. The rule of thumb is if you can increase the size of minibatch - do it. The more data points are in the minibatch, the more precise is the gradient approximation, also the model trains faster.
 
@@ -449,11 +514,48 @@ On of the problems in using backpropagation is the propagation of loss gradients
 
 Normalizing input data before it enters the machine learning algorithm usually increases the performance of the algorithm. It is easier for the model to learn that all of its inputs will be in a certain range. Input normalization in neural networks will not yield significant performance improvements because the input for images are normalized by nature in the range of $1$ to $255$ RGB (\ref{se:data}). The second problem is the modularity of neural networks. Each layer feeds its outputs into the inputs of the next layer - making any input normalization futile. To combat this a new solution in a form of normalization layer has been introduced in 2015 called batch normalization \citep{ioffe_batch_2015}. It normalizes the data for the whole batch that is used in the forward pass of the backpropagation algorithm (\ref{se:backprop}). As the authors have showed, using batch normalization improves generalization, in some cases removes the need for dropout (\ref{se:dropout}) and makes the neural network more robust to initial hyperparameter initialization.
 
-\chapter{TaxNet}
-To make a scalable species classifier that works with specific hardware requirements I had to make a classifier that yields the best performance and could be trained on a GPU with 2GB of VRAM in a reasonable time frame. In this chapter I introduce my solution - the TaxNet.
+\chapter{Model}
+To make a scalable species classifier that works with specific hardware requirements I had to make a classifier that yields the best performance and could be trained on a GPU with 2GB of VRAM in a reasonable time frame. In this chapter I introduce my solution based on the convolution neural network architecture ResNet \citep{he_deep_2016}.
 
 
 \section{Implementation}
+
+There are a plethora of computational  frameworks to choose to create a deep learning model; TensorFlow, Caffe2, pyTroch, Keras, Theano, CNTK and many more. I have chosen Keras as it has a high level API for creating neural networks and provides pretrained models (more on this later) which was crucial to train a high accuracy model on a weak GPU. Keras allows the user to choose a backend deep learning framework, at the time of writing this thesis there were two options - TensorFlow and Theano. I chose TensorFlow as it is newer and has gained a lot of popularity in the past couple of months.
+
+\subsection{Keras}
+
+Keras provides a high level of abstraction when creating neural networks, giving the user a framework for rapid iteration and development. A simple example of the high level API is given below. Using Keras we can create a two layered fed-forward neural network. The create model function returns a model with two layers the first layer has 32 neurons, the second (also the last) has 10 - this means the classifier has 10 classes. The last layer uses the softmax activation function (\ref{eq:softmax}) to get class probabilities. The model also defines to type of gradient descent algorithm (\ref{eq:gradient_descent}) - RMSProp, and the loss function categorical crossentropy (\ref{eq:cross_entropy_loss}). The train model function takes the created model and trains it in 10 epochs with a minibatch size of 32 (\ref{stochastic_gd}).
+
+
+
+
+\begin{lstlisting}[language=Python, caption=Keras high level API example]
+from keras.layers import Dense
+
+def get_data():
+	...
+	return X_train, y_train
+
+def create_model():
+    model = Sequential()
+    model.add(Dense(32, input_shape=(500,)))
+    model.add(Dense(10, activation='softmax'))
+    
+    model.compile(optimizer='rmsprop',
+          loss='categorical_crossentropy',
+          metrics=['accuracy'])
+          
+    return model
+    
+def train_model(model, X_train, y_train):
+	model.fit(X_train, y_train,
+	  batch_size=32, epochs=10)
+        
+X_train, y_train = get_data()
+model = create_model()
+train_model(model, X_train, y_train)
+
+\end{lstlisting}
 
 \chapter{Dataset}
 \subsection{ImageNet}
