@@ -23,8 +23,10 @@
 \contentsline {chapter}{\numberline {3}Model}{21}
 \contentsline {section}{\numberline {3.1}Implementation}{21}
 \contentsline {subsection}{\numberline {3.1.1}Keras}{21}
-\contentsline {chapter}{\numberline {4}Dataset}{23}
-\contentsline {subsection}{\numberline {4.0.1}ImageNet}{23}
-\contentsline {chapter}{\numberline {5}Results}{24}
-\contentsline {chapter}{\numberline {6}Conclusion}{25}
-\contentsline {chapter}{Bibliography}{26}
+\contentsline {subsection}{\numberline {3.1.2}Architecture}{23}
+\contentsline {subsection}{\numberline {3.1.3}Pretrained parameters}{24}
+\contentsline {chapter}{\numberline {4}Dataset}{26}
+\contentsline {subsection}{\numberline {4.0.1}ImageNet}{26}
+\contentsline {chapter}{\numberline {5}Results}{27}
+\contentsline {chapter}{\numberline {6}Conclusion}{28}
+\contentsline {chapter}{Bibliography}{29}

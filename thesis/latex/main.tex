@@ -523,8 +523,9 @@ To make a scalable species classifier that works with specific hardware requirem
 There are a plethora of computational  frameworks to choose to create a deep learning model; TensorFlow, Caffe2, pyTroch, Keras, Theano, CNTK and many more. I have chosen Keras as it has a high level API for creating neural networks and provides pretrained models (more on this later) which was crucial to train a high accuracy model on a weak GPU. Keras allows the user to choose a backend deep learning framework, at the time of writing this thesis there were two options - TensorFlow and Theano. I chose TensorFlow as it is newer and has gained a lot of popularity in the past couple of months.
 
 \subsection{Keras}
+\label{se:keras}
 
-Keras provides a high level of abstraction when creating neural networks, giving the user a framework for rapid iteration and development. A simple example of the high level API is given below. Using Keras we can create a two layered fed-forward neural network. The create model function returns a model with two layers the first layer has 32 neurons, the second (also the last) has 10 - this means the classifier has 10 classes. The last layer uses the softmax activation function (\ref{eq:softmax}) to get class probabilities. The model also defines to type of gradient descent algorithm (\ref{eq:gradient_descent}) - RMSProp, and the loss function categorical crossentropy (\ref{eq:cross_entropy_loss}). The train model function takes the created model and trains it in 10 epochs with a minibatch size of 32 (\ref{stochastic_gd}).
+Keras provides a high level of abstraction when creating neural networks, giving the user a framework for rapid iteration and development. A simple example of the high level API is given below. Using Keras we can create a two layered fed-forward neural network in just a couple of lines of code. The "create\textunderscore model" function returns a model with two layers the first layer has 32 neurons, the second (also the last) has 10 - this means the classifier has 10 classes. The last layer uses the softmax activation function (\ref{eq:softmax}) to get class probabilities. The model also defines to type of gradient descent algorithm (\ref{eq:gradient_descent}) - RMSProp, and the loss function categorical crossentropy (\ref{eq:cross_entropy_loss}). The "train\textunderscore model" function takes the created model and trains it in 10 epochs with a minibatch size of 32 (\ref{se:stochastic_gd}).
 
 
 
@@ -556,6 +557,66 @@ model = create_model()
 train_model(model, X_train, y_train)
 
 \end{lstlisting}
+
+TensorFlow is the backend engine of Keras, and it, same as Keras, allows the user to write computational graphs in Python. Python is a high level language that is easy and fast to write. The ease of use of Python comes at the cost of performance, usually Python programs are an order of magnitude slower than programs written in Rust, C++ or Java. All computational graph frameworks mentioned above work blazingly fast, yet they use (mostly) Python to define the computational graph (neural network). The key to fast performance for these frameworks is that they are written and run in C++, but they offer a high-level API in Python. For this to work the API usually has a "compile" function that builds the graph and the "train" or "fit" function which starts the process of training the neural network.
+
+\subsection{Architecture}
+\label{se:architecture}
+
+There are a lot high performance CNN architectures \citep{he_deep_2016, simonyan_very_2014, szegedy_going_2015}, they offer different performance levels with varying parameter sizes, as shown in \ref{tb:CNN_architecutre_performance}. To classify species on a 2GB GPU I needed a powerful yet small neural network. ResNet is perfect for the task as it gives competitive performance per parameter ratio, especially the ResNet-50 - which I used with minor modifications.
+
+\begin{table}
+\centering
+\caption{CNN architecture performance comparison on ImageNet dataset}
+\label{tb:CNN_architecutre_performance}
+\begin{tabular}{|c|c|c|}
+\hline 
+Network	& Top-1 error & Top-5 error \\  \hline
+ResNet-18 & 30.24 & 10.92 \\
+ResNet-34 & 26.70 & 8.58 \\ 
+ResNet-50 & 23.85 & 7.13 \\ 
+ResNet-101 & 22.63 & 6.44 \\ 
+ResNet-152 & 21.69 & 5.94 \\  \hline
+Inception v3 & 22.55 & 6.44 \\  \hline
+AlexNet & 43.45 & 20.91 \\  \hline
+VGG-11 & 30.98 & 11.37 \\ 
+VGG-13 & 30.07 & 10.75 \\ 
+VGG-16 & 28.41 & 9.62 \\ 
+VGG-19 & 27.62 & 9.12 \\  \hline
+SqueezeNet 1.0 & 41.90 & 19.58 \\ 
+SqueezeNet 1.1 & 41.81 & 19.38 \\  \hline
+Densenet-121 & 25.35 & 7.83 \\ 
+Densenet-169 & 24.00 & 7.00 \\ 
+Densenet-201 & 22.80 & 6.43 \\ 
+Densenet-161 & 22.35 & 6.20 \\ 
+\hline 
+\end{tabular} 
+\end{table}
+
+
+ResNet's performance comes from a unique way in which it builds layers. ResNet is short from residual neural network, residual is the input of a layer that is being summed to the layers output, giving input information a path for input to circumvent the layer's transformation. This method allows for very deep neural networks to converge when trained. The residual can pass one layer or more, the architecture in the paper uses two convolution layers between each residual (figures \ref{fig:residual_layer} and \ref{fig:vgg_resnet_comparison}).
+
+\begin{figure}
+  \includegraphics[scale=0.55]{figures/resiudal_layer.jpg}
+  \centering
+  \caption{The residual layer (module) - the core building block of the ResNet }
+  \label{fig:residual_layer}
+\end{figure}
+
+Figure \ref{fig:vgg_resnet_comparison} shows a direct comparison between VGG and ResNet architectures, and one of the main benefits of using ResNet on a lower memory GPU is the lack of fully-connected (dense) layers at the end of the network. The fully-connected layers contain the most parameters, and removing them increases the number of convolution layers while lowering the number of parameters.
+
+\begin{figure}
+  \includegraphics[scale=0.7]{figures/resnet_vgg_comparison.png}
+  \centering
+  \caption{A comparison of two popular CNN architectures - ResNet and VGG }
+  \label{fig:vgg_resnet_comparison}
+\end{figure}
+
+\subsection{Pretrained parameters}
+\label{se:pretrained_parameters}
+As seen in figure \ref{fig:filter} each convolution layer learns a specific level of abstraction. Those abstractions are general building blocks of images, like boxes, circles or edges. This implies that if you train a CNN on one set of images, the parameters in the front convolution layers can be reused on a different task. Using this, higher accuracy can be achieved when working on small datasets. This is called pretraining or fine-tuning the model.
+
+One of the biggest labeld image databases is ImageNet and is the go to dataset for image classification research. Almost every modern CNN architecture was evaluated and trained on it. Downloading the parameters from those trained neural networks as initialising the model with them gives us state of the art performance. The only needed step is to fine-tune the network by training it on our dataset after it was initialised with the pretrained values.
 
 \chapter{Dataset}
 \subsection{ImageNet}
