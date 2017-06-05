@@ -5,8 +5,8 @@ The style file: fer.bst
 Database file #1: master_thesis.bib
 Warning--entry type for "kleene_representation_1951" isn't style-file defined
 --line 129 of file master_thesis.bib
-Warning--to sort, need author or key in _tensorflow_????
-Warning--empty year in _tensorflow_????
+Warning--to sort, need author or key in _imagenet_????
+Warning--empty year in _imagenet_????
 Warning--empty journal in clevert_fast_2015
 Warning--empty year in clevert_fast_2015
 Warning--empty year in clevert_fast_2015
@@ -47,7 +47,7 @@ Warning--empty year in xu_empirical_2015
 Warning--empty year in xu_empirical_2015
 You've used 17 entries,
             2773 wiz_defined-function locations,
-            686 strings with 8570 characters,
+            686 strings with 8564 characters,
 and the built_in function-call counts, 8748 in all, are:
 = -- 792
 > -- 473

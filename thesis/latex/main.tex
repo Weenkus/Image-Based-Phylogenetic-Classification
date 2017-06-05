@@ -1,5 +1,6 @@
 \documentclass[times, utf8, diplomski]{fer}
 
+\usepackage{hyperref}
 \usepackage{booktabs}
 \usepackage{tikz}
 \usepackage{indentfirst}
@@ -367,7 +368,7 @@ Visual recognition is one of the fields that is most affected by improvements in
 
 Deep learning algorithms consist of enormous numbers of  artificial neurons (hundreds of millions), therefore training them is computational expensive. Recent breakthroughs in deep learning were driven by advances in hardware - graphics processing unit (GPUs). GPUs are made of a lot of processor unites, making them ideal for highly concurrent tasks. Neural networks are easily trained concurrently because of their composite structure and a special training algorithm called stochastic backpropagation (discussed in detail in subsection \ref{se:backprop}), commonly referred to as backprop.
 
-\subsection{Convolutional Neural Network (CNN /  ConvNet)}
+\subsection{Convolutional neural Network (CNN /  ConvNet)}
 Convolutional neural network is a type of feed-forward network that was inspired by the organization of animal's visual cortex. They are used in recommender systems, natural language processing and image recognition. The architecture was inspired by the works of Huble and Wiesel in 1950s and 60s \citep{hubel_receptive_1968}, their work showed that animal's visual cortex contains neurons that individually responds to small regions in the visual field. Their experiments showed that neighbourhood neurons had similar receptive fields.
 
 The necognitron was introduced in 1980s by Kunihiko Fukushima \citep{fukushima_neocognitron:_1982, eckmiller_hierarchical_1989} and served as an inspiration for today's modern convolutional neural network architecture. The necognitron is a hierarchical multilayered artificial neuron network. It was used for handwritten character recognition, which belongs in the domain of image recognition.
@@ -427,7 +428,7 @@ On of the most important techniques in machine learning is regularization (subse
   \label{fig:dropout}
 \end{figure}
 
-\subsection{Data Augmentation}  \label{se:data_augmentation}
+\subsection{Data augmentation}  \label{se:data_augmentation}
 
 Another popular regularization technique is called data augmentation. The model usually trains in tens or even hundreds of epochs - a signal epoch is when the training algorithm uses every data point in $X_{train}$ (one pass over $X_{train}$). Reusing the same data points can lead to overfitting. To prevent that we can augment $X_{train}$ on every epoch. This approach is commonly called data jittering. Usually the data is augmented with rotation, mirroring, cropping, blurring (all these effects can be seen in figures \ref{fig:data_augmentation_figure} and \ref{fig:data_augmentation}). Both, dropout and data augmentation is used in almost every state-of-the-art CNN model today. There are some exceptions due to a new technique called batch normalization \citep{ioffe_batch_2015}.
 
@@ -449,7 +450,7 @@ Another popular regularization technique is called data augmentation. The model 
 
 To be able to train the convolution neural network on huge datasets, we need an algorithm that allows us to train the model with a subset of $X_{train}$. Fitting the whole $X_{train}$ in the GPU memory is not possible for datasets of serious size. Also, the algorithm should be highly concurrent in order to use the structure of neural network to its advantage. The backward propagation of errors or more commonly called backpropagation (backprop) used together with gradient descent is the most popular method for training most neural networks.
 
-\subsubsection{Gradient Descent}
+\subsubsection{Gradient descent}
 
 Gradient descent is an iterative optimization algorithm. It uses the gradient \ref{se:gradient} of  a function find a point on a domain that minimises or maximises the function's value. Gradient descent does not guarantee to find the global maxima or minima (figure \ref{fig:local_and_global_function_values}). There have been several variations of the gradient descent algorithm that deal with the algorithm being stuck in local maxima, the most famous and most widely used at this moment is Adam \citep{kingma_adam:_2014}.
 
@@ -474,12 +475,12 @@ Gradient descent uses the gradient to move in a way that minimises or maximises 
   \label{fig:local_and_global_function_values}
 \end{figure}
 
-\subsubsection{Stochastic Gradient Descent}
+\subsubsection{Stochastic gradient descent}
 \label{se:stochastic_gd}
 
 The main disadvantage of the gradient descent (\ref{eq:gradient_descent}) is the need to calculate the gradient on all the dataset for the update state. The gradient has to be calculate on the whole $X_{train}$. A huge improvement on the basic gradient descent is a the stochastic gradient descent. It updates the gradient by sampling the dataset in a minibatch, usually the size 64, 128 or 256 data points (depending on GPU memory limitations). After every epoch the the whole training dataset $X_{train}$ is shuffled so that different minibatches will be sampled. The rule of thumb is if you can increase the size of minibatch - do it. The more data points are in the minibatch, the more precise is the gradient approximation, also the model trains faster.
 
-\subsubsection{Optimization Target}
+\subsubsection{Optimization target}
 
 The goal of the gradient descent algorithm is to minimise or maximise a function. In deep learning, when training the model, we want to minimise the loss function $E(h|D)$ by computing its gradient. In classification (\ref{eq:classification_def}) the goal is to predict for the predicted class $y_p$ to match the true class $y_t$. Neural networks for classification usually have a softmax layer as their last layer. Softmax (\ref{eq:softmax}) is a normalization exponential function, which transforms neural network's outputs to probabilities for every class. The sum of the softmax values for all classes is equal to 1.  
 
@@ -502,14 +503,14 @@ To use the cross-entropy loss in the backpropagation we have to calculate its gr
  \nabla{L} = \vec{y_t} - \vec{y_p}
 \end{equation}
 
-\subsection{Vanishing Gradient}
+\subsection{Vanishing gradient}
 \label{se:vanishing_gradient}
 
 On of the problems in using backpropagation is the propagation of loss gradients in the neural networks. As the neural network is composed of smaller unites called neurons, its output is also a function composed of linear combinations and non-linear activation functions of previous layers. The backpropagation algorithm calculates the gradient losses from the output to the front layers of the neural network - hence the name backpropagation. The deeper the network, the more information is lost duo to gradient decay - low gradient values. The vanished gradient means that the network is not efficiently training and leads to poor performance. One way to combat that is to use special activation functions \citep{clevert_fast_2015, xu_empirical_2015, he_delving_2015} or special architectures \citep{he_deep_2016}. 
 
 
 
-\subsection{Batch Normalization}
+\subsection{Batch normalization}
 \label{se:batch_norm}
 
 Normalizing input data before it enters the machine learning algorithm usually increases the performance of the algorithm. It is easier for the model to learn that all of its inputs will be in a certain range. Input normalization in neural networks will not yield significant performance improvements because the input for images are normalized by nature in the range of $1$ to $255$ RGB (\ref{se:data}). The second problem is the modularity of neural networks. Each layer feeds its outputs into the inputs of the next layer - making any input normalization futile. To combat this a new solution in a form of normalization layer has been introduced in 2015 called batch normalization \citep{ioffe_batch_2015}. It normalizes the data for the whole batch that is used in the forward pass of the backpropagation algorithm (\ref{se:backprop}). As the authors have showed, using batch normalization improves generalization, in some cases removes the need for dropout (\ref{se:dropout}) and makes the neural network more robust to initial hyperparameter initialization.
@@ -614,14 +615,176 @@ Figure \ref{fig:vgg_resnet_comparison} shows a direct comparison between VGG and
 
 \subsection{Pretrained parameters}
 \label{se:pretrained_parameters}
-As seen in figure \ref{fig:filter} each convolution layer learns a specific level of abstraction. Those abstractions are general building blocks of images, like boxes, circles or edges. This implies that if you train a CNN on one set of images, the parameters in the front convolution layers can be reused on a different task. Using this, higher accuracy can be achieved when working on small datasets. This is called pretraining or fine-tuning the model.
+As seen in figure \ref{fig:filter}, each convolution layer learns a specific level of abstraction. Those abstractions are general building blocks of images (boxes, circles, edges, etc.). This implies that if you train a CNN on one set of images, the parameters in the front convolution layers can be reused on a different task. Using this, higher accuracy can be achieved when working on small datasets. This is called pretraining or fine-tuning the model.
 
-One of the biggest labeld image databases is ImageNet and is the go to dataset for image classification research. Almost every modern CNN architecture was evaluated and trained on it. Downloading the parameters from those trained neural networks as initialising the model with them gives us state of the art performance. The only needed step is to fine-tune the network by training it on our dataset after it was initialised with the pretrained values.
+One of the biggest labeld image databases is ImageNet and is the go to dataset for image classification research. Almost every modern CNN architecture was evaluated and trained on it. Downloading the parameters from those trained neural networks and initialising the model with them gives us state of the art performance even on small datasets. The only needed step is to fine-tune the network by training it on our dataset after it was initialised with the pretrained values.
 
-\chapter{Dataset}
-\subsection{ImageNet}
+Below is the Keras code for creating a pretrained model from the ImageNet dataset. First we load the pretrained model without the top layer (the top layer is not important as it is a fully-connected layer which was build for 1000 classes, we only need the convolution layers). The second step is to create a small feed-forward network and append it to the end of the network. Set the pretrained convolution layers to not train and compile to model. The final softmax layer has 15 neurons as the model was tested on a dataset of 15 classes that is 2GB in size. The model was trained with backpropagation using the Adam optimizer \citep{kingma_adam:_2014}.
+
+\begin{lstlisting}[language=Python, caption=Creating a custom pretrained ResNet on the ImageNet dataset]
+
+from keras.applications import ResNet50
+
+IMG_DIM = 224
+INPUT_TENSOR = Input(shape=(IMG_DIM, IMG_DIM, 3))
+
+base_model = ResNet50(input_tensor=INPUT_TENSOR, include_top=False)
+
+top_model = Sequential()
+top_model.add(Flatten(input_shape=base_model.output_shape[1:]))
+
+top_model.add(Dense(32))
+top_model.add(BatchNormalization())
+top_model.add(Activation('relu'))
+
+top_model.add(Dense(64))
+top_model.add(BatchNormalization())
+top_model.add(Activation('relu'))
+
+top_model.add(Dense(15, activation='softmax'))
+
+
+model = Model(input= base_model.input, output= top_model(base_model.output))
+
+for layer in model.layers[:-8]:
+    layer.trainable = False
+    
+model.compile(loss='categorical_crossentropy',
+              optimizer='adam',
+              metrics=['accuracy'])
+\end{lstlisting}
+
+\subsection{Improving generalization}
+
+To improve the generalization of the model, batch normalization was added after every fully-connected layer in the network. Also, the input images were augmented (\ref{se:data_augmentation}). The $X_{test}$ had its images only rescaled, while $X_{train}$ and $X_{validation}$ were more aggressively augmented (random zoom, horizontal flip, rescale and sheered), this is show in detail in the figure \ref{fig:data_augmentation}.
+
+\begin{lstlisting}[language=Python, caption=Data augmentation of the input dataset (images)]
+
+batch_size = 16
+
+train_datagen = ImageDataGenerator(
+        rescale=1./255,
+        shear_range=0.2,
+        zoom_range=0.2,
+        horizontal_flip=True)
+
+test_datagen = ImageDataGenerator(rescale=1./255)
+
+train_generator = train_datagen.flow_from_directory(
+        '../input/train',
+        target_size=(150, 150),
+        batch_size=batch_size,
+        class_mode='categorical') 
+
+
+validation_generator = test_datagen.flow_from_directory(
+        '../input/validation',
+        target_size=(150, 150),
+        batch_size=batch_size,
+        class_mode='categorical')
+        
+\end{lstlisting}
+
+\chapter{Data}
+
+Many would argue that the data is the most important part of the machine learning system. If the training data does not represent the real world input of the system in the production the machine learning algorithm is good as useless. Furthermore, the quantity of data is crucial for deep learning algorithms. Compared to traditional machine learning algorithms, deep learning algorithms gain more performance scale from the dataset size. Therefore, data collection for this problem is a crucial step in the machine learning pipeline and impacts the whole solution.
+
+\section{ImageNet}
+
+One of the largest labeled image datasets freely opened to the public is ImageNet. It contains more than 14 million images, detailed statistics of the dataset can be found in table \ref{tb:imagenet_statistics}. TO train the model for species recognition I have used a subset of ImageNet. Using every class that represents a species in ImageNet is not doable on a single 2GB GPU, therefore I have manually picked 15 classes which represent the whole problem. The idea is to have some species that are similar to others, for example multiple species of ladybugs while still having a wide variate of species that represent the diverse form of life (typical example of an image from the ImageNet dataset can be seen in figure \ref{fig:typical_imagenet_example}).
+
+\begin{figure}
+  \includegraphics[scale=0.55]{figures/typical_imagenet.jpg}
+  \centering
+  \caption{Typical ImageNet image, class herbivore}
+  \label{fig:typical_imagenet_example}
+\end{figure}
+
+\begin{table}
+\centering
+\caption{ImageNet statistics}
+\label{tb:imagenet_statistics}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+High level category	& synset (subcategories)	& Avg images per synset & Total images  \\ \hline
+amphibian & 94 & 591 & 56K \\
+animal & 3822 & 732 & 2799K \\
+appliance & 51 & 1164 & 59K \\
+bird & 856 & 949 & 812K \\
+covering & 946 & 819 & 774K \\
+device & 2385 & 675 & 1610K \\
+fabric & 262 & 690 & 181K \\
+fish & 566 & 494 & 280K \\
+flower & 462 & 735 & 339K \\
+food & 1495 & 670 & 1001K \\
+fruit & 309 & 607 & 188K \\
+fungus & 303 & 453 & 137K \\
+furniture & 187 & 1043 & 195K \\
+geological formation & 151 & 838 & 127K \\
+invertebrate & 728 & 573 & 417K \\
+mammal & 1138 & 821 & 934K \\
+musical instrument & 157 & 891 & 140K \\
+plant & 1666 & 600 & 999K \\
+reptile & 268 & 707 & 190K \\
+sport & 166 & 1207 & 200K \\
+structure & 1239 & 763 & 946K \\
+tool & 316 & 551 & 174K \\
+tree & 993 & 568 & 564K \\
+utensil & 86 & 912 & 78K \\
+vegetable & 176 & 764 & 135K \\
+vehicle & 481 & 778 & 374K \\
+person & 2035 & 468 & 952K \\
+\hline 
+\end{tabular} 
+\end{table}
+
+
+\subsection{Dataset}
+\label{se:dataset}
+
+As mentioned in the previous section, the dataset - $X$ - consists of 15 species of images from the ImageNet dataset. Each species has a different number of samples, the distribution of $X_{train}$ can be seen in detail in figure \ref{fig:training_set_class_distributon}. We can see that some classes (Mexican bean beetle and Black-footed albatross) have below average number of images, this will yield a lower classification performance for these classes. Also, we can except the classifier to work best for the classes with above average number of images like the Ice bear species. A deeper analysis on classification performance for certain classes will be shown in further sections.
+
+The convolution network excepts a fixed size input, therefore every image in the dataset - $X$ - has to be scaled to a fixed size. Lowering the dimensions of the input image will result in a performance decrease. Therefore, after experimenting with the hyperparameter I have picked $224 * 224$ image dimensions in order to have the optimal classification and speed performance.
+
+\begin{figure}
+  \includegraphics[scale=0.75]{figures/class_distribution.png}
+  \centering
+  \caption{Class distribution of training data}
+  \label{fig:training_set_class_distributon}
+\end{figure}
+
+
+\begin{table}
+\centering
+\caption{Dataset statistics}
+\label{tb:dataset_statistics}
+\begin{tabular}{|c|c|}
+\hline 
+Size [GB] & 1.6 \\ \hline 
+Class number & 15 \\ 
+Type & RGB Images \\ 
+Train size & 14929 \\
+Validation size & 1649 \\
+\hline 
+\end{tabular} 
+\end{table}
+
+\subsection{Preprocessing}
+Preprocessing of data is an essential part of the machine learning pipeline. As state in the previous section \ref{se:dataset}, every image has to be a fixed size in order to be able to serve as an input into the deep learning model. The fixed size that ended up working best with the pretrained ResNet was $224 * 224$. When scaling images to a fixed size sometimes because of the aspect ration of the image we need to fill a part of the image with a constant pixel value. Examples of fixed size images that use gray filling is shown in figure \ref{fig:preprocessing_images}.
+
+ 
+\begin{figure}
+  \includegraphics[scale=0.36]{figures/preprocessing_images.png}
+  \centering
+  \caption{Image preprocessing}
+  \label{fig:preprocessing_images}
+\end{figure}
+
+Also, another important part of the preprocessing is the generation of the validation dataset. For the validation to be efficient the validation dataset has to represent the training dataset. Keeping that in mind, I have created the validation set - $X_{validation}$ - by taking 10\% of images form each class.
 
 \chapter{Results}
+
+\section{Hardware and software}
 Graphs graphs graphs...
 
 \chapter{Conclusion}

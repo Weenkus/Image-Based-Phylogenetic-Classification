@@ -5,9 +5,9 @@
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[_te()]{_tensorflow_????}
-{TensorFlow}.
-\newblock URL \url{https://www.tensorflow.org/}.
+\bibitem[_im()]{_imagenet_????}
+{ImageNet}.
+\newblock URL \url{http://www.image-net.org/}.
 
 \bibitem[Clevert et~al.()Clevert, Unterthiner, i Hochreiter]{clevert_fast_2015}
 Djork-Arné Clevert, Thomas Unterthiner, i Sepp Hochreiter.
