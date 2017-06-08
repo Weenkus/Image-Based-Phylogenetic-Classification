@@ -5,8 +5,6 @@ The style file: fer.bst
 Database file #1: master_thesis.bib
 Warning--entry type for "kleene_representation_1951" isn't style-file defined
 --line 129 of file master_thesis.bib
-Warning--to sort, need author or key in _imagenet_????
-Warning--empty year in _imagenet_????
 Warning--empty journal in clevert_fast_2015
 Warning--empty year in clevert_fast_2015
 Warning--empty year in clevert_fast_2015
@@ -45,45 +43,47 @@ Warning--empty year in szegedy_going_2015
 Warning--empty journal in xu_empirical_2015
 Warning--empty year in xu_empirical_2015
 Warning--empty year in xu_empirical_2015
-You've used 17 entries,
+Warning--empty year in yan_hd-cnn:_2015-1
+Warning--empty year in yan_hd-cnn:_2015
+You've used 18 entries,
             2773 wiz_defined-function locations,
-            686 strings with 8564 characters,
-and the built_in function-call counts, 8748 in all, are:
-= -- 792
-> -- 473
-< -- 15
-+ -- 161
-- -- 143
-* -- 723
-:= -- 1269
-add.period$ -- 66
-call.type$ -- 17
-change.case$ -- 98
+            694 strings with 9261 characters,
+and the built_in function-call counts, 9960 in all, are:
+= -- 891
+> -- 587
+< -- 17
++ -- 199
+- -- 179
+* -- 839
+:= -- 1464
+add.period$ -- 72
+call.type$ -- 18
+change.case$ -- 113
 chr.to.int$ -- 16
-cite$ -- 75
-duplicate$ -- 404
-empty$ -- 703
-format.name$ -- 171
-if$ -- 1852
-int.to.chr$ -- 2
+cite$ -- 76
+duplicate$ -- 448
+empty$ -- 766
+format.name$ -- 209
+if$ -- 2100
+int.to.chr$ -- 3
 int.to.str$ -- 1
-missing$ -- 15
-newline$ -- 106
-num.names$ -- 66
-pop$ -- 285
+missing$ -- 17
+newline$ -- 114
+num.names$ -- 74
+pop$ -- 319
 preamble$ -- 1
-purify$ -- 81
+purify$ -- 95
 quote$ -- 0
-skip$ -- 284
+skip$ -- 312
 stack$ -- 0
-substring$ -- 325
-swap$ -- 66
-text.length$ -- 6
+substring$ -- 366
+swap$ -- 83
+text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 187
+type$ -- 198
 warning$ -- 40
-while$ -- 75
+while$ -- 84
 width$ -- 0
-write$ -- 230
+write$ -- 251
 (There were 41 warnings)

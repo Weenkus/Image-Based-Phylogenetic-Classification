@@ -973,8 +973,11 @@ TensorFlow & 1.1 \\
 
 In this section, different metrics and their impact on the performance of the model, as well as a detailed insight into the performance of the model is given. The model is evaluated on a validation dataset that is created as from 10\% images from the whole input dataset. The distribution of the data with more informations can be find the chapter \ref{se:data}.
 
-Classification performance is shown in table \ref{tb:classifier_performance} with metrics described in detail in section \ref{se:metrics}. This table shows a detailed outline of the overall classification performance of the model, but it fails to give insight into the classification performance on a class by class level. To resolve this problem, a confusion matrix is given in figure X.
+Classification performance is shown in table \ref{tb:classifier_performance} with metrics described in detail in section \ref{se:metrics}. This table shows a detailed outline of the overall classification performance of the model, but it fails to give insight into the classification performance on a class by class level. To resolve this problem, a confusion matrix is given in figure \ref{fig:species_confusion_matrix}. The confusion matrix shows that certain species are less likely to be confused with certain other species. The confusion matrix has a couple of clusters, the clusters appear to form near similar looking species. All the images of lady bug species look almost the same and it is natural to except the classifier to have a poorer performance with these features, a method for increasing the performance for these species is giving the section \ref{se:future_work}.
 
+This algorithm is designed so it should scale to thousands of species. To do so it must keep its accuracy even with different subsets of the original input dataset. To test this, the model was evaluated for different subsets of species - the result is shown in figure \ref{fig:model_acc_class_num}. The accuracy falls and raises for lower class numbers meaning that the model works well but the number of images per class has the biggest effect to the model performance. Building an ingestion platform for data collection, for example with web scraping, would significantly increase the performance of the model as most of the classes have around 1000 images which is considered relatively small for deep learning. 
+
+Quality of the dataset is also crucial for the model's performance as images that do not represent the class will lower the performance and make the training phase difficult. Collecting images that represent a class is difficult, collection high-quality images is even harder. Big companies usually have team's that annotate and collect data for machine learning algorithms and products.
 
 \begin{table}
 \centering
@@ -990,6 +993,48 @@ F1 & 0.80311 \\
 \hline 
 \end{tabular} 
 \end{table}
+
+\begin{figure}
+  \includegraphics[scale=0.47]{figures/confusion_matrix.png}
+  \centering
+  \caption{Confusion matrix generated on $X_{validation}$}
+  \label{fig:species_confusion_matrix}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[scale=0.59]{figures/model_acc_class_num.png}
+  \centering
+  \caption{Model accuracy compared with different number of classes in $X_{validation}$}
+  \label{fig:model_acc_class_num}
+\end{figure}
+
+
+\section{Memory footprint}
+
+Using a pretrained model allows for faster training as the only parameters that change are the ones int he last layer of the network. Number of trainable and non-trainable parameters can be found in table \ref{tb:model_params}. TODO FIX THE NUMBER OF PARAMS IN THIS TABLE
+
+Each parameter is a weight - 32-bit float number.
+
+\begin{table}
+\centering
+\caption{Number of parameters}
+\label{tb:model_params}
+\begin{tabular}{cc}
+\hline 
+Parameters & Number \\ \hline 
+Trainable &   23,534,592\\ 
+Non-trainable & 53,120 \\ 
+Total & 23,587,712 \\
+\hline 
+\end{tabular} 
+\end{table}
+
+\section{Future work}
+\label{se:future_work}
+
+Firstly, getting better hardware and scaling the model to more than a thousand species is crucial for a reasonable product. Currently results give the information that the model is scalable and that the current flaw is in species that look similar. 
+
+The confusion matrix is able to give insight into which classes confuse the model. Using this information an algorithm can be made that combats those deficiencies. For example, building separate classifiers for each cluster in confusion matrix could yield better model performance. This is called a hierarchical convolution neural network (HD-CNN) as is a topic that is being currently research \citep{yan_hd-cnn:_2015, yan_hd-cnn:_2015-1}. 
 
 \chapter{Conclusion}
 Zaključak.

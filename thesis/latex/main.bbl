@@ -1,13 +1,9 @@
-\begin{thebibliography}{17}
+\begin{thebibliography}{18}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
-
-\bibitem[_im()]{_imagenet_????}
-{ImageNet}.
-\newblock URL \url{http://www.image-net.org/}.
 
 \bibitem[Clevert et~al.()Clevert, Unterthiner, i Hochreiter]{clevert_fast_2015}
 Djork-Arné Clevert, Thomas Unterthiner, i Sepp Hochreiter.
@@ -126,5 +122,27 @@ Bing Xu, Naiyan Wang, Tianqi Chen, i Mu~Li.
 \newblock Empirical evaluation of rectified activations in convolutional
   network.
 \newblock URL \url{https://arxiv.org/abs/1505.00853}.
+
+\bibitem[Yan et~al.({\natexlab{a}})Yan, Jagadeesh, {DeCoste}, Di, i
+  Piramuthu]{yan_hd-cnn:_2015-1}
+Zhicheng Yan, Vignesh Jagadeesh, Dennis {DeCoste}, Wei Di, i Robinson
+  Piramuthu.
+\newblock Hd-cnn: Hierarchical deep convolutional neural network for image
+  classification.
+\newblock U \emph{International Conference on Computer Vision ({ICCV})},
+  svezak~2, {\natexlab{a}}.
+\newblock URL
+  \url{https://pdfs.semanticscholar.org/1275/125b71b999b7c49bc554c6ec404a764eb299.pdf}.
+
+\bibitem[Yan et~al.({\natexlab{b}})Yan, Zhang, Piramuthu, Jagadeesh, {DeCoste},
+  Di, i Yu]{yan_hd-cnn:_2015}
+Zhicheng Yan, Hao Zhang, Robinson Piramuthu, Vignesh Jagadeesh, Dennis
+  {DeCoste}, Wei Di, i Yizhou Yu.
+\newblock {HD}-{CNN}: hierarchical deep convolutional neural networks for large
+  scale visual recognition.
+\newblock U \emph{Proceedings of the {IEEE} International Conference on
+  Computer Vision}, stranice 2740--2748, {\natexlab{b}}.
+\newblock URL
+  \url{http://www.cv-foundation.org/openaccess/content_iccv_2015/html/Yan_HD-CNN_Hierarchical_Deep_ICCV_2015_paper.html}.
 
 \end{thebibliography}

@@ -34,5 +34,7 @@
 \contentsline {chapter}{\numberline {5}Results}{36}{chapter.5}
 \contentsline {section}{\numberline {5.1}Hardware and software}{36}{section.5.1}
 \contentsline {section}{\numberline {5.2}Performance}{36}{section.5.2}
-\contentsline {chapter}{\numberline {6}Conclusion}{38}{chapter.6}
-\contentsline {chapter}{Bibliography}{39}{chapter*.35}
+\contentsline {section}{\numberline {5.3}Memory footprint}{39}{section.5.3}
+\contentsline {section}{\numberline {5.4}Future work}{39}{section.5.4}
+\contentsline {chapter}{\numberline {6}Conclusion}{41}{chapter.6}
+\contentsline {chapter}{Bibliography}{42}{chapter*.38}
