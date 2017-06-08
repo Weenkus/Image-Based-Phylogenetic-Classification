@@ -26,7 +26,9 @@
 \BOOKMARK [1][-]{section.4.1}{ImageNet}{chapter.4}% 26
 \BOOKMARK [2][-]{subsection.4.1.1}{Dataset}{section.4.1}% 27
 \BOOKMARK [2][-]{subsection.4.1.2}{Preprocessing}{section.4.1}% 28
-\BOOKMARK [0][-]{chapter.5}{Results}{}% 29
-\BOOKMARK [1][-]{section.5.1}{Hardware and software}{chapter.5}% 30
-\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 31
-\BOOKMARK [0][-]{chapter*.30}{Bibliography}{}% 32
+\BOOKMARK [1][-]{section.4.2}{Species}{chapter.4}% 29
+\BOOKMARK [0][-]{chapter.5}{Results}{}% 30
+\BOOKMARK [1][-]{section.5.1}{Hardware and software}{chapter.5}% 31
+\BOOKMARK [1][-]{section.5.2}{Performance}{chapter.5}% 32
+\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 33
+\BOOKMARK [0][-]{chapter*.35}{Bibliography}{}% 34

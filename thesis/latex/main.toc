@@ -30,7 +30,9 @@
 \contentsline {section}{\numberline {4.1}ImageNet}{28}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Dataset}{28}{subsection.4.1.1}
 \contentsline {subsection}{\numberline {4.1.2}Preprocessing}{30}{subsection.4.1.2}
-\contentsline {chapter}{\numberline {5}Results}{34}{chapter.5}
-\contentsline {section}{\numberline {5.1}Hardware and software}{34}{section.5.1}
-\contentsline {chapter}{\numberline {6}Conclusion}{35}{chapter.6}
-\contentsline {chapter}{Bibliography}{36}{chapter*.30}
+\contentsline {section}{\numberline {4.2}Species}{33}{section.4.2}
+\contentsline {chapter}{\numberline {5}Results}{36}{chapter.5}
+\contentsline {section}{\numberline {5.1}Hardware and software}{36}{section.5.1}
+\contentsline {section}{\numberline {5.2}Performance}{36}{section.5.2}
+\contentsline {chapter}{\numberline {6}Conclusion}{38}{chapter.6}
+\contentsline {chapter}{Bibliography}{39}{chapter*.35}

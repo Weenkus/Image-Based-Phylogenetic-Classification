@@ -1,5 +1,6 @@
 \documentclass[times, utf8, diplomski]{fer}
 
+
 \usepackage{hyperref}
 \usepackage{booktabs}
 \usepackage{tikz}
@@ -228,6 +229,7 @@ The order of nonlinear functions is given in order of their discoveries. Today r
 \end{figure}
 
 \subsection{Metrics}
+\label{se:metrics}
 In order to compare different models a set of metrics is employed. Accuracy which gives the accuracy of a model, it is often used on balance datasets (\ref{eq:accuracy}). The problem with unbalanced datasets can be easily explained with a short example. Image having $2$ classes $K=\{dog,cat\}$ and there are a total of $100$ images in the dataset, of which only $2$ are dogs. The model if optimized for accuracy might say the whole dataset is cats which will yield an accuracy of $98\%$. To solve the previous problem, additional metrics were introduced for the task of classification; precision (\ref{eq:precision}), recall (\ref{eq:recall}) and F1 score (\ref{eq:f1score}). Precision - positive predictive value - is defined as a fraction of retrieved instances that are relevant. Recall - sensitivity - is a fraction of relevant instances that are retrieved. In order to represent the performance of a model as a single variable F1 score was introduced, it represent a harmonic mean of recall and precision.
 \begin{equation} \label{eq:accuracy}
 	Accuracy = \frac{tp + tn}{tp + tn + fp + fn}
@@ -516,6 +518,7 @@ On of the problems in using backpropagation is the propagation of loss gradients
 Normalizing input data before it enters the machine learning algorithm usually increases the performance of the algorithm. It is easier for the model to learn that all of its inputs will be in a certain range. Input normalization in neural networks will not yield significant performance improvements because the input for images are normalized by nature in the range of $1$ to $255$ RGB (\ref{se:data}). The second problem is the modularity of neural networks. Each layer feeds its outputs into the inputs of the next layer - making any input normalization futile. To combat this a new solution in a form of normalization layer has been introduced in 2015 called batch normalization \citep{ioffe_batch_2015}. It normalizes the data for the whole batch that is used in the forward pass of the backpropagation algorithm (\ref{se:backprop}). As the authors have showed, using batch normalization improves generalization, in some cases removes the need for dropout (\ref{se:dropout}) and makes the neural network more robust to initial hyperparameter initialization.
 
 \chapter{Model}
+\label{se:model}
 To make a scalable species classifier that works with specific hardware requirements I had to make a classifier that yields the best performance and could be trained on a GPU with 2GB of VRAM in a reasonable time frame. In this chapter I introduce my solution based on the convolution neural network architecture ResNet \citep{he_deep_2016}.
 
 
@@ -570,7 +573,7 @@ There are a lot high performance CNN architectures \citep{he_deep_2016, simonyan
 \centering
 \caption{CNN architecture performance comparison on ImageNet dataset}
 \label{tb:CNN_architecutre_performance}
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{ccc}
 \hline 
 Network	& Top-1 error & Top-5 error \\  \hline
 ResNet-18 & 30.24 & 10.92 \\
@@ -704,7 +707,7 @@ One of the largest labeled image datasets freely opened to the public is ImageNe
 \centering
 \caption{ImageNet statistics}
 \label{tb:imagenet_statistics}
-\begin{tabular}{|c|c|c|c|}
+\begin{tabular}{cccc}
 \hline 
 High level category	& synset (subcategories)	& Avg images per synset & Total images  \\ \hline
 amphibian & 94 & 591 & 56K \\
@@ -758,7 +761,7 @@ The convolution network excepts a fixed size input, therefore every image in the
 \centering
 \caption{Dataset statistics}
 \label{tb:dataset_statistics}
-\begin{tabular}{|c|c|}
+\begin{tabular}{cc}
 \hline 
 Size [GB] & 1.6 \\ \hline 
 Class number & 15 \\ 
@@ -782,10 +785,211 @@ Preprocessing of data is an essential part of the machine learning pipeline. As 
 
 Also, another important part of the preprocessing is the generation of the validation dataset. For the validation to be efficient the validation dataset has to represent the training dataset. Keeping that in mind, I have created the validation set - $X_{validation}$ - by taking 10\% of images form each class.
 
+
+\section{Species}
+\label{se:species}
+
+This chapter shows typical images found in the ImageNet that were used as input for the model. This list all of 15 species used for model training is found in table \ref{tb:species_list}.
+
+\begin{table}
+\centering
+\caption{List of all 15 species used to train the model}
+\label{tb:species_list}
+\begin{tabular}{cc}
+\hline 
+Species (common name) & Species (Latin name)\\ \hline 
+whitetip shark, reef whitetip shark & Triaenodon obseus \\
+shovelhead, bonnethead, bonnet shark & Sphyrna tiburo \\
+tundra swan & Cygnus columbianus \\
+trumpeter, trumpeter swan & Cygnus buccinator \\
+black swan & Cygnus atratus \\
+wandering albatross & Diomedea exulans \\
+black-footed albatross, gooney, goonie, goony & Diomedea nigripes \\
+red wolf, maned wolf & Canis rufus, Canis niger \\
+red fox & Vulpes fulva \\
+Asiatic black bear, black bear & Ursus thibetanus\\
+ice bear, polar bear & Ursus Maritimus \\
+two-spotted ladybug & Adalia bipunctata \\
+Mexican bean beetle, bean beetle & Epilachna varivestis \\
+convergent lady beetle & Hippodamia convergens \\
+vedalia & Rodolia cardinalis \\
+\hline 
+\end{tabular} 
+\end{table}
+
+Some of the species are shown in figure \ref{fig:specis_image_examples}. Some species seem so similar that expert knowledge is needed (see figures \ref{fig:adalia_bipunctata} and \ref{fig:rodolia_cardinalis}). These images can seem almost identical to an untrained eye while the species are different. Neural networks with enough capacity have the ability to distinguish these traits on a level that is hard to interpret.
+
+There is a lot of noise in the images, animals are usually found in their habituate which makes them hard to be distinguished from their surroundings. This can be seen in figure \ref{fig:canis_rufus}, the Canis rufus is hidden and hard to see because of the color of his fur in regard to his surrounding.
+
+
+
+\begin{figure}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \resizebox{\linewidth}{!}{
+  \includegraphics[scale=0.36]{figures/asiatic_black_bear.png}
+        }
+        \caption{Ursus thibetanus}
+        \label{fig:ursus_thibetanus}
+    \end{subfigure}
+        \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \resizebox{\linewidth}{!}{
+  \includegraphics[scale=0.36]{figures/bonnet_shark.png}
+        }
+        \caption{Sphyrna tiburo}
+        \label{fig:sphyrna_tiburo}
+    \end{subfigure}
+        \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \resizebox{\linewidth}{!}{
+  \includegraphics[scale=0.36]{figures/hippodamia_convergens.png}
+        }
+        \caption{Hippodamia convergens}
+        \label{fig:hippodamia_convergens}
+    \end{subfigure}
+    
+        \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \resizebox{\linewidth}{!}{
+  \includegraphics[scale=0.36]{figures/polar_bear.png}
+        }
+        \caption{Ursus maritimus}
+        \label{fig:ursus_maritimus}
+    \end{subfigure}
+        \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \resizebox{\linewidth}{!}{
+  \includegraphics[scale=0.36]{figures/red_fox.png}
+        }
+        \caption{Vulpes fulva}
+        \label{fig:vulpes_fulva}
+    \end{subfigure}
+        \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \resizebox{\linewidth}{!}{
+  \includegraphics[scale=0.36]{figures/trumepeter_swan.png}
+        }
+        \caption{Cygnus buccinator}
+        \label{fig:cygnus_buccinator}
+    \end{subfigure}
+    
+     \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \resizebox{\linewidth}{!}{
+  \includegraphics[scale=0.36]{figures/two_spotted_ladybug.png}
+        }
+        \caption{Adalia bipunctata}
+        \label{fig:adalia_bipunctata}
+    \end{subfigure}
+        \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \resizebox{\linewidth}{!}{
+  \includegraphics[scale=0.36]{figures/vedalia.png}
+        }
+        \caption{Rodolia cardinalis}
+        \label{fig:rodolia_cardinalis}
+    \end{subfigure}
+        \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \resizebox{\linewidth}{!}{
+  \includegraphics[scale=0.36]{figures/wandering_albatross.png}
+        }
+        \caption{Diomedea exulans}
+        \label{fig:diomedea_exulans}
+    \end{subfigure}
+    
+    
+     \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \resizebox{\linewidth}{!}{
+  \includegraphics[scale=0.36]{figures/mexican_bean_beetle.png}
+        }
+        \caption{Epilachna varivestis}
+        \label{fig:epilachna_varivestis}
+    \end{subfigure}
+        \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \resizebox{\linewidth}{!}{
+  \includegraphics[scale=0.36]{figures/red_wolf.png}
+        }
+        \caption{Canis rufus}
+        \label{fig:canis_rufus}
+    \end{subfigure}
+        \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \resizebox{\linewidth}{!}{
+  \includegraphics[scale=0.36]{figures/whitetip_shark.png}
+        }
+        \caption{Triaenodon obseus}
+        \label{fig:triaenodon_obseus}
+    \end{subfigure}
+    
+\caption{Examples of species with a randomly picked image from the input dataset} 
+\label{fig:specis_image_examples}
+\end{figure}
+
+
+
 \chapter{Results}
 
 \section{Hardware and software}
-Graphs graphs graphs...
+The model is implemented in Keras with Python 3.5. All the results were computed on my personal laptop with the following hardware and software specifications (see tables \ref{tb:hardware_specifications} and \ref{tb:software_specifications}). All the software was chosen to support the given hardware specifications and to be able to efficiently build and train a deep learning model, explained in detail in chapter \ref{se:model}. Python is currently the leading language for deep learning, as well as TensorFlow and its higher-level framework Keras. All the programs were run inside Docker containers specifically made for  the previously mentioned technology stack.
+
+\begin{table}
+\centering
+\caption{Hardware specifications}
+\label{tb:hardware_specifications}
+\begin{tabular}{cc}
+\hline 
+Hardware component & Specification \\ \hline 
+RAM & 8GB DDR3 \\ 
+Dedicated GPU & Nvidia GTX 650m \\ 
+Processor & Intel Core i7-3632QM 2.2GHz\texttt{\textbackslash}Turbo Boost 3.2GHz\\
+Cuda cores & 384 \\
+GPU Memory Bandwidth & 80.0 GB/sec\\
+Graphics Clock & Up to 900 MHz \\
+Memory Interface & DDR3\texttt{\textbackslash}GDDR5 \\
+\hline 
+\end{tabular} 
+\end{table}
+
+\begin{table}
+\centering
+\caption{Software specifications}
+\label{tb:software_specifications}
+\begin{tabular}{cc}
+\hline 
+Software & Version \\ \hline 
+Operating System & Ubuntu 16.04 LTS \\ 
+Python & 64-version 3.5 \\ 
+Keras & 2.0.4 \\
+TensorFlow & 1.1 \\
+\hline 
+\end{tabular} 
+\end{table}
+
+\section{Performance}
+
+In this section, different metrics and their impact on the performance of the model, as well as a detailed insight into the performance of the model is given. The model is evaluated on a validation dataset that is created as from 10\% images from the whole input dataset. The distribution of the data with more informations can be find the chapter \ref{se:data}.
+
+Classification performance is shown in table \ref{tb:classifier_performance} with metrics described in detail in section \ref{se:metrics}. This table shows a detailed outline of the overall classification performance of the model, but it fails to give insight into the classification performance on a class by class level. To resolve this problem, a confusion matrix is given in figure X.
+
+
+\begin{table}
+\centering
+\caption{Classifier performance}
+\label{tb:classifier_performance}
+\begin{tabular}{cc}
+\hline 
+Metrics & Value \\ \hline 
+Accuracy &  0.83505\\ 
+Precision & 0.80856 \\ 
+Recall & 0.80211 \\
+F1 & 0.80311 \\
+\hline 
+\end{tabular} 
+\end{table}
 
 \chapter{Conclusion}
 Zaključak.
