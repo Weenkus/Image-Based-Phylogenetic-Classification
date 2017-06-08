@@ -1,12 +1,15 @@
 import glob
 import shutil
 import os
+import itertools
 import re
 import numpy as np
 import random
 import matplotlib.pyplot as plt
 import PIL
 from PIL import Image
+
+from sklearn.metrics import confusion_matrix
 
 
 class ImageProcessor(object):
@@ -177,7 +180,7 @@ class DatasetProcessor(object):
         return wnids_regex(wnid_path).group(1) if wnids_regex(wnid_path) else None
 
     @staticmethod
-    def create_wnid_to_one_hot(wnids):
+    def wnid_to_one_hot(wnids):
         class_num = len(wnids)
         one_hot_matrix = np.eye(class_num)
 
@@ -186,6 +189,30 @@ class DatasetProcessor(object):
             wnid_to_one_hot[wnid] = one_hot_matrix[i]
 
         return wnid_to_one_hot
+
+    @staticmethod
+    def paths_to_one_hot(paths, wnid_one_hot):
+        paths = sorted(paths)
+
+        one_hot_mapper = lambda path: wnid_one_hot[DatasetProcessor.extract_wnid(path)]
+        return np.array(list(map(one_hot_mapper, paths)))
+
+    @staticmethod
+    def softmax_predictions_to_one_hot(predicions):
+        class_num = predicions.shape[1]
+        one_hot_predictions = []
+
+        for prediction in predicions:
+            one_hot_matrix = np.zeros(class_num)
+            class_index = np.argmax(prediction)
+            one_hot_matrix[class_index] = 1
+            one_hot_predictions.append(one_hot_matrix)
+
+        return np.array(one_hot_predictions)
+
+    @staticmethod
+    def from_one_hot_to_categorical(one_hot_dataset):
+        return [np.argmax(row) for row in one_hot_dataset]
 
 
 class Analytics(object):
@@ -198,3 +225,37 @@ class Analytics(object):
             class_counter[class_wnid] = class_counter.get(class_wnid, 0) + 1
 
         return class_counter
+
+    @staticmethod
+    def plot_confusion_matrix(cm, classes,
+                              normalize=False,
+                              title='Confusion matrix',
+                              cmap=plt.cm.Blues):
+        """
+        This function prints and plots the confusion matrix.
+        Normalization can be applied by setting `normalize=True`.
+        """
+        plt.imshow(cm, interpolation='nearest', cmap=cmap)
+        plt.title(title)
+        plt.colorbar()
+        tick_marks = np.arange(len(classes))
+        plt.xticks(tick_marks, classes, rotation=75)
+        plt.yticks(tick_marks, classes)
+
+        if normalize:
+            cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+            print("Normalized confusion matrix")
+        else:
+            print('Confusion matrix, without normalization')
+
+        # print(cm)
+
+        thresh = cm.max() / 2.
+        for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+            plt.text(j, i, cm[i, j],
+                     horizontalalignment="center",
+                     color="white" if cm[i, j] > thresh else "black")
+
+        plt.tight_layout()
+        plt.ylabel('True label')
+        plt.xlabel('Predicted label')
