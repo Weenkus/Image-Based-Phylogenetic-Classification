@@ -3,8 +3,21 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: fer.bst
 Database file #1: master_thesis.bib
+Warning--entry type for "imagenet" isn't style-file defined
+--line 115 of file master_thesis.bib
+Warning--entry type for "kaggle" isn't style-file defined
+--line 122 of file master_thesis.bib
+Repeated entry---line 128 of file master_thesis.bib
+ : @online{kaggle
+ :               ,
+I'm skipping whatever remains of this entry
 Warning--entry type for "kleene_representation_1951" isn't style-file defined
---line 129 of file master_thesis.bib
+--line 136 of file master_thesis.bib
+Warning--I didn't find a database entry for "cifar-10"
+Warning--to sort, need author or key in imagenet
+Warning--to sort, need author or key in kaggle
+Warning--empty year in imagenet
+Warning--empty year in kaggle
 Warning--empty journal in clevert_fast_2015
 Warning--empty year in clevert_fast_2015
 Warning--empty year in clevert_fast_2015
@@ -45,45 +58,45 @@ Warning--empty year in xu_empirical_2015
 Warning--empty year in xu_empirical_2015
 Warning--empty year in yan_hd-cnn:_2015-1
 Warning--empty year in yan_hd-cnn:_2015
-You've used 18 entries,
+You've used 20 entries,
             2773 wiz_defined-function locations,
-            694 strings with 9261 characters,
-and the built_in function-call counts, 9960 in all, are:
-= -- 891
+            701 strings with 9345 characters,
+and the built_in function-call counts, 10440 in all, are:
+= -- 937
 > -- 587
 < -- 17
-+ -- 199
++ -- 201
 - -- 179
-* -- 839
-:= -- 1464
-add.period$ -- 72
-call.type$ -- 18
-change.case$ -- 113
-chr.to.int$ -- 16
-cite$ -- 76
-duplicate$ -- 448
-empty$ -- 766
+* -- 871
+:= -- 1502
+add.period$ -- 76
+call.type$ -- 20
+change.case$ -- 119
+chr.to.int$ -- 18
+cite$ -- 86
+duplicate$ -- 478
+empty$ -- 836
 format.name$ -- 209
-if$ -- 2100
+if$ -- 2218
 int.to.chr$ -- 3
 int.to.str$ -- 1
 missing$ -- 17
-newline$ -- 114
+newline$ -- 122
 num.names$ -- 74
-pop$ -- 319
+pop$ -- 347
 preamble$ -- 1
-purify$ -- 95
+purify$ -- 99
 quote$ -- 0
-skip$ -- 312
+skip$ -- 340
 stack$ -- 0
-substring$ -- 366
-swap$ -- 83
+substring$ -- 372
+swap$ -- 85
 text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 198
-warning$ -- 40
+type$ -- 220
+warning$ -- 44
 while$ -- 84
 width$ -- 0
-write$ -- 251
-(There were 41 warnings)
+write$ -- 269
+(There was 1 error message)
