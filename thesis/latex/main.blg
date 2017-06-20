@@ -7,17 +7,30 @@ Warning--entry type for "imagenet" isn't style-file defined
 --line 115 of file master_thesis.bib
 Warning--entry type for "kaggle" isn't style-file defined
 --line 122 of file master_thesis.bib
-Repeated entry---line 128 of file master_thesis.bib
- : @online{kaggle
- :               ,
-I'm skipping whatever remains of this entry
+Warning--entry type for "cifar" isn't style-file defined
+--line 128 of file master_thesis.bib
 Warning--entry type for "kleene_representation_1951" isn't style-file defined
 --line 136 of file master_thesis.bib
-Warning--I didn't find a database entry for "cifar-10"
+Warning--to sort, need author or key in cifar
 Warning--to sort, need author or key in imagenet
 Warning--to sort, need author or key in kaggle
+Warning--to sort, need author or key in tensorflow
+Warning--to sort, need author or key in caffe
+Warning--to sort, need author or key in pytorch
+Warning--to sort, need author or key in keras
+Warning--to sort, need author or key in theano
+Warning--to sort, need author or key in cntk
+Warning--to sort, need author or key in docker
+Warning--empty year in caffe
+Warning--empty year in cifar
+Warning--empty year in cntk
+Warning--empty year in docker
 Warning--empty year in imagenet
 Warning--empty year in kaggle
+Warning--empty year in keras
+Warning--empty year in pytorch
+Warning--empty year in tensorflow
+Warning--empty year in theano
 Warning--empty journal in clevert_fast_2015
 Warning--empty year in clevert_fast_2015
 Warning--empty year in clevert_fast_2015
@@ -58,45 +71,45 @@ Warning--empty year in xu_empirical_2015
 Warning--empty year in xu_empirical_2015
 Warning--empty year in yan_hd-cnn:_2015-1
 Warning--empty year in yan_hd-cnn:_2015
-You've used 20 entries,
+You've used 28 entries,
             2773 wiz_defined-function locations,
-            701 strings with 9345 characters,
-and the built_in function-call counts, 10440 in all, are:
-= -- 937
+            724 strings with 10262 characters,
+and the built_in function-call counts, 12360 in all, are:
+= -- 1121
 > -- 587
 < -- 17
-+ -- 201
++ -- 209
 - -- 179
-* -- 871
-:= -- 1502
-add.period$ -- 76
-call.type$ -- 20
-change.case$ -- 119
-chr.to.int$ -- 18
-cite$ -- 86
-duplicate$ -- 478
-empty$ -- 836
+* -- 999
+:= -- 1654
+add.period$ -- 92
+call.type$ -- 28
+change.case$ -- 143
+chr.to.int$ -- 26
+cite$ -- 126
+duplicate$ -- 598
+empty$ -- 1116
 format.name$ -- 209
-if$ -- 2218
+if$ -- 2690
 int.to.chr$ -- 3
 int.to.str$ -- 1
 missing$ -- 17
-newline$ -- 122
+newline$ -- 154
 num.names$ -- 74
-pop$ -- 347
+pop$ -- 459
 preamble$ -- 1
-purify$ -- 99
+purify$ -- 115
 quote$ -- 0
-skip$ -- 340
+skip$ -- 452
 stack$ -- 0
-substring$ -- 372
-swap$ -- 85
+substring$ -- 396
+swap$ -- 93
 text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 220
-warning$ -- 44
+type$ -- 308
+warning$ -- 60
 while$ -- 84
 width$ -- 0
-write$ -- 269
-(There was 1 error message)
+write$ -- 341
+(There were 64 warnings)

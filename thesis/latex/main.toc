@@ -12,14 +12,14 @@
 \contentsline {subsection}{\numberline {2.2.2}Artificial neural network (ANN)}{8}{subsection.2.2.2}
 \contentsline {section}{\numberline {2.3}Deep learning}{11}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}Convolutional neural Network (CNN / ConvNet)}{11}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Dropout}{14}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.2}Dropout}{15}{subsection.2.3.2}
 \contentsline {subsection}{\numberline {2.3.3}Data augmentation}{15}{subsection.2.3.3}
 \contentsline {subsection}{\numberline {2.3.4}Backpropagation}{15}{subsection.2.3.4}
 \contentsline {subsubsection}{Gradient descent}{17}{section*.17}
 \contentsline {subsubsection}{Stochastic gradient descent}{18}{section*.20}
 \contentsline {subsubsection}{Optimization target}{18}{section*.21}
 \contentsline {subsection}{\numberline {2.3.5}Vanishing gradient}{19}{subsection.2.3.5}
-\contentsline {subsection}{\numberline {2.3.6}Batch normalization}{19}{subsection.2.3.6}
+\contentsline {subsection}{\numberline {2.3.6}Batch normalization}{20}{subsection.2.3.6}
 \contentsline {chapter}{\numberline {3}Model}{21}{chapter.3}
 \contentsline {section}{\numberline {3.1}Implementation}{21}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Keras}{21}{subsection.3.1.1}

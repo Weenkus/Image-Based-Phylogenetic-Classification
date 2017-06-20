@@ -382,13 +382,13 @@ The necognitron was introduced in 1980s by Kunihiko Fukushima \citep{fukushima_n
 \begin{figure}
   \includegraphics[scale=0.5]{figures/conv.png}
   \centering
-  \caption{3D structure of a convolutional filter (on the left painted in pink is the input and the blue rectangle with circle is a filter)}
+  \caption{3D structure of a convolutional filter (on the left painted in pink is the input - image - and the blue rectangle with circles is a filter)}
   \label{fig:conv}
 \end{figure}
 
 Today's modern convolutional neural network architectures, such as: AlexNet, VGG, Inception and ResNet \citep{krizhevsky_imagenet_2012, simonyan_very_2014, szegedy_going_2015, he_deep_2016} are made mostly of convolution and pooling layers. These architecture have an enormous number of parameters and are trained on powerful GPUs or clusters of servers over a period of days, sometimes even weeks.
 
-The convolution layer is a building block of modern CNNs. The layer's parameters consist of a set of kernels (filters). Each filter has a small receptive field, but extends through the whole depth of the input. During the forward pass of the input through the network, each filter is convolved across the width and heigh of the input volume. Each time the filter moves to neighbourhood pixels it creates an output pixel (shown in figures \ref{fig:conv} and \ref{fig:conv1}). Each convolution layer consists of multiple filters, each specialized (because of training) to detect different features in the input. Filters will detect diagonal edges, top edges, corners and other different building blocks of images. Each filter will use the features of the previous layer to create more abstract features. For example, a filter in the first layer might capture edges, while filters in deeper layers may use the edge filters to create corner and circle detectors (shown in detail in figure \ref{fig:filter}) \citep{simonyan_very_2014}.
+The convolution layer is a building block of modern CNNs. The layer's parameters consist of a set of kernels (filters). Each filter has a small receptive field, but extends through the whole depth of the input. During the forward pass of the input through the network, each filter is convolved across the width and heigh of the input volume. Each time the filter moves to neighbourhood pixels it creates an output pixel (shown in figures \ref{fig:conv} and \ref{fig:conv1}). Each convolution layer consists of multiple filters, each specialized (because of model training) to detect different features in the input. Filters will detect diagonal edges, top edges, corners and other different building blocks of images. Each filter will use the features of the previous layer to create more abstract features. For example, a filter in the first layer might capture edges, while filters in deeper layers may use the edge filters to create corner and circle detectors (shown in detail in figure \ref{fig:filter}) \citep{simonyan_very_2014}.
 
 
 \begin{figure}
@@ -405,7 +405,7 @@ The convolution layer is a building block of modern CNNs. The layer's parameters
   \label{fig:filter}
 \end{figure}
 
-The second core layer of almost every modern CNN is the pooling layer. It, in contrast to the convolution layer, does not have any parameters. Pooling layer takes the input and reduces its dimension. CNNs use max pooling, which maps the input into a reduced output by taking only the max values in the mapping (showed in figure \ref{fig:pool}). Use of pooling layer is a heated topic in today's CNN architectures, unfortunately hardware can't keep up with the depth of the modern architectures without the use of pooling layers.
+The second core layer of almost every modern CNN is the pooling layer. It, in contrast to the convolution layer, does not have any parameters. The pooling layer takes the input and reduces its dimension. CNNs use max pooling, which maps the input into a reduced output by taking only the max values in the mapping (showed in figure \ref{fig:pool}). Use of pooling layer is a heated topic in today's CNN architectures, unfortunately hardware cannot keep up with the depth of the modern architectures without the use of pooling layers.
 
 \begin{figure}
   \includegraphics[scale=0.6]{figures/pool.png}
@@ -414,7 +414,7 @@ The second core layer of almost every modern CNN is the pooling layer. It, in co
   \label{fig:pool}
 \end{figure}
 
-The typical structure in a CNN network will be a couple of convolution layers followed by a max pool layer. The most common dimension of convolution filters is 3x3, made popular by the huge success of VGG \citep{simonyan_very_2014}. The typical CNN is shown in figure \ref{fig:cnn}.
+The typical structure in a CNN network is one or more convolution layers followed by a max pool layer, and that is repeated multiple times to increase the capacity of the model. The most common dimension of convolution filters is 3x3, made popular by the huge success of VGG \citep{simonyan_very_2014} CNN architecture. The typical CNN is shown in figure \ref{fig:cnn}.
 
 \begin{figure}
   \includegraphics[scale=0.43]{figures/cnn.png}
@@ -425,7 +425,7 @@ The typical structure in a CNN network will be a couple of convolution layers fo
 
 \subsection{Dropout} \label{se:dropout}
 
-On of the most important techniques in machine learning is regularization (subsection \ref{se:machine_learning}). The modern approach to regularization is called dropout and was introduced in 2014 \citep{srivastava_dropout:_2014}. Dropout "drops" (removes) a percent of neurons on every forward pass (figure \ref{fig:dropout}). The network cannot count that the same neurons will always be active and, as a result it increases the robustest of the model together with its generalization performance. As in every forward pass, the network has a different set of neurons, this technique can be seen as using multiple variations of the same network on the same problem.
+On of the most important techniques in machine learning is regularization (subsection \ref{se:machine_learning}). The modern approach to regularization is called dropout and was introduced in 2014 \citep{srivastava_dropout:_2014}. Dropout "drops" (removes) a percent of neurons on every forward pass (figure \ref{fig:dropout}). The network cannot be sure that the same neurons will always be active and, as a result must not rely on every neuron, therefore increasing the robustest of the model together with its generalization performance. As in every forward pass, the network has a different set of neurons, this technique can be seen as using multiple variations of the same network on the same problem.
 
 \begin{figure}
   \includegraphics[scale=0.91]{figures/dropout.png}
@@ -436,12 +436,12 @@ On of the most important techniques in machine learning is regularization (subse
 
 \subsection{Data augmentation}  \label{se:data_augmentation}
 
-Another popular regularization technique is called data augmentation. The model usually trains in tens or even hundreds of epochs - a signal epoch is when the training algorithm uses every data point in $X_{train}$ (one pass over $X_{train}$). Reusing the same data points can lead to overfitting. To prevent that we can augment $X_{train}$ on every epoch. This approach is commonly called data jittering. Usually the data is augmented with rotation, mirroring, cropping, blurring (all these effects can be seen in figures \ref{fig:data_augmentation_figure} and \ref{fig:data_augmentation}). Both, dropout and data augmentation is used in almost every state-of-the-art CNN model today. There are some exceptions due to a new technique called batch normalization \citep{ioffe_batch_2015}.
+Another popular regularization technique is called data augmentation. The model usually trains in tens or even hundreds of epochs - a signal epoch is when the training algorithm uses every data point in $X_{train}$ (one pass over $X_{train}$). Reusing the same data points can lead to overfitting. One approach to preventing that is to augment $X_{train}$ on every epoch. This approach is commonly called data jittering. Usually the data is augmented with rotation, mirroring, cropping, blurring (all these effects can be seen in figures \ref{fig:data_augmentation_figure} and \ref{fig:data_augmentation}). Both, dropout and data augmentation is used in almost every state-of-the-art CNN model today. There are some exceptions due to a new technique called batch normalization \citep{ioffe_batch_2015}.
 
 \begin{figure}
   \includegraphics[scale=0.7]{figures/data_augmentation.png}
   \centering
-  \caption{An example of the original image 224x224x3 in $X_{train}$}
+  \caption{An example of the original - unprocessed - image in $X_{train}$}
   \label{fig:data_augmentation_figure}
 \end{figure}
 
@@ -454,16 +454,16 @@ Another popular regularization technique is called data augmentation. The model 
 
 \subsection{Backpropagation} \label{se:backprop}
 
-To be able to train the convolution neural network on huge datasets, an algorithm is needed that is able to train the model with a subset of $X_{train}$. Fitting the whole $X_{train}$ in the GPU memory is not possible for datasets of serious size. Also, the algorithm should be highly concurrent in order to use the structure of neural network to its advantage. The backward propagation of errors or more commonly called backpropagation (backprop) used together with gradient descent is the most popular method for training most neural networks.
+To be able to train a convolutional neural network on huge datasets, an algorithm is needed that is able to train the model with a subset of $X_{train}$. Fitting the whole $X_{train}$ in the GPU memory is not possible for datasets of serious size. Also, the algorithm should be highly concurrent in order to use the structure of neural network to its advantage. The backward propagation of errors or more commonly called backpropagation (backprop) used together with gradient descent is the most popular method for training (most) neural networks.
 
 \subsubsection{Gradient descent}
 
-Gradient descent is an iterative optimization algorithm. It uses the gradient \ref{se:gradient} of a function to find a point on a domain that minimises or maximises the function's value. Gradient descent does not guarantee to find the global maxima or minima (figure \ref{fig:local_and_global_function_values}). There have been several variations of the gradient descent algorithm that deal with the algorithm being stuck in local maxima or minima, the most famous and most widely used for deep  learning is Adam \citep{kingma_adam:_2014}.
+Gradient descent is an iterative optimization algorithm. It uses the gradient \ref{se:gradient} of a function to find a point on a domain that minimises or maximises the function's value. Gradient descent does not guarantee to find the global maximum or minimum (figure \ref{fig:local_and_global_function_values}). There have been several variations of the gradient descent algorithm that deal with the algorithm being stuck in local maximum or minimum, the most famous and most widely used for deep  learning is Adam \citep{kingma_adam:_2014}.
 
 \begin{figure}
   \includegraphics[scale=0.5]{figures/local_global_maxima_minima.png}
   \centering
-  \caption{An example of local and global maxima and minima in a function}
+  \caption{An example of local and global maximum and minimum in a function}
   \label{fig:local_and_global_function_values}
 \end{figure}
 
@@ -472,23 +472,23 @@ Gradient descent is an iterative optimization algorithm. It uses the gradient \r
 	x_{n+1} = x_n - \eta * \nabla{f(x_n)}
 \end{equation}
 
-Gradient descent uses the gradient to move in a way that minimises or maximises the given function (\ref{eq:gradient_descent}). The amount that is used to move the data point - called the step ($\eta$) - is crucial for the convergence of the algorithm. If the step is too big the algorithm might diverge or get stuck into a local minim or maxima, while if the step is too small the algorithm might take too long to converge. Gradient descent, like other optimization algorithms needs to have its parameters properly initialise to achieve better results.
+Gradient descent uses the gradient of a function to move in a way that minimises or maximises the given function (\ref{eq:gradient_descent}). The amount that is used to move the data point - called the step ($\eta$) - is crucial for the convergence of the algorithm. If the step is too big the algorithm might diverge or get stuck into a local minimum or maximum, while if the step is too small the algorithm might take too long to converge. Gradient descent, like other optimization algorithms needs to have its parameters properly initialise to achieve good results.
 
 \begin{figure}
   \includegraphics[scale=0.5]{figures/gradient_descent.png}
   \centering
-  \caption{An example of gradient descent converging to global minima in a 2D space (2 variable function)}
+  \caption{An example of gradient descent converging to global minimum in a 2D space (function with two variables)}
   \label{fig:local_and_global_function_values}
 \end{figure}
 
 \subsubsection{Stochastic gradient descent}
 \label{se:stochastic_gd}
 
-The main disadvantage of the gradient descent (\ref{eq:gradient_descent}) is the need to calculate the gradient on all the dataset for the update state. The gradient has to be calculate on the whole $X_{train}$. A huge improvement on the basic gradient descent is a the stochastic gradient descent (SGD). It updates the gradient by sampling the dataset in minibatchs, usually the size 64, 128 or 256 data points (depending on GPU memory limitations). After every epoch the the whole training dataset $X_{train}$ is shuffled so that different minibatches will be sampled in the next epoch. The rule of thumb is if you can increase the size of minibatch - do it. The more data points are in the minibatch, the more precise is the gradient approximation, also the model trains faster.
+The main disadvantage of the gradient descent (\ref{eq:gradient_descent}) is the need to calculate the gradient on all the dataset, to be able to update the parameter. The gradient has to be calculate on the whole $X_{train}$. An improvement on the basic gradient descent is the stochastic gradient descent (SGD). It updates the gradient by sampling the dataset in minibatchs, usually the size 64, 128 or 256 data points (depending on GPU memory limitations). After every epoch the the whole training dataset $X_{train}$ is shuffled so that different minibatches will be sampled in the next epoch. The rule of thumb is if you can increase the size of minibatch - do it. The more data points are in the minibatch, the more precise is the gradient approximation, also the model trains faster.
 
 \subsubsection{Optimization target}
 
-The goal of the gradient descent algorithm is to minimise or maximise a function. In deep learning, when training the model, we want to minimise the loss function $E(h|D)$ by computing its gradient. In classification (\ref{eq:classification_def}) the goal is for the predicted class $y_p$ to match the true class $y_t$. Neural networks for classification usually have a softmax layer as their last layer. Softmax (\ref{eq:softmax}) is a normalization exponential function, which transforms neural network's outputs to probabilities for every class. The sum of the softmax values for all classes is equal to 1.  
+The goal of the gradient descent algorithm is to minimise or maximise a function. In deep learning, when training the model, the goal is to minimise the loss function $E(h|D)$ by computing its gradient. In classification (\ref{eq:classification_def}) the goal is for the predicted class $y_p$ to match the true class $y_t$. Neural networks for classification usually have a softmax layer as their last layer. Softmax (\ref{eq:softmax}) is a normalization exponential function, which transforms neural network's outputs to probabilities for every class. The sum of the softmax values for all classes is equal to one.  
 
 \begin{equation}
 \label{eq:softmax}
@@ -518,9 +518,9 @@ On of the problems in using backpropagation is the propagation of loss gradients
 \subsection{Batch normalization}
 \label{se:batch_norm}
 
-Normalizing input data before it enters the machine learning algorithm usually increases the performance of the algorithm. It is easier for the model to learn its task when all of its inputs will be in a certain range. Input normalization in neural networks will not yield significant performance improvements because the input for images are normalized by nature in the range of $1$ to $255$ RGB (\ref{se:data}). 
+Normalizing input data before it enters the machine learning algorithm usually increases the performance of the algorithm. It is easier for the model to learn its task when all of its inputs will be in a certain range. Input normalization in CNNs that use images for input will not yield significant performance improvements because the input for images are normalized by nature in the range of $0$ to $255$ RGB values (\ref{se:data}). 
 
-The second problem is the modularity of neural networks. Each layer feeds its outputs into the inputs of the next layer - making any input normalization futile. To combat this a new solution in a form of normalization layer has been introduced in 2015 called batch normalization \citep{ioffe_batch_2015}. It normalizes the data for the whole batch that is used in the forward pass of the backpropagation algorithm (\ref{se:backprop}). As the authors have showed, using batch normalization improves generalization, in some cases removes the need for dropout (\ref{se:dropout}) and makes the neural network more robust to initial hyperparameter initialization.
+The second problem is the modularity of neural networks. Each layer feeds its outputs into the inputs of the next layer - making any input normalization futile. To combat this a new solution in a form of normalization layer has been introduced in 2015 called batch normalization \citep{ioffe_batch_2015}. It normalizes the data for the whole minibatch that is used in the forward pass of the backpropagation algorithm (\ref{se:backprop}). As the authors have showed, using batch normalization improves generalization, in some cases removes the need for dropout (\ref{se:dropout}) and makes the neural network more robust to initial hyperparameter initialization.
 
 \chapter{Model}
 \label{se:model}
@@ -529,12 +529,12 @@ To make a scalable species classifier that works with specific hardware requirem
 
 \section{Implementation}
 
-There are a plethora of computational frameworks to choose to create a deep learning model; TensorFlow, Caffe2, pyTroch, Keras, Theano, CNTK and many more. I have chosen Keras as it has a high level API for creating neural networks and provides pretrained models (more on this later) which was crucial to train a high accuracy model on a weak GPU. Keras allows the user to choose a backend deep learning framework, at the time of writing this thesis there were two options - TensorFlow and Theano. TensorFlow was chosen as it is newer and has gained a lot of popularity in the past couple of months.
+There are a plethora of computational frameworks to choose to create a deep learning model; TensorFlow \citep{tensorflow}, Caffe2 \citep{caffe}, pyTroch \citep{pytorch}, Keras \citep{keras}, Theano \citep{theano}, CNTK \citep{cntk} and many more. I have chosen Keras as it has a high level API for creating neural networks and provides pretrained models (more on this in section \ref{se:pretrained_parameters}) which was crucial to train a high accuracy model on a weak GPU. Keras allows the user to choose a backend deep learning framework, at the time of writing this thesis there were two options - TensorFlow and Theano. TensorFlow was chosen as it is newer and has gained a lot of popularity in the past couple of months.
 
 \subsection{Keras}
 \label{se:keras}
 
-Keras provides a high level of abstraction when creating neural networks, giving the user a framework for rapid iteration and development. A simple example of the high level API is given below. Using Keras we can create a two layered fed-forward neural network in just a couple of lines of code. The "create\textunderscore model" function returns a model with two layers the first layer has 32 neurons, the second (also the last) has 10 - this means the classifier has 10 classes (the number of neurons in the last layer should always match the number of classes). The last layer uses the softmax activation function (\ref{eq:softmax}) to get class probabilities. The model also defines to type of gradient descent algorithm (\ref{eq:gradient_descent}) - RMSProp, and the loss function categorical crossentropy (\ref{eq:cross_entropy_loss}). The "train\textunderscore model" function takes the created model and trains it in 10 epochs with a minibatch size of 32 (\ref{se:stochastic_gd}).
+Keras provides a high level of abstraction when creating neural networks, giving the user a framework for rapid iteration and development. A simple example of the high level API is given below. Using Keras we can create a two layered feed-forward neural network in just a couple of lines of code. The "create\textunderscore model" function returns a model with two layers the first layer has 32 neurons, the second (also the last) has 10 - this means the classifier has 10 classes (the number of neurons in the last layer should always match the number of classes). The last layer uses the softmax activation function (see section \ref{eq:softmax} for more details) to get class probabilities. The model also defines to type of gradient descent algorithm (\ref{eq:gradient_descent}) - RMSProp, and the loss function categorical cross entropy (\ref{eq:cross_entropy_loss}). The "train\textunderscore model" function takes the created model and trains it in 10 epochs with a minibatch size of 32 input data points (\ref{se:stochastic_gd}).
 
 
 
@@ -566,7 +566,7 @@ train_model(model, X_train, y_train)
 
 \end{lstlisting}
 
-TensorFlow is the backend engine of Keras, and it, same as Keras, allows the user to write computational graphs in Python. Python is a high level language that allows the user for rapid development due to its simplicity. The ease of use of Python comes at the cost of performance, usually Python programs are an order of magnitude slower than programs written in Rust, C++ or Java. All computational graph frameworks mentioned above work blazingly fast, yet they use (mostly) Python to define the computational graph (neural network). The key to fast performance for these frameworks is that they are written and run in C++, but they offer a high-level API in Python. For this to work the API usually has a "compile" function that builds the graph and the "train" or "fit" function which starts the process of training the neural network.
+TensorFlow is the backend engine of Keras, and it, same as Keras, allows the user to write computational graphs in Python. Python is a high level language that allows the user for rapid development due to its simplicity. The ease of use of Python comes at the cost of performance, usually Python programs are an order of magnitude slower than programs written in lower abstraction languages such as Rust, C++ or Java. All computational graph frameworks mentioned above work blazingly fast, yet they use (mostly) Python to define the computational graph (neural network). The key to fast performance for these frameworks is that they are written and run in C++, but they offer a high-level API in Python. For this to work the API usually has a "compile" function that builds the graph and the "train" or "fit" function which starts the process of training the neural network.
 
 \subsection{Architecture}
 \label{se:architecture}
@@ -611,7 +611,7 @@ ResNet's performance comes from a unique way in which it builds layers. ResNet i
   \label{fig:residual_layer}
 \end{figure}
 
-Figure \ref{fig:vgg_resnet_comparison} shows a direct comparison between VGG and ResNet architectures, and one of the main benefits of using ResNet on a lower memory GPU is the lack of fully-connected (dense) layers at the end of the network. The fully-connected layers contain the most parameters, and removing them increases the number of convolution layers while lowering the number of parameters.
+Figure \ref{fig:vgg_resnet_comparison} shows a direct comparison between VGG and ResNet architectures. One of the main benefits of using ResNet is a lower memory consumption on the GPU because of the lack of fully-connected (dense) layers at the end of the network. The fully-connected layers contain the most parameters, and removing them increases the number of convolution layers while lowering the number of parameters.
 
 \begin{figure}
   \includegraphics[scale=0.7]{figures/resnet_vgg_comparison.png}
@@ -624,7 +624,7 @@ Figure \ref{fig:vgg_resnet_comparison} shows a direct comparison between VGG and
 \label{se:pretrained_parameters}
 As seen in figure \ref{fig:filter}, each convolution layer learns a specific level of abstraction. Those abstractions are general building blocks of images (boxes, circles, edges, etc.). This implies that if you train a CNN on one set of images, the parameters in the front convolution layers can be reused on a different task. Using this, higher accuracy can be achieved when working on small datasets. This is called pretraining or fine-tuning the model.
 
-One of the biggest labeld image databases is ImageNet and is the go to dataset for image classification research. Almost every modern CNN architecture was evaluated and trained on it. Downloading the parameters from those trained neural networks and initialising the model with them gives us state of the art performance even on small datasets. The only needed step is to fine-tune the network by training it on our dataset after it was initialised with the pretrained values.
+One of the biggest labeled image databases is ImageNet \citep{imagenet} and is the go to dataset for image classification research. Almost every modern CNN architecture was evaluated and trained on it. Downloading the parameters from those trained neural networks and initialising the model with them gives us state of the art performance even on small datasets. The only needed step is to fine-tune the neural network by training it on our dataset, after it was initialised with the pretrained values - fine tuning.
 
 Below is the Keras code for creating a pretrained model from the ImageNet dataset. First, the pretrained model is loaded without the top layer (the top layer is not important as it is a fully-connected layer which was build for 1000 classes, the convolution layers are only needed for this task). The second step is to create a small feed-forward network and append it to the end of the network. Set the pretrained convolution layers to not train and compile to model. The final softmax layer has 15 neurons as the model was tested on a dataset of 15 classes that is 2GB in size. The model was trained with backpropagation using the Adam optimizer \citep{kingma_adam:_2014}.
 
@@ -699,7 +699,7 @@ Many would argue that the data is the most important part of the machine learnin
 \section{ImageNet}
 \label{se:imagenet}
 
-One of the largest labeled image datasets freely opened to the public is ImageNet. It contains more than 14 million images, detailed statistics of the dataset can be found in table \ref{tb:imagenet_statistics}. To train the model for species recognition I have used a subset of images found on ImageNet. Using every class that represents a species in ImageNet is not doable on a single 2GB GPU (atleast not in reasonable time), therefore I have manually picked 15 classes which represent the whole problem. The idea is to have some species that are similar to others, for example multiple species of ladybugs while still having a wide variate of species that represent the diverse form of life (typical example of an image from the ImageNet dataset can be seen in figure \ref{fig:typical_imagenet_example}).
+One of the largest labeled image datasets freely opened to the public is ImageNet \citep{imagenet}. It contains more than 14 million images, detailed statistics of the dataset can be found in table \ref{tb:imagenet_statistics}. To train the model for species recognition I have used a subset of images found on ImageNet. Using every class that represents a species in ImageNet is not doable on a single 2GB GPU (atleast not in reasonable time), therefore I have manually picked 15 classes which represent the whole problem. The idea is to have some species that are similar to others, for example multiple species of ladybugs while still having a wide variate of species that represent the diverse form of life (typical example of an image from the ImageNet dataset can be seen in figure \ref{fig:typical_imagenet_example}).
 
 \begin{figure}
   \includegraphics[scale=0.55]{figures/typical_imagenet.jpg}
@@ -788,13 +788,13 @@ Preprocessing of data is an essential part of the machine learning pipeline. As 
   \label{fig:preprocessing_images}
 \end{figure}
 
-Also, another important part of the preprocessing is the generation of the validation dataset. For the validation to be efficient the validation dataset has to represent the training dataset. Keeping that in mind, the validation set - $X_{validation}$ - was created by taking 10\% of images form each class.
+Also, another important part of the preprocessing is the generation of the validation dataset. For the validation to be efficient the validation dataset has to represent the training dataset. Keeping that in mind, the validation set - $X_{validation}$ - was created by taking 10\% of images form each class (species).
 
 
 \section{Species}
 \label{se:species}
 
-This chapter shows typical images found in the ImageNet that were used as input for the model. The list of all 15 species used for model training is found in table \ref{tb:species_list}.
+This chapter shows typical images found in the ImageNet dataset that were used as input for the model. The list of all 15 species used for model training is found in table \ref{tb:species_list}.
 
 \begin{table}
 \centering
@@ -939,7 +939,7 @@ There is a lot of noise in the images found in $X$, animals are usually found in
 \chapter{Results}
 
 \section{Hardware and software}
-The model is implemented in Keras 2.0 4 with Python 3.5. All the results were computed on my personal laptop with the following hardware and software specifications (see tables \ref{tb:hardware_specifications} and \ref{tb:software_specifications}). All the software was chosen to support the given hardware specifications and to be able to efficiently build and train a deep learning model, explained in detail in chapter \ref{se:model}. Python is currently the leading language for deep learning, as well as TensorFlow and its higher-level framework Keras. All the programs were run inside Docker containers specifically made for the previously mentioned technology stack.
+The model is implemented in Keras 2.0 4 with Python 3.5. All the results were computed on my personal laptop with the following hardware and software specifications (see tables \ref{tb:hardware_specifications} and \ref{tb:software_specifications}). All the software was chosen to support the given hardware specifications and to be able to efficiently build and train a deep learning model, explained in detail in chapter \ref{se:model}. Python is currently the leading language for deep learning, as well as TensorFlow and its higher-level framework Keras. All the programs were run inside Docker \citep{docker} containers specifically made for the previously mentioned technology stack.
 
 \begin{table}
 \centering
@@ -967,7 +967,7 @@ Memory Interface & DDR3\texttt{\textbackslash}GDDR5 \\
 \hline 
 Software & Version \\ \hline 
 Operating System & Ubuntu 16.04 LTS \\ 
-Python & 64-version 3.5 \\ 
+Python & 64-bit version 3.5 \\ 
 Keras & 2.0.4 \\
 TensorFlow & 1.1 \\
 \hline 
@@ -976,9 +976,9 @@ TensorFlow & 1.1 \\
 
 \section{Performance}
 
-In this section, different metrics and their impact on the performance of the model, as well as a detailed insight into the performance of the model is shown. The model is evaluated on a validation dataset that is created as from 10\% images from the whole input dataset. The distribution of the data with more informations can be find the chapter \ref{se:data}.
+In this section, different metrics and their impact on the performance of the model, as well as a detailed insight into the performance of the model is shown. The model is evaluated on a validation dataset that is created from 10\% images of every class from the whole input dataset. The distribution of the data with more informations can be find the chapter \ref{se:data}.
 
-Classification performance is shown in table \ref{tb:classifier_performance} with metrics described in detail in section \ref{se:metrics}. This table shows a detailed outline of the overall classification performance of the model, but it fails to give insight into the classification performance on a class by class level. To resolve this problem, a confusion matrix is shown in figure \ref{fig:species_confusion_matrix}. The confusion matrix shows that certain species are less likely to be confused with certain other species. The confusion matrix has a couple of clusters, the clusters appear to form near similar looking species. All the images of lady bug species look almost the same and it is natural to expect the classifier to have a poorer performance with these species, a potential method for increasing the performance for these species is giving the section \ref{se:future_work}.
+Classification performance is shown in table \ref{tb:classifier_performance} with metrics described in detail in section \ref{se:metrics}. This table shows a detailed outline of the overall classification performance of the model, but it fails to give insight into the classification performance on a class by class level. To resolve this problem, a confusion matrix is shown in figure \ref{fig:species_confusion_matrix}. The confusion matrix shows that certain species are less likely to be confused with certain other species. The confusion matrix has a couple of clusters, the clusters appear to form near similar looking species. All the images of lady bug species look almost the same and it is natural to expect the classifier to have worst performance with these species, a potential method for increasing the performance for these species is giving the section \ref{se:future_work}.
 
 This algorithm is designed so it should scale to thousands of species. To do so it must keep its accuracy even with different subsets of the original input dataset. To test this, the model was evaluated for different subsets of species - the result is shown in figure \ref{fig:model_acc_class_num}. The accuracy falls and raises for lower class numbers meaning that the model works well but the number of images per class has the biggest effect to the model performance. Building an ingestion platform for data collection, for example with web scraping, would significantly increase the performance of the model as most of the classes have around 1000 images which is considered relatively small for deep learning. 
 
@@ -1042,7 +1042,12 @@ Firstly, getting better hardware and scaling the model to more than a thousand s
 The confusion matrix is able to give insight into which classes confuse the model. Using this information an algorithm can be made that combats those deficiencies. For example, building separate classifiers for each cluster in confusion matrix could yield better model performance. This is called a hierarchical convolution neural network (HD-CNN) as is a topic that is being currently research \citep{yan_hd-cnn:_2015, yan_hd-cnn:_2015-1}. 
 
 \chapter{Conclusion}
-Zaključak.
+With the increase in high quality annotated data, and both, hardware and software improvements - deep learning model's will only gate better. Also, with the abundance of high-level deep learning framework, the beerier to enter in the deep learning field is lowering each day. This  will with time spur even more innovation and progress in the field. This can be seen already today - with new models, architectures, techniques being developed on a monthly basis.
+
+It is expected for deep learning models to gain even higher accuracy on tasks that were previously considered difficult for computers - like visual recognition and natural language processing.  
+
+Keeping up with the pace of deep learning research is crucial as using and exploring new techniques usually yields the most competitive model performance. Also, with the increase of new techniques, a framework for rapid iteration and exploring is necessary for development of competitive performance models. Therefore, using Keras and similar frameworks allows a significant performance boost.
+
 
 \bibliographystyle{fer}
 \bibliography{master_thesis}
