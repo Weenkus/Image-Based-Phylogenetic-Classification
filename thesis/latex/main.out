@@ -29,8 +29,9 @@
 \BOOKMARK [1][-]{section.4.2}{Species}{chapter.4}% 29
 \BOOKMARK [0][-]{chapter.5}{Results}{}% 30
 \BOOKMARK [1][-]{section.5.1}{Hardware and software}{chapter.5}% 31
-\BOOKMARK [1][-]{section.5.2}{Performance}{chapter.5}% 32
-\BOOKMARK [1][-]{section.5.3}{Memory footprint}{chapter.5}% 33
-\BOOKMARK [1][-]{section.5.4}{Future work}{chapter.5}% 34
-\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 35
-\BOOKMARK [0][-]{chapter*.38}{Bibliography}{}% 36
+\BOOKMARK [1][-]{section.5.2}{ResNet-50 and Inception v3 comparison}{chapter.5}% 32
+\BOOKMARK [1][-]{section.5.3}{Performance}{chapter.5}% 33
+\BOOKMARK [1][-]{section.5.4}{Memory footprint}{chapter.5}% 34
+\BOOKMARK [1][-]{section.5.5}{Future work}{chapter.5}% 35
+\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 36
+\BOOKMARK [0][-]{chapter*.40}{Bibliography}{}% 37
