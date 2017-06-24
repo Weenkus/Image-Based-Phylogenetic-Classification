@@ -571,7 +571,7 @@ TensorFlow is the backend engine of Keras, and it, same as Keras, allows the use
 \subsection{Architecture}
 \label{se:architecture}
 
-There are a lot high performance CNN architectures \citep{he_deep_2016, simonyan_very_2014, szegedy_going_2015}, they offer different performance levels with varying parameter sizes, as shown in \ref{tb:CNN_architecutre_performance}. To classify species on a 2GB GPU I needed a powerful yet small neural network. ResNet and Inception v3 are perfect for the task as they give a competitive performance per parameter ratio, especially the ResNet-50. Obviously, one can create its own architecture but doing that removes the performance boost of pretrained models, this is explained in more detail in a future section \ref{pretrained_parameters}. The final architecture consisted of a base pretrained model with a feed-forward neural network on top of it. Two main candidates for the base network were the ResNet-50 and Inception v3 CNN architectures.
+There are a lot high performance CNN architectures \citep{he_deep_2016, simonyan_very_2014, szegedy_going_2015}, they offer different performance levels with varying parameter sizes, as shown in \ref{tb:CNN_architecutre_performance}. To classify species on a 2GB GPU I needed a powerful yet small neural network. ResNet and Inception v3 are perfect for the task as they give a competitive performance per parameter ratio, especially the ResNet-50. Obviously, one can create its own architecture but doing that removes the performance boost of pretrained models, this is explained in more detail in a future section \ref{se:pretrained_parameters}. The final architecture consisted of a base pretrained model with a feed-forward neural network on top of it. Two main candidates for the base network were the ResNet-50 and Inception v3 CNN architectures. As shown in section \ref{se:resnet_vs_inception}, the ResNet50 architecture gave better results on this particular task and was chosen to be the base neural network for the model.
 
 \begin{table}
 \centering
@@ -620,7 +620,7 @@ Figure \ref{fig:vgg_resnet_comparison} shows a direct comparison between VGG and
   \label{fig:vgg_resnet_comparison}
 \end{figure}
 
-Another mentioned CNN architecture is Inception v3. It uses an inception module (see figure \ref{fig:inception_module}) to increase the performance of the convolution layers in the neural network. The inception v3 architecture is composed of inception modules. The inception module consists of multiple convolution blocks, each with a different kernel size. This allows the inception module to gather multiple layers of abstraction in each module. The performance of ResNet-50 and Inception v3 is similar and after testing both, Inception v3 provided better results by a slight margin on this task. The full result are shown in section \ref{se:results}.
+Another mentioned CNN architecture is Inception v3. It uses an inception module (see figure \ref{fig:inception_module}) to increase the performance of the convolution layers in the neural network. The inception v3 architecture is composed of inception modules. The inception module consists of multiple convolution blocks, each with a different kernel size. This allows the inception module to gather multiple layers of abstraction in each module. The performance of ResNet-50 and Inception v3 is similar and after testing both it shown in section \ref{se:resnet_vs_inception} that  ResNet50 provided better results by a slight margin on this task.
 
 \begin{figure}
   \includegraphics[scale=0.7]{figures/inception_module.png}
@@ -634,7 +634,7 @@ Another mentioned CNN architecture is Inception v3. It uses an inception module 
 \label{se:pretrained_parameters}
 As seen in figure \ref{fig:filter}, each convolution layer learns a specific level of abstraction. Those abstractions are general building blocks of images (boxes, circles, edges, etc.). This implies that if you train a CNN on one set of images, the parameters in the front convolution layers can be reused on a different task. Using this, higher accuracy can be achieved when working on small datasets. This is called pretraining or fine-tuning the model.
 
-One of the biggest labeled image databases is ImageNet \citep{imagenet} and is the go to dataset for image classification research. Almost every modern CNN architecture was evaluated and trained on it. Downloading the parameters from those trained neural networks and initialising the model with them gives us state of the art performance even on small datasets. The only needed step is to fine-tune the neural network by training it on our dataset, after it was initialised with the pretrained values - fine tuning.
+One of the biggest annotated image databases is ImageNet \citep{imagenet} and is the go to dataset for image classification research. Almost every modern CNN architecture was evaluated and trained on it. Downloading the parameters from those trained neural networks and initialising the model with them gives us state of the art performance even on small datasets. The only needed step is to fine-tune the neural network by training it on our dataset, after it was initialised with the pretrained values - fine tuning.
 
 Below is the Keras code for creating a pretrained model from the ImageNet dataset. First, the pretrained model is loaded without the top layer (the top layer is not important as it is a fully-connected layer which was build for 1000 classes, the convolution layers are only needed for this task). The second step is to create a small feed-forward network and append it to the end of the network. Set the pretrained convolution layers to not train and compile to model. The final softmax layer has 15 neurons as the model was tested on a dataset of 15 classes that is 2GB in size. The model was trained with backpropagation using the Adam optimizer \citep{kingma_adam:_2014}.
 
@@ -943,7 +943,7 @@ There is a lot of noise in the images found in $X$, animals are usually found in
 \label{se:results}
 
 \section{Hardware and software}
-The model is implemented in Keras 2.0 4 with Python 3.5. All the results were computed on my personal laptop with the following hardware and software specifications (see tables \ref{tb:hardware_specifications} and \ref{tb:software_specifications}). All the software was chosen to support the given hardware specifications and to be able to efficiently build and train a deep learning model, explained in detail in chapter \ref{se:model}. Python is currently the leading language for deep learning, as well as TensorFlow and its higher-level framework Keras. All the programs were run inside Docker \citep{docker} containers specifically made for the previously mentioned technology stack.
+The model is implemented in Keras 2.0 4 with Python 3.5. All the results were computed on my personal laptop with the following hardware and software specifications (Tables \ref{tb:hardware_specifications} and \ref{tb:software_specifications}). All the software was chosen to support the given hardware specifications and to be able to efficiently build and train a deep learning model, explained in detail in chapter \ref{se:model}. Python is currently the leading language for deep learning, as well as TensorFlow and its higher-level framework Keras. All the programs were run inside Docker \citep{docker} containers specifically made for the previously mentioned technology stack.
 
 \begin{table}
 \centering
@@ -979,12 +979,13 @@ TensorFlow & 1.1 \\
 \end{table}
 
 \section{ResNet-50 and Inception v3 comparison}
+\label{se:resnet_vs_inception}
 
-After deciding that ResNet-50 and Inception v3 were the best base CNN architectures for this task, testing was done to decided which one performed better. ResNet-50 had the better performance and was used as the final model, all the performance metrics are shown below (table \ref{tb:resnet_vs_inceptionv3})
+After deciding that ResNet-50 and Inception v3 were the best base CNN architectures for this task, testing was done to decided which one performed better. ResNet-50 had the better performance and was used as the final model, all the performance metrics are shown below (Table \ref{tb:resnet_vs_inceptionv3})
 
 \begin{table}
 \centering
-\caption{ResNet-50 and Inception v3 architectures comparison}
+\caption{ResNet-50 and Inception v3 architecture comparison on the validation set}
 \label{tb:resnet_vs_inceptionv3}
 \begin{tabular}{ccc}
 \hline 
@@ -996,6 +997,22 @@ F1 & 0.80311 &  0.77810 \\
 \hline 
 \end{tabular} 
 \end{table}
+
+The detailed training and validation loss and accuracy can be found in Figures \ref{fig:resnet_performance} and \ref{fig:inceptionv3_performance}. The Figures clearly show that ResNet50 has a lower loss and higher accuracy on unseen data (validation set).
+
+\begin{figure}
+  \includegraphics[scale=0.61]{figures/resnet_performance.png}
+  \centering
+  \caption{ResNet50 performance on the training and validation sets}
+  \label{fig:resnet_performance}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[scale=0.61]{figures/inceptionv3_performance.png}
+  \centering
+  \caption{Inception v3 performance on the training and validation sets}
+  \label{fig:inceptionv3_performance}
+\end{figure}
 
 
 \begin{table}
@@ -1019,7 +1036,7 @@ In this section, different metrics and their impact on the performance of the mo
 
 Classification performance is shown in table \ref{tb:classifier_performance} with metrics described in detail in section \ref{se:metrics}. This table shows a detailed outline of the overall classification performance of the model, but it fails to give insight into the classification performance on a class by class level. To resolve this problem, a confusion matrix is shown in figure \ref{fig:species_confusion_matrix}. The confusion matrix shows that certain species are less likely to be confused with certain other species. The confusion matrix has a couple of clusters, the clusters appear to form near similar looking species. All the images of lady bug species look almost the same and it is natural to expect the classifier to have worst performance with these species, a potential method for increasing the performance for these species is giving the section \ref{se:future_work}.
 
-This algorithm is designed so it should scale to thousands of species. To do so it must keep its accuracy even with different subsets of the original input dataset. To test this, the model was evaluated for different subsets of species - the result is shown in figure \ref{fig:model_acc_class_num}. The accuracy falls and raises for lower class numbers meaning that the model works well but the number of images per class has the biggest effect to the model performance. Building an ingestion platform for data collection, for example with web scraping, would significantly increase the performance of the model as most of the classes have around 1000 images which is considered relatively small for deep learning. 
+This algorithm is designed to be able to scale to thousands of species. To do so it must keep its accuracy even with different subsets of the original input dataset. To test this, the model was evaluated for different subsets of species - the result is shown in figure \ref{fig:model_acc_class_num}. The accuracy falls and raises for lower class numbers meaning that the model works well but the number of images per class has the biggest effect to the model performance. Building an ingestion platform for data collection, for example with web scraping, would significantly increase the performance of the model as most of the classes have around 1000 images which is considered relatively small for deep learning. 
 
 Quality of the dataset is also crucial for the model's performance as images that do not represent the class will lower the performance and make the training phase difficult. Collecting images that represent a class is difficult, collection high-quality images is even harder. Big companies usually have team's that annotate and collect data for machine learning algorithms and products.
 
