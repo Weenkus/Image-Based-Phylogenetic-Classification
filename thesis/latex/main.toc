@@ -37,5 +37,5 @@
 \contentsline {section}{\numberline {5.3}Performance}{37}{section.5.3}
 \contentsline {section}{\numberline {5.4}Memory footprint}{39}{section.5.4}
 \contentsline {section}{\numberline {5.5}Future work}{41}{section.5.5}
-\contentsline {chapter}{\numberline {6}Conclusion}{42}{chapter.6}
-\contentsline {chapter}{Bibliography}{43}{chapter*.42}
+\contentsline {chapter}{\numberline {6}Conclusion}{43}{chapter.6}
+\contentsline {chapter}{Bibliography}{44}{chapter*.42}

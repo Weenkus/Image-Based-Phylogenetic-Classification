@@ -89,7 +89,11 @@
 \izvornik
 
 % Dodavanje zahvale ili prazne stranice. Ako ne želite dodati zahvalu, naredbu ostavite radi prazne stranice.
-\zahvala{Thank you...}
+\zahvala{
+I would like to express my gratitude to my mentor Mirjana Domazet-Lošo who has given me encouragement and guidance throughout this project. 
+
+I wish to thank my family for their support and encouragement throughout my study, without whom I would not be here today.
+}
 
 \tableofcontents
 
@@ -990,10 +994,10 @@ After deciding that ResNet-50 and Inception v3 were the best base CNN architectu
 \begin{tabular}{ccc}
 \hline 
 Metric & ResNet-50 & Inception v3 \\ \hline 
-Accuracy & 0.83505 & 0.81807 \\ 
-Precision & 0.80856 & 0.77996 \\ 
-Recall & 0.80211 & 0.78006 \\
-F1 & 0.80311 &  0.77810 \\
+Accuracy & 0.830200 & 0.81807 \\ 
+Precision & 0.80108 & 0.77996 \\ 
+Recall & 0.80400 & 0.78006 \\
+F1 & 0.80100 &  0.77810 \\
 \hline 
 \end{tabular} 
 \end{table}
@@ -1056,7 +1060,7 @@ F1 & 0.80311 \\
 \end{table}
 
 \begin{figure}
-  \includegraphics[scale=0.47]{figures/confusion_matrix.png}
+  \includegraphics[scale=0.66]{figures/confusion_matrix.png}
   \centering
   \caption{Confusion matrix generated on $X_{validation}$}
   \label{fig:species_confusion_matrix}
@@ -1065,16 +1069,16 @@ F1 & 0.80311 \\
 \begin{figure}
   \includegraphics[scale=0.59]{figures/model_acc_class_num.png}
   \centering
-  \caption{Model accuracy compared with different number of classes in $X_{validation}$}
+  \caption{Model accuracy compared with different number of classes in $X_{validation}$ using the final model}
   \label{fig:model_acc_class_num}
 \end{figure}
 
 
 \section{Memory footprint}
 
-Using a pretrained model allows for faster training as the only parameters that change are the ones int he last layer of the network. Number of trainable and non-trainable parameters can be found in table \ref{tb:model_params}. TODO FIX THE NUMBER OF PARAMS IN THIS TABLE
+Using a pretrained model allows for faster training as the only parameters that change are the ones int he last layer of the network. Number of trainable and non-trainable parameters can be found in table \ref{tb:model_params}.
 
-Each parameter is a weight - 32-bit float number.
+Each parameter is a weight - 32-bit float number. Trainable parameters needed additional memory because each parameter has to have a gradient calculated for it (beckprobagation).
 
 \begin{table}
 \centering
@@ -1082,10 +1086,10 @@ Each parameter is a weight - 32-bit float number.
 \label{tb:model_params}
 \begin{tabular}{cc}
 \hline 
-Parameters & Number \\ \hline 
-Trainable &   23,534,592\\ 
+Parameter type & Number \\ \hline 
+Trainable &   1,321,487\\ 
 Non-trainable & 53,120 \\ 
-Total & 23,587,712 \\
+Total & 23,589,760 \\
 \hline 
 \end{tabular} 
 \end{table}
@@ -1094,6 +1098,8 @@ Total & 23,587,712 \\
 \label{se:future_work}
 
 Firstly, getting better hardware and scaling the model to more than a thousand species is crucial for a reasonable product. Currently results give the information that the model is scalable and that the current flaw is in species that look similar. 
+
+Increasing the number of annotated images per species would also greatly increase the performance of the model. This is true especially for the species with below avarage number of images (Figure \ref{fig:training_set_class_distributon})
 
 The confusion matrix is able to give insight into which classes confuse the model. Using this information an algorithm can be made that combats those deficiencies. For example, building separate classifiers for each cluster in confusion matrix could yield better model performance. This is called a hierarchical convolution neural network (HD-CNN) as is a topic that is being currently research \citep{yan_hd-cnn:_2015, yan_hd-cnn:_2015-1}. 
 
@@ -1109,18 +1115,21 @@ Keeping up with the pace of deep learning research is crucial as using and explo
 \bibliography{master_thesis}
 
 
+\hrvtitle{Filogenetska klasifikacija vrsta}
 \begin{sazetak}
-Sažetak na hrvatskom jeziku.
+U ovom radu dajem svoje rješenje za filogenetsku klasifikaciju vrsta. Napravio sam algoritam baziran na strojnom učenju. Algoritam je implementiran u programskom jeziku Python uz korištenje modernih biblioteka i radnih okvira. Program se koristi za klasifikaciju vrsta iz slika.
+ 
 
-\kljucnerijeci{Ključne riječi, odvojene zarezima.}
+\kljucnerijeci{Filogenetika, Strojno učenje, Klasifikacija}
 \end{sazetak}
 
 % TODO: Navedite naslov na engleskom jeziku.
-\engtitle{Title}
+\engtitle{Image Based Phylogenetic classification}
 \begin{abstract}
-Abstract.
+The goal of this thesis is to study the problem of phylogenetic classification based on image data. The work will entail a survey of recent related literature, algorithm development based on machine learning, and the implementation in the Python programming language using existing frameworks. The solution will be applied to the collection of publicly available images.
 
-\keywords{Keywords.}
+\keywords{
+Phylogenetics, Machine learning, Classification}
 \end{abstract}
 
 \end{document}

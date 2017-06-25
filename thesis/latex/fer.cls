@@ -333,13 +333,16 @@
 \newcommand{\engl}[1]{(engl.~\emph{#1})}
 
 % Sažetak na hrvatskom
+\def\hrvtitle#1{\gdef\@hrvtitle{#1}}
+\def\@engtithrvtitlele{\@latex@warning@no@line{Hrvatski naziv rada nije definiran.
+Koristi \noexpand\hrvtitle za definiranje}}
 \newenvironment{sazetak}
 {
 \newpage
 \vspace*{\fill}
 \thispagestyle{empty}
 \begin{center}
-  {\bf \@title}
+  {\bf \@hrvtitle}
 \end{center}
 \hspace*{\fill} {\bf Sa\v{z}etak} \hspace*{\fill} \par
 \vspace*{25pt}
