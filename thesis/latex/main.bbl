@@ -8,26 +8,32 @@
 \bibitem[caf()]{caffe}
 Caffe 2 - a new lightweight, modular, and scalable deep learning framework.
 \newblock URL \url{http://caffe2.ai/}.
+\newblock Accessed 2017-06-01.
 
 \bibitem[cif()]{cifar}
 Cifar-10 and cifar-100 datasets.
 \newblock URL \url{https://www.cs.toronto.edu/~kriz/cifar.html}.
+\newblock Accessed 2017-04-15.
 
 \bibitem[cnt()]{cntk}
 Cntk - microsoft cognitive toolkit.
 \newblock URL \url{http://pytorch.org/}.
+\newblock Accessed 2017-06-01.
 
 \bibitem[doc()]{docker}
 Docker.
 \newblock URL \url{https://www.docker.com/}.
+\newblock Accessed 2017-06-20.
 
 \bibitem[ima()]{imagenet}
 Imagenet.
 \newblock URL \url{http://www.image-net.org/}.
+\newblock Accessed 2017-04-15.
 
 \bibitem[kag()]{kaggle}
 Kaggle.
 \newblock URL \url{https://www.kaggle.com/}.
+\newblock Accessed 2017-06-19.
 
 \bibitem[ker()]{keras}
 Keras - high-level neural networks api, written in python and capable of
@@ -39,15 +45,18 @@ Keras - high-level neural networks api, written in python and capable of
 Pytorch - tensors and dynamic neural networks in python with strong gpu
   acceleration.
 \newblock URL \url{https://www.microsoft.com/en-us/cognitive-toolkit//}.
+\newblock Accessed 2017-06-20.
 
 \bibitem[ten()]{tensorflow}
 Tensorflow - an open-source software library for machine intelligence.
 \newblock URL \url{https://www.tensorflow.org/}.
+\newblock Accessed 2017-06-01.
 
 \bibitem[the()]{theano}
 Theano 0.9.0 - python library that allows you to define, optimize, and evaluate
   mathematical expressions involving multi-dimensional arrays efficiently.
 \newblock URL \url{http://deeplearning.net/software/theano/#}.
+\newblock Accessed 2017-06-01.
 
 \bibitem[Clevert et~al.()Clevert, Unterthiner, i Hochreiter]{clevert_fast_2015}
 Djork-Arné Clevert, Thomas Unterthiner, i Sepp Hochreiter.

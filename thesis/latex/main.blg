@@ -6,11 +6,15 @@ Database file #1: master_thesis.bib
 Warning--entry type for "imagenet" isn't style-file defined
 --line 115 of file master_thesis.bib
 Warning--entry type for "kaggle" isn't style-file defined
---line 122 of file master_thesis.bib
+--line 123 of file master_thesis.bib
 Warning--entry type for "cifar" isn't style-file defined
---line 128 of file master_thesis.bib
+--line 130 of file master_thesis.bib
 Warning--entry type for "kleene_representation_1951" isn't style-file defined
---line 136 of file master_thesis.bib
+--line 139 of file master_thesis.bib
+I was expecting a `,' or a `}'---line 319 of file master_thesis.bib
+ :  file = {Keras Documentation:/home/weenkus/.zotero/zotero/kbk3cfrw.default/zotero/storage/GCGHB9J6/keras.io.html:text/html}
+ :                                                                                                                            .
+I'm skipping whatever remains of this entry
 Warning--to sort, need author or key in cifar
 Warning--to sort, need author or key in imagenet
 Warning--to sort, need author or key in kaggle
@@ -73,16 +77,16 @@ Warning--empty year in yan_hd-cnn:_2015-1
 Warning--empty year in yan_hd-cnn:_2015
 You've used 28 entries,
             2773 wiz_defined-function locations,
-            724 strings with 10262 characters,
-and the built_in function-call counts, 12360 in all, are:
-= -- 1121
+            728 strings with 10338 characters,
+and the built_in function-call counts, 12441 in all, are:
+= -- 1139
 > -- 587
 < -- 17
 + -- 209
 - -- 179
 * -- 999
-:= -- 1654
-add.period$ -- 92
+:= -- 1672
+add.period$ -- 101
 call.type$ -- 28
 change.case$ -- 143
 chr.to.int$ -- 26
@@ -90,17 +94,17 @@ cite$ -- 126
 duplicate$ -- 598
 empty$ -- 1116
 format.name$ -- 209
-if$ -- 2690
+if$ -- 2708
 int.to.chr$ -- 3
 int.to.str$ -- 1
 missing$ -- 17
-newline$ -- 154
+newline$ -- 163
 num.names$ -- 74
-pop$ -- 459
+pop$ -- 486
 preamble$ -- 1
 purify$ -- 115
 quote$ -- 0
-skip$ -- 452
+skip$ -- 416
 stack$ -- 0
 substring$ -- 396
 swap$ -- 93
@@ -111,5 +115,5 @@ type$ -- 308
 warning$ -- 60
 while$ -- 84
 width$ -- 0
-write$ -- 341
-(There were 64 warnings)
+write$ -- 359
+(There was 1 error message)
