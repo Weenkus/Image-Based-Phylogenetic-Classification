@@ -296,7 +296,7 @@
 			{\sffamily\large Zagreb, 
 			\ifcase\month\or
 				sije\v{c}anj\or velja\v{c}a\or o\v{z}ujak\or travanj\or svibanj\or
-	   	 		lipanj\or srpanj\or kolovoz\or rujan\or listopad\or studeni\or
+	   	 		June\or July\or kolovoz\or rujan\or listopad\or studeni\or
 	    			prosinac\fi \space \number\year.%
 	    	}
 		\end{center}
