@@ -10,7 +10,7 @@
 \BOOKMARK [2][-]{subsection.2.2.1}{Supervised and unsupervised learning}{section.2.2}% 10
 \BOOKMARK [2][-]{subsection.2.2.2}{Artificial neural network \(ANN\)}{section.2.2}% 11
 \BOOKMARK [1][-]{section.2.3}{Deep learning}{chapter.2}% 12
-\BOOKMARK [2][-]{subsection.2.3.1}{Convolutional neural Network \(CNN / ConvNet\)}{section.2.3}% 13
+\BOOKMARK [2][-]{subsection.2.3.1}{Convolutional Neural Network \(CNN / ConvNet\)}{section.2.3}% 13
 \BOOKMARK [2][-]{subsection.2.3.2}{Dropout}{section.2.3}% 14
 \BOOKMARK [2][-]{subsection.2.3.3}{Data augmentation}{section.2.3}% 15
 \BOOKMARK [2][-]{subsection.2.3.4}{Backpropagation}{section.2.3}% 16
