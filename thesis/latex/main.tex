@@ -256,7 +256,7 @@ In order to compare different models a set of metrics is employed. Accuracy whic
 
 
 
-Classification results are often represented as a confusion matrix, also known as an error matrix.  It is a  way to visualise the performance of a classification model - classifier. To build the classification matrix, conditions of the experiment must be labeled as positive or negative. Using the cats and dogs example from before and making the cats a positive and dogs a negative class creates a $2x2$ matrix of actual and predicted values as shown in table \ref{tb:confusion_matrix}.
+Classification results are often represented as a confusion matrix, also known as an error matrix.  It is a  way to visualise the performance of a classification model - classifier. To build the classification matrix, conditions of the experiment must be labeled as positive or negative. Using the cats and dogs example from before and making the cats a positive and dogs a negative class creates a $2x2$ matrix of actual and predicted values as shown in Table \ref{tb:confusion_matrix}.
 
 \begin{table}
 \centering
@@ -333,7 +333,7 @@ One way to combat overfitting is by early stopping during training. Another, mor
 For the model to be trained it needs data $D$ which is defined as $\{{X}^{\,i},y^{\,i}\}^{N}_{i=1}$. Unfortunately, $y$ is not always available. In such cases, the model can still use only $X$ to infer and that is called unsupervised learning. When the model uses both the data points $X$ and labels $y$ it is called supervised learning. Classification and regression are both cases of supervised learning. Cluster analysis or more commonly called clustering is a type of unsupervised learning. In clustering, the model tries to group a set of objects in such a way that objects in the same group are more similar based on a cretin metric. The groups are called clusters, hence the name clustering. Some algorithms need the number of clusters to be predefined, while others discern it by themselves. As the purpose of the task is by itself classification, in following chapters supervised learning methods will be explained in more detail.
 
 \subsection{Artificial neural network (ANN)}
-One of the most interesting models in machine learning, with a diverse set of variations, are artificial neural networks (ANN). The computational model based on mathematics for neural networks was first introduced in 1943 by Warren McCulloch and Walter Pitts \citep{mcculloch_logical_1943}  called threshold logic. Later on, in 1951 an influential paper was published by S. C. Kleene on linking neural networks to finite state automata \citep{kleene_representation_1951}. Artificial neural networks are based on a large collection of small computational unites called neurons (figure  \ref{fig:ann_neuron}). The architecture was inspired by axons (\ref{fig:neuron}) from our brains. The idea is that even though a single neuron does not have the capacity to express complicated levels of abstractions - neurons together can. Neurons are connected in order to transfer signals. If a neuron receives a strong enough signal it becomes activated and propagates the received signal toward his output. Just propagating the signal would not be of benefit, as the signal would not transform while passing trough the network, therefore non-linear activation functions, as explained in subsection \ref{se:activation_functions}, are added to each output of a neuron.
+One of the most interesting models in machine learning, with a diverse set of variations, are artificial neural networks (ANN). The computational model based on mathematics for neural networks was first introduced in 1943 by Warren McCulloch and Walter Pitts \citep{mcculloch_logical_1943}  called threshold logic. Later on, in 1951 an influential paper was published by S. C. Kleene on linking neural networks to finite state automata \citep{kleene_representation_1951}. Artificial neural networks are based on a large collection of small computational unites called neurons (Figure  \ref{fig:ann_neuron}). The architecture was inspired by axons (Figure \ref{fig:neuron}) from our brains. The idea is that even though a single neuron does not have the capacity to express complicated levels of abstractions - neurons together can. Neurons are connected in order to transfer signals. If a neuron receives a strong enough signal it becomes activated and propagates the received signal toward his output. Just propagating the signal would not be of benefit, as the signal would not transform while passing trough the network, therefore non-linear activation functions, as explained in subsection \ref{se:activation_functions}, are added to each output of a neuron.
 
 \begin{figure}
   \includegraphics[width=\linewidth]{figures/axon.png}
@@ -606,7 +606,7 @@ Densenet-161 & 22.35 & 6.20 \\
 \end{table}
 
 
-ResNet's performance comes from a unique way in which it builds layers. ResNet is short for the residual neural network - residual is the input of a layer that is being summed to the layers output, giving input information a path for input to circumvent the layer's transformation. This method allows for very deep neural networks to converge when trained. The residual can pass one layer or more, the architecture in the paper uses two convolution layers between each residual (figures \ref{fig:residual_layer} and \ref{fig:vgg_resnet_comparison}).
+ResNet's performance comes from a unique way in which it builds layers. ResNet is short for the residual neural network - residual is the input of a layer that is being summed to the layers output, giving input information a path for input to circumvent the layer's transformation. This method allows for very deep neural networks to converge when trained. The residual can pass one layer or more, the architecture in the paper uses two convolution layers between each residual (Figures \ref{fig:residual_layer} and \ref{fig:vgg_resnet_comparison}).
 
 \begin{figure}
   \includegraphics[scale=0.55]{figures/resiudal_layer.jpg}
@@ -624,7 +624,7 @@ Figure \ref{fig:vgg_resnet_comparison} shows a direct comparison between VGG and
   \label{fig:vgg_resnet_comparison}
 \end{figure}
 
-Another mentioned CNN architecture is Inception v3. It uses an inception module (see figure \ref{fig:inception_module}) to increase the performance of the convolution layers in the neural network. The inception v3 architecture is composed of inception modules. The inception module consists of multiple convolution blocks, each with a different kernel size. This allows the inception module to gather multiple layers of abstraction in each module. The performance of ResNet-50 and Inception v3 is similar and after testing both it showed in section \ref{se:resnet_vs_inception} that  ResNet50 provided better results by a slight margin on this task.
+Another mentioned CNN architecture is Inception v3. It uses an inception module (see Figure \ref{fig:inception_module}) to increase the performance of the convolution layers in the neural network. The inception v3 architecture is composed of inception modules. The inception module consists of multiple convolution blocks, each with a different kernel size. This allows the inception module to gather multiple layers of abstraction in each module. The performance of ResNet50 and Inception v3 is similar and after testing both it showed in section \ref{se:resnet_vs_inception} that  ResNet50 provided better results by a slight margin on this task.
 
 \begin{figure}
   \includegraphics[scale=0.7]{figures/inception_module.png}
@@ -636,7 +636,7 @@ Another mentioned CNN architecture is Inception v3. It uses an inception module 
 
 \subsection{Pretrained parameters}
 \label{se:pretrained_parameters}
-As seen in figure \ref{fig:filter}, each convolution layer learns a specific level of abstraction. Those abstractions are general building blocks of images (boxes, circles, edges, etc.). This implies that if you train a CNN on one set of images, the parameters in the front convolution layers can be reused on a different task. Using this, higher accuracy can be achieved when working on small datasets. This is called pretraining or fine-tuning the model.
+As seen in Figure \ref{fig:filter}, each convolution layer learns a specific level of abstraction. Those abstractions are general building blocks of images (boxes, circles, edges, etc.). This implies that if you train a CNN on one set of images, the parameters in the front convolution layers can be reused on a different task. Using this, higher accuracy can be achieved when working on small datasets. This is called pretraining or fine-tuning the model.
 
 One of the biggest annotated image databases is ImageNet \citep{imagenet} and is the go to dataset for image classification research. Almost every modern CNN architecture was evaluated and trained on it. Downloading the parameters from those trained neural networks and initialising the model with them gives us state of the art performance even on small datasets. The only needed step is to fine-tune the neural network by training it on our dataset after it was initialised with the pretrained values - fine tuning.
 
@@ -677,7 +677,7 @@ model.compile(loss='categorical_crossentropy',
 
 \subsection{Improving generalization}
 
-To improve the generalization of the model, batch normalization was added after every fully-connected layer in the network. Also, the input images were augmented (\ref{se:data_augmentation}). The $X_{test}$ had its images only rescaled, while $X_{train}$ and $X_{validation}$ were more aggressively augmented (random zoom, horizontal flip, rescale and sheered), this is shown in detail in the figure \ref{fig:data_augmentation}.
+To improve the generalization of the model, batch normalization was added after every fully-connected layer in the network. Also, the input images were augmented (\ref{se:data_augmentation}). The $X_{test}$ had its images only rescaled, while $X_{train}$ and $X_{validation}$ were more aggressively augmented (random zoom, horizontal flip, rescale and sheered), this is shown in detail in the Figure \ref{fig:data_augmentation}.
 
 \begin{lstlisting}[language=Python, caption=Data augmentation of the input dataset (images)]
 
@@ -713,7 +713,7 @@ Many would argue that the data is the most important part of the machine learnin
 \section{ImageNet}
 \label{se:imagenet}
 
-One of the largest labeled image datasets freely opened to the public is ImageNet \citep{imagenet}. It contains more than 14 million images, detailed statistics of the dataset can be found in table \ref{tb:imagenet_statistics}. To train the model for species recognition I have used a subset of images found on ImageNet. Using every class that represents a species in ImageNet is not doable on a single 2GB GPU (at least not in reasonable time), therefore I have manually picked 15 classes which represent the whole problem. The idea is to have some species that are similar to others, for example, multiple species of ladybugs while still having a wide variate of species that represent the diverse form of life ( a typical example of an image from the ImageNet dataset can be seen in figure \ref{fig:typical_imagenet_example}).
+One of the largest labeled image datasets freely opened to the public is ImageNet \citep{imagenet}. It contains more than 14 million images, detailed statistics of the dataset can be found in Table \ref{tb:imagenet_statistics}. To train the model for species recognition I have used a subset of images found on ImageNet. Using every class that represents a species in ImageNet is not doable on a single 2GB GPU (at least not in reasonable time), therefore I have manually picked 15 classes which represent the whole problem. The idea is to have some species that are similar to others, for example, multiple species of ladybugs while still having a wide variate of species that represent the diverse form of life (a typical example of an image from the ImageNet dataset can be seen in Figure \ref{fig:typical_imagenet_example}).
 
 \begin{figure}
   \includegraphics[scale=0.55]{figures/typical_imagenet.jpg}
@@ -764,7 +764,7 @@ person & 2035 & 468 & 952K \\
 \subsection{Dataset}
 \label{se:dataset}
 
-As mentioned in the previous section, the dataset - $X$ - consists of 15 species of images from the ImageNet dataset. Each species has a different number of samples, the distribution of $X_{train}$ can be seen in detail in figure \ref{fig:training_set_class_distributon}. We can see that some classes (Mexican bean beetle and Black-footed albatross) have below an average number of images, this will yield a lower classification performance for these classes. Also, we can except the classifier to work best for the classes with above average number of images like the Ice bear species. A deeper analysis on classification performance for certain classes will be shown in further sections.
+As mentioned in the previous section, the dataset - $X$ - consists of 15 species of images from the ImageNet dataset. Each species has a different number of samples, the distribution of $X_{train}$ can be seen in detail in Figure \ref{fig:training_set_class_distributon}. We can see that some classes (Mexican bean beetle and Black-footed albatross) have below an average number of images, this will yield a lower classification performance for these classes. Also, we can except the classifier to work best for the classes with above average number of images like the Ice bear species. A deeper analysis on classification performance for certain classes will be shown in further sections.
 
 The convolution network excepts a fixed size input, therefore every image in the dataset - $X$ - has to be scaled to a fixed size. Lowering the dimensions of the input image will result in a performance decrease. Therefore, after experimenting with the hyperparameter I have picked $224 * 224$ image dimensions in order to have the optimal classification and speed performance (this dimension is also the original ResNet input which is convenient).
 
@@ -801,7 +801,7 @@ Also, another important part of the preprocessing is the generation of the valid
 \section{Species}
 \label{se:species}
 
-This chapter shows typical images found in the ImageNet dataset that was used as input for the model. The list of all 15 species used for model training is found in table \ref{tb:species_list}.
+This chapter shows typical images found in the ImageNet dataset that was used as input for the model. The list of all 15 species used for model training is found in Table \ref{tb:species_list}.
 
 \begin{table}
 \centering
@@ -829,9 +829,9 @@ vedalia & Rodolia cardinalis \\
 \end{tabular} 
 \end{table}
 
-Some of the species are shown in figure \ref{fig:specis_image_examples}. Some species seem so similar that expert knowledge is needed (see figures \ref{fig:adalia_bipunctata} and \ref{fig:rodolia_cardinalis}). These images can seem almost identical to an untrained eye while being different species, or not even close in the evolutionary tree. Neural networks with enough capacity have the ability to distinguish these traits on a level that is hard to interpret.
+Some of the species are shown in Figure \ref{fig:specis_image_examples}. Some species seem so similar that expert knowledge is needed (see Figures \ref{fig:adalia_bipunctata} and \ref{fig:rodolia_cardinalis}). These images can seem almost identical to an untrained eye while being different species, or not even close in the evolutionary tree. Neural networks with enough capacity have the ability to distinguish these traits on a level that is hard to interpret.
 
-There is a lot of noise in the images found in $X$, animals are usually found in their habituate which makes them hard to be distinguished from their surroundings. This can be seen in figure \ref{fig:canis_rufus}, the Canis rufus is hidden and hard to see because of the color of his fur in regard to his surrounding.
+There is a lot of noise in the images found in $X$, animals are usually found in their habituate which makes them hard to be distinguished from their surroundings. This can be seen in Figure \ref{fig:canis_rufus}, the Canis rufus is hidden and hard to see because of the color of his fur in regard to his surrounding.
 
 
 
@@ -1038,9 +1038,9 @@ TensorFlow & 1.1 \\
 
 In this section, different metrics and their impact on the performance of the model, as well as a detailed insight into the performance of the model is shown. The model is evaluated on a validation dataset that is created from 10\% images of every class from the whole input dataset. The distribution of the data with more information can be find the chapter \ref{se:data}.
 
-Classification performance is shown in Table \ref{tb:classifier_performance} with metrics described in detail in section \ref{se:metrics}. This table shows a detailed outline of the overall classification performance of the model, but it fails to give insight into the classification performance on a class by class level. To resolve this problem, a confusion matrix is shown in figure \ref{fig:species_confusion_matrix}. The confusion matrix shows that certain species are less likely to be confused with certain other species. The confusion matrix has a couple of clusters, the clusters appear to form near similar looking species. All the images of ladybug species look almost the same and it is natural to expect the classifier to have a worst performance with these species, a potential method for increasing the performance for these species is giving the section \ref{se:future_work}.
+Classification performance is shown in Table \ref{tb:classifier_performance} with metrics described in detail in section \ref{se:metrics}. This table shows a detailed outline of the overall classification performance of the model, but it fails to give insight into the classification performance on a class by class level. To resolve this problem, a confusion matrix is shown in Figure \ref{fig:species_confusion_matrix}. The confusion matrix shows that certain species are less likely to be confused with certain other species. The confusion matrix has a couple of clusters, the clusters appear to form near similar looking species. All the images of ladybug species look almost the same and it is natural to expect the classifier to have a worst performance with these species, a potential method for increasing the performance for these species is giving the section \ref{se:future_work}.
 
-This algorithm is designed to be able to scale to thousands of species. To do so it must keep its accuracy even with different subsets of the original input dataset. To test this, the model was evaluated for different subsets of species - the result is shown in figure \ref{fig:model_acc_class_num}. The accuracy falls and raises for lower class numbers meaning that the model works well but the number of images per class has the biggest effect on the model performance. Building an ingestion platform for data collection, for example with web scraping, would significantly increase the performance of the model as most of the classes have around 1000 images which is considered relatively small for deep learning. 
+This algorithm is designed to be able to scale to thousands of species. To do so it must keep its accuracy even with different subsets of the original input dataset. To test this, the model was evaluated for different subsets of species - the result is shown in Figure \ref{fig:model_acc_class_num}. The accuracy falls and raises for lower class numbers meaning that the model works well but the number of images per class has the biggest effect on the model performance. Building an ingestion platform for data collection, for example with web scraping, would significantly increase the performance of the model as most of the classes have around 1000 images which is considered relatively small for deep learning. 
 
 The quality of the dataset is also crucial for the model's performance as images that do not represent the class will lower the performance and make the training phase difficult. Collecting images that represent a class is difficult, collecting high-quality images is even more difficult. Big companies usually have team's that annotate and collect data for machine learning algorithms and products.
 
