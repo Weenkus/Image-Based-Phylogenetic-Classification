@@ -137,7 +137,7 @@ Alex Krizhevsky, Ilya Sutskever, i Geoffrey~E. Hinton.
 \newblock U \emph{Advances in neural information processing systems}, stranice
   1097--1105.
 \newblock URL
-  \url{http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks}.
+  \url{https://www.nvidia.cn/content/tesla/pdf/machine-learning/imagenet-classification-with-deep-convolutional-nn.pdf}.
 
 \bibitem[{McCulloch} i Pitts()]{mcculloch_logical_1943}
 Warren~S. {McCulloch} i Walter Pitts.

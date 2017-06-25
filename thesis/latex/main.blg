@@ -96,7 +96,7 @@ Warning--empty year in yan_hd-cnn:_2015-1
 Warning--empty year in yan_hd-cnn:_2015
 You've used 29 entries,
             2773 wiz_defined-function locations,
-            732 strings with 10565 characters,
+            732 strings with 10580 characters,
 and the built_in function-call counts, 12751 in all, are:
 = -- 1165
 > -- 597
