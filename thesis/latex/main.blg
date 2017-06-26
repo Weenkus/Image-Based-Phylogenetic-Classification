@@ -4,14 +4,14 @@ The top-level auxiliary file: main.aux
 The style file: fer.bst
 Database file #1: master_thesis.bib
 Warning--entry type for "imagenet" isn't style-file defined
---line 115 of file master_thesis.bib
+--line 125 of file master_thesis.bib
 Warning--entry type for "kaggle" isn't style-file defined
---line 123 of file master_thesis.bib
+--line 133 of file master_thesis.bib
 Warning--entry type for "cifar" isn't style-file defined
---line 130 of file master_thesis.bib
+--line 140 of file master_thesis.bib
 Warning--entry type for "kleene_representation_1951" isn't style-file defined
---line 139 of file master_thesis.bib
-I was expecting a `,' or a `}'---line 328 of file master_thesis.bib
+--line 149 of file master_thesis.bib
+I was expecting a `,' or a `}'---line 339 of file master_thesis.bib
  :  file = {Keras Documentation:/home/weenkus/.zotero/zotero/kbk3cfrw.default/zotero/storage/GCGHB9J6/keras.io.html:text/html}
  :                                                                                                                            .
 I'm skipping whatever remains of this entry
@@ -52,87 +52,55 @@ while executing---line 1407 of file fer.bst
 Too many commas in name 1 of "Camilo Mora, Derek P. Tittensor, Sina Adl, Alastair G. B. Simpson, Boris Worm" for entry how_many_species_2011
 while executing---line 1407 of file fer.bst
 Warning--empty journal in how_many_species_2011
-Warning--empty year in how_many_species_2011
-Warning--empty year in how_many_species_2011
 Warning--empty journal in clevert_fast_2015
-Warning--empty year in clevert_fast_2015
-Warning--empty year in clevert_fast_2015
-Warning--empty year in eckmiller_hierarchical_1989
-Warning--empty year in eckmiller_hierarchical_1989
-Warning--empty year in fukushima_neocognitron:_1982
-Warning--empty year in fukushima_neocognitron:_1982
-Warning--empty year in he_deep_2016
-Warning--empty year in he_delving_2015
 Warning--empty journal in hubel_receptive_1968
-Warning--empty year in hubel_receptive_1968
-Warning--empty year in hubel_receptive_1968
 Warning--empty journal in ioffe_batch_2015
-Warning--empty year in ioffe_batch_2015
-Warning--empty year in ioffe_batch_2015
 Warning--empty journal in kingma_adam:_2014
-Warning--empty year in kingma_adam:_2014
-Warning--empty year in kingma_adam:_2014
-Warning--empty year in kleene_representation_1951
-Warning--empty year in krizhevsky_imagenet_2012
-Warning--empty year in krizhevsky_imagenet_2012
 Warning--empty journal in mcculloch_logical_1943
-Warning--empty year in mcculloch_logical_1943
-Warning--empty year in mcculloch_logical_1943
 Warning--empty journal in samuel_studies_1959
-Warning--empty year in samuel_studies_1959
-Warning--empty year in samuel_studies_1959
 Warning--empty journal in simonyan_very_2014
-Warning--empty year in simonyan_very_2014
-Warning--empty year in simonyan_very_2014
 Warning--empty journal in srivastava_dropout:_2014
-Warning--empty year in srivastava_dropout:_2014
-Warning--empty year in srivastava_dropout:_2014
-Warning--empty year in szegedy_going_2015
-Warning--empty year in szegedy_going_2015
 Warning--empty journal in xu_empirical_2015
-Warning--empty year in xu_empirical_2015
-Warning--empty year in xu_empirical_2015
-Warning--empty year in yan_hd-cnn:_2015-1
-Warning--empty year in yan_hd-cnn:_2015
-You've used 29 entries,
+Warning--empty journal in deep_learning
+You've used 31 entries,
             2773 wiz_defined-function locations,
-            732 strings with 10580 characters,
-and the built_in function-call counts, 12751 in all, are:
-= -- 1165
-> -- 597
-< -- 18
-+ -- 213
-- -- 182
-* -- 1020
-:= -- 1721
-add.period$ -- 104
-call.type$ -- 29
-change.case$ -- 147
-chr.to.int$ -- 27
-cite$ -- 131
-duplicate$ -- 617
-empty$ -- 1146
-format.name$ -- 213
-if$ -- 2770
-int.to.chr$ -- 3
+            757 strings with 10983 characters,
+and the built_in function-call counts, 13415 in all, are:
+= -- 1251
+> -- 621
+< -- 20
++ -- 221
+- -- 189
+* -- 1004
+:= -- 1859
+add.period$ -- 120
+call.type$ -- 31
+change.case$ -- 155
+chr.to.int$ -- 30
+cite$ -- 103
+duplicate$ -- 660
+empty$ -- 1217
+format.name$ -- 222
+if$ -- 2941
+int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 18
-newline$ -- 168
-num.names$ -- 78
-pop$ -- 500
+missing$ -- 20
+newline$ -- 187
+num.names$ -- 88
+pop$ -- 442
 preamble$ -- 1
-purify$ -- 118
+purify$ -- 124
 quote$ -- 0
-skip$ -- 426
+skip$ -- 516
 stack$ -- 0
-substring$ -- 398
-swap$ -- 93
+substring$ -- 402
+swap$ -- 92
 text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 319
-warning$ -- 63
-while$ -- 87
+type$ -- 341
+warning$ -- 31
+while$ -- 94
 width$ -- 0
-write$ -- 370
+write$ -- 422
 (There were 9 error messages)

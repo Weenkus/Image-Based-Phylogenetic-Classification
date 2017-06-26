@@ -24,8 +24,10 @@
 \contentsline {section}{\numberline {3.1}Implementation}{21}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Keras}{21}{subsection.3.1.1}
 \contentsline {subsection}{\numberline {3.1.2}Architecture}{23}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}Pretrained parameters}{24}{subsection.3.1.3}
-\contentsline {subsection}{\numberline {3.1.4}Improving generalization}{27}{subsection.3.1.4}
+\contentsline {subsection}{\numberline {3.1.3}ResNet}{23}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}Inception v3}{24}{subsection.3.1.4}
+\contentsline {subsection}{\numberline {3.1.5}Pretrained parameters}{24}{subsection.3.1.5}
+\contentsline {subsection}{\numberline {3.1.6}Improving generalization}{27}{subsection.3.1.6}
 \contentsline {chapter}{\numberline {4}Data}{29}{chapter.4}
 \contentsline {section}{\numberline {4.1}ImageNet}{29}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Dataset}{29}{subsection.4.1.1}

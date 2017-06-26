@@ -1,4 +1,4 @@
-\begin{thebibliography}{29}
+\begin{thebibliography}{31}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -58,150 +58,172 @@ Theano 0.9.0 - python library that allows you to define, optimize, and evaluate
 \newblock URL \url{http://deeplearning.net/software/theano/#}.
 \newblock Accessed 2017-06-01.
 
-\bibitem[Camilo~Mora()]{how_many_species_2011}
+\bibitem[Bottou(1998)]{bottou-98x}
+L\'{e}on Bottou.
+\newblock Online algorithms and stochastic approximations.
+\newblock U David Saad, urednik, \emph{Online Learning and Neural Networks}.
+  Cambridge University Press, Cambridge, UK, 1998.
+\newblock URL \url{http://leon.bottou.org/papers/bottou-98x}.
+\newblock revised, oct 2012.
+
+\bibitem[Camilo~Mora(2011)]{how_many_species_2011}
 Sina Adl Alastair G. B. Simpson Boris~Worm Camilo~Mora, Derek P.~Tittensor.
 \newblock How many species are there on earth and in the ocean?
+\newblock 2011.
 \newblock URL
   \url{http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001127}.
 
-\bibitem[Clevert et~al.()Clevert, Unterthiner, i Hochreiter]{clevert_fast_2015}
-Djork-Arné Clevert, Thomas Unterthiner, i Sepp Hochreiter.
+\bibitem[Clevert et~al.(2015)Clevert, Unterthiner, and
+  Hochreiter]{clevert_fast_2015}
+Djork-Arné Clevert, Thomas Unterthiner, and Sepp Hochreiter.
 \newblock Fast and accurate deep network learning by exponential linear units
   (elus).
+\newblock 2015.
 \newblock URL \url{https://arxiv.org/abs/1511.07289}.
 
-\bibitem[Fukushima()]{eckmiller_hierarchical_1989}
+\bibitem[Fukushima(1989)]{eckmiller_hierarchical_1989}
 Kunihiko Fukushima.
 \newblock A hierarchical neural network model for selective attention.
-\newblock U Rolf Eckmiller i Christoph v.d. Malsburg, urednici, \emph{Neural
-  Computers}, stranice 81--90. Springer Berlin Heidelberg.
+\newblock U Rolf Eckmiller and Christoph v.d. Malsburg, urednici, \emph{Neural
+  Computers}, stranice 81--90. Springer Berlin Heidelberg, 1989.
 \newblock ISBN 978-3-540-50892-2 978-3-642-83740-1.
 \newblock URL \url{http://link.springer.com/10.1007/978-3-642-83740-1_10}.
 \newblock {DOI}: 10.1007/978-3-642-83740-1\_10.
 
-\bibitem[Fukushima i Miyake()]{fukushima_neocognitron:_1982}
-Kunihiko Fukushima i Sei Miyake.
+\bibitem[Fukushima and Miyake(1982)]{fukushima_neocognitron:_1982}
+Kunihiko Fukushima and Sei Miyake.
 \newblock Neocognitron: A self-organizing neural network model for a mechanism
   of visual pattern recognition.
 \newblock U \emph{Competition and cooperation in neural nets}, stranice
-  267--285. Springer.
+  267--285. Springer, 1982.
 \newblock URL
   \url{http://link.springer.com/chapter/10.1007/978-3-642-46466-9_18}.
 
-\bibitem[He et~al.({\natexlab{a}})He, Zhang, Ren, i Sun]{he_deep_2016}
-Kaiming He, Xiangyu Zhang, Shaoqing Ren, i Jian Sun.
-\newblock Deep residual learning for image recognition.
-\newblock U \emph{Proceedings of the {IEEE} Conference on Computer Vision and
-  Pattern Recognition}, stranice 770--778, {\natexlab{a}}.
-\newblock URL
-  \url{http://www.cv-foundation.org/openaccess/content_cvpr_2016/html/He_Deep_Residual_Learning_CVPR_2016_paper.html}.
-
-\bibitem[He et~al.({\natexlab{b}})He, Zhang, Ren, i Sun]{he_delving_2015}
-Kaiming He, Xiangyu Zhang, Shaoqing Ren, i Jian Sun.
+\bibitem[He et~al.(2015)He, Zhang, Ren, and Sun]{he_delving_2015}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
 \newblock Delving deep into rectifiers: Surpassing human-level performance on
   imagenet classification.
 \newblock U \emph{Proceedings of the {IEEE} international conference on
-  computer vision}, stranice 1026--1034, {\natexlab{b}}.
+  computer vision}, stranice 1026--1034, 2015.
 \newblock URL
   \url{http://www.cv-foundation.org/openaccess/content_iccv_2015/html/He_Delving_Deep_into_ICCV_2015_paper.html}.
 
-\bibitem[Hubel i Wiesel()]{hubel_receptive_1968}
-D.~H. Hubel i T.~N. Wiesel.
+\bibitem[He et~al.(2016)He, Zhang, Ren, and Sun]{he_deep_2016}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+\newblock Deep residual learning for image recognition.
+\newblock U \emph{Proceedings of the {IEEE} Conference on Computer Vision and
+  Pattern Recognition}, stranice 770--778, 2016.
+\newblock URL
+  \url{http://www.cv-foundation.org/openaccess/content_cvpr_2016/html/He_Deep_Residual_Learning_CVPR_2016_paper.html}.
+
+\bibitem[Hubel and Wiesel(1968)]{hubel_receptive_1968}
+D.~H. Hubel and T.~N. Wiesel.
 \newblock Receptive fields and functional architecture of monkey striate
   cortex.
-\newblock 195\penalty0 (1):\penalty0 215--243.
+\newblock 195\penalty0 (1):\penalty0 215--243, 1968.
 \newblock ISSN 0022-3751.
 \newblock URL \url{http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1557912/}.
 
-\bibitem[Ioffe i Szegedy()]{ioffe_batch_2015}
-Sergey Ioffe i Christian Szegedy.
+\bibitem[Ioffe and Szegedy(2015)]{ioffe_batch_2015}
+Sergey Ioffe and Christian Szegedy.
 \newblock Batch normalization: Accelerating deep network training by reducing
   internal covariate shift.
+\newblock 2015.
 \newblock URL \url{https://arxiv.org/abs/1502.03167}.
 
-\bibitem[Kingma i Ba()]{kingma_adam:_2014}
-Diederik Kingma i Jimmy Ba.
+\bibitem[Kingma and Ba(2014)]{kingma_adam:_2014}
+Diederik Kingma and Jimmy Ba.
 \newblock Adam: A method for stochastic optimization.
+\newblock 2014.
 \newblock URL \url{https://arxiv.org/abs/1412.6980}.
 
-\bibitem[Kleene()]{kleene_representation_1951}
+\bibitem[Kleene(1951)]{kleene_representation_1951}
 Stephen~Cole Kleene.
-\newblock Representation of events in nerve nets and finite automata.
+\newblock Representation of events in nerve nets and finite automata, 1951.
 \newblock URL
   \url{http://oai.dtic.mil/oai/oai?verb=getRecord&metadataPrefix=html&identifier=ADA596138}.
 
-\bibitem[Krizhevsky et~al.()Krizhevsky, Sutskever, i
+\bibitem[Krizhevsky et~al.(2012)Krizhevsky, Sutskever, and
   Hinton]{krizhevsky_imagenet_2012}
-Alex Krizhevsky, Ilya Sutskever, i Geoffrey~E. Hinton.
+Alex Krizhevsky, Ilya Sutskever, and Geoffrey~E. Hinton.
 \newblock Imagenet classification with deep convolutional neural networks.
 \newblock U \emph{Advances in neural information processing systems}, stranice
-  1097--1105.
+  1097--1105, 2012.
 \newblock URL
   \url{https://www.nvidia.cn/content/tesla/pdf/machine-learning/imagenet-classification-with-deep-convolutional-nn.pdf}.
 
-\bibitem[{McCulloch} i Pitts()]{mcculloch_logical_1943}
-Warren~S. {McCulloch} i Walter Pitts.
+\bibitem[{McCulloch} and Pitts(1943)]{mcculloch_logical_1943}
+Warren~S. {McCulloch} and Walter Pitts.
 \newblock A logical calculus of the ideas immanent in nervous activity.
-\newblock 5\penalty0 (4):\penalty0 115--133.
+\newblock 5\penalty0 (4):\penalty0 115--133, 1943.
 \newblock URL \url{http://link.springer.com/article/10.1007/bf02478259}.
 
-\bibitem[Samuel()]{samuel_studies_1959}
+\bibitem[Samuel(1959)]{samuel_studies_1959}
 A.~L. Samuel.
 \newblock Some studies in machine learning using the game of checkers.
-\newblock 3\penalty0 (3):\penalty0 210--229.
+\newblock 3\penalty0 (3):\penalty0 210--229, 1959.
 \newblock ISSN 0018-8646.
 \newblock \doi{10.1147/rd.33.0210}.
 
-\bibitem[Simonyan i Zisserman()]{simonyan_very_2014}
-Karen Simonyan i Andrew Zisserman.
+\bibitem[Simonyan and Zisserman(2014)]{simonyan_very_2014}
+Karen Simonyan and Andrew Zisserman.
 \newblock Very deep convolutional networks for large-scale image recognition.
+\newblock 2014.
 \newblock URL \url{https://arxiv.org/abs/1409.1556}.
 
-\bibitem[Srivastava et~al.()Srivastava, Hinton, Krizhevsky, Sutskever, i
+\bibitem[Srivastava et~al.(2014)Srivastava, Hinton, Krizhevsky, Sutskever, and
   Salakhutdinov]{srivastava_dropout:_2014}
-Nitish Srivastava, Geoffrey~E. Hinton, Alex Krizhevsky, Ilya Sutskever, i
+Nitish Srivastava, Geoffrey~E. Hinton, Alex Krizhevsky, Ilya Sutskever, and
   Ruslan Salakhutdinov.
 \newblock Dropout: a simple way to prevent neural networks from overfitting.
-\newblock 15\penalty0 (1):\penalty0 1929--1958.
+\newblock 15\penalty0 (1):\penalty0 1929--1958, 2014.
 \newblock URL
   \url{http://www.jmlr.org/papers/volume15/srivastava14a.old/source/srivastava14a.pdf}.
 
-\bibitem[Szegedy et~al.()Szegedy, Liu, Jia, Sermanet, Reed, Anguelov, Erhan,
-  Vanhoucke, i Rabinovich]{szegedy_going_2015}
+\bibitem[Szegedy et~al.(2015)Szegedy, Liu, Jia, Sermanet, Reed, Anguelov,
+  Erhan, Vanhoucke, and Rabinovich]{szegedy_going_2015}
 Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir
-  Anguelov, Dumitru Erhan, Vincent Vanhoucke, i Andrew Rabinovich.
+  Anguelov, Dumitru Erhan, Vincent Vanhoucke, and Andrew Rabinovich.
 \newblock Going deeper with convolutions.
 \newblock U \emph{Proceedings of the {IEEE} Conference on Computer Vision and
-  Pattern Recognition}, stranice 1--9.
+  Pattern Recognition}, stranice 1--9, 2015.
 \newblock URL
   \url{http://www.cv-foundation.org/openaccess/content_cvpr_2015/html/Szegedy_Going_Deeper_With_2015_CVPR_paper.html}.
 
-\bibitem[Xu et~al.()Xu, Wang, Chen, i Li]{xu_empirical_2015}
-Bing Xu, Naiyan Wang, Tianqi Chen, i Mu~Li.
+\bibitem[Xu et~al.(2015)Xu, Wang, Chen, and Li]{xu_empirical_2015}
+Bing Xu, Naiyan Wang, Tianqi Chen, and Mu~Li.
 \newblock Empirical evaluation of rectified activations in convolutional
   network.
+\newblock 2015.
 \newblock URL \url{https://arxiv.org/abs/1505.00853}.
 
-\bibitem[Yan et~al.({\natexlab{a}})Yan, Jagadeesh, {DeCoste}, Di, i
+\bibitem[Yan et~al.(2015{\natexlab{a}})Yan, Jagadeesh, {DeCoste}, Di, and
   Piramuthu]{yan_hd-cnn:_2015-1}
-Zhicheng Yan, Vignesh Jagadeesh, Dennis {DeCoste}, Wei Di, i Robinson
+Zhicheng Yan, Vignesh Jagadeesh, Dennis {DeCoste}, Wei Di, and Robinson
   Piramuthu.
 \newblock Hd-cnn: Hierarchical deep convolutional neural network for image
   classification.
 \newblock U \emph{International Conference on Computer Vision ({ICCV})},
-  svezak~2, {\natexlab{a}}.
+  svezak~2, 2015{\natexlab{a}}.
 \newblock URL
   \url{https://pdfs.semanticscholar.org/1275/125b71b999b7c49bc554c6ec404a764eb299.pdf}.
 
-\bibitem[Yan et~al.({\natexlab{b}})Yan, Zhang, Piramuthu, Jagadeesh, {DeCoste},
-  Di, i Yu]{yan_hd-cnn:_2015}
+\bibitem[Yan et~al.(2015{\natexlab{b}})Yan, Zhang, Piramuthu, Jagadeesh,
+  {DeCoste}, Di, and Yu]{yan_hd-cnn:_2015}
 Zhicheng Yan, Hao Zhang, Robinson Piramuthu, Vignesh Jagadeesh, Dennis
-  {DeCoste}, Wei Di, i Yizhou Yu.
+  {DeCoste}, Wei Di, and Yizhou Yu.
 \newblock {HD}-{CNN}: hierarchical deep convolutional neural networks for large
   scale visual recognition.
 \newblock U \emph{Proceedings of the {IEEE} International Conference on
-  Computer Vision}, stranice 2740--2748, {\natexlab{b}}.
+  Computer Vision}, stranice 2740--2748, 2015{\natexlab{b}}.
 \newblock URL
   \url{http://www.cv-foundation.org/openaccess/content_iccv_2015/html/Yan_HD-CNN_Hierarchical_Deep_ICCV_2015_paper.html}.
+
+\bibitem[Yann~LeCun(2015)]{deep_learning}
+Geoffrey~Hintony Yann~LeCun, Yoshua~Bengio.
+\newblock Deep learning.
+\newblock 2015.
+\newblock URL
+  \url{http://www.nature.com/nature/journal/v521/n7553/full/nature14539.html}.
 
 \end{thebibliography}
