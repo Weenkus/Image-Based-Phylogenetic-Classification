@@ -19,7 +19,7 @@
 \contentsline {subsubsection}{Stochastic gradient descent}{18}{section*.20}
 \contentsline {subsubsection}{Optimization target}{19}{section*.21}
 \contentsline {subsection}{\numberline {2.3.5}Vanishing gradient}{19}{subsection.2.3.5}
-\contentsline {subsection}{\numberline {2.3.6}Batch normalization}{20}{subsection.2.3.6}
+\contentsline {subsection}{\numberline {2.3.6}Batch Normalization}{20}{subsection.2.3.6}
 \contentsline {chapter}{\numberline {3}Model}{21}{chapter.3}
 \contentsline {section}{\numberline {3.1}Implementation}{21}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Keras}{21}{subsection.3.1.1}
@@ -28,16 +28,17 @@
 \contentsline {subsection}{\numberline {3.1.4}Inception v3}{24}{subsection.3.1.4}
 \contentsline {subsection}{\numberline {3.1.5}Pretrained parameters}{24}{subsection.3.1.5}
 \contentsline {subsection}{\numberline {3.1.6}Improving generalization}{27}{subsection.3.1.6}
-\contentsline {chapter}{\numberline {4}Data}{29}{chapter.4}
-\contentsline {section}{\numberline {4.1}ImageNet}{29}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Dataset}{29}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Preprocessing}{31}{subsection.4.1.2}
-\contentsline {section}{\numberline {4.2}Species}{33}{section.4.2}
-\contentsline {chapter}{\numberline {5}Results}{36}{chapter.5}
-\contentsline {section}{\numberline {5.1}Hardware and software}{36}{section.5.1}
-\contentsline {section}{\numberline {5.2}ResNet-50 and Inception v3 comparison}{36}{section.5.2}
-\contentsline {section}{\numberline {5.3}Performance}{37}{section.5.3}
-\contentsline {section}{\numberline {5.4}Memory footprint}{39}{section.5.4}
-\contentsline {section}{\numberline {5.5}Future work}{41}{section.5.5}
-\contentsline {chapter}{\numberline {6}Conclusion}{43}{chapter.6}
-\contentsline {chapter}{Bibliography}{44}{chapter*.42}
+\contentsline {section}{\numberline {3.2}Final model}{28}{section.3.2}
+\contentsline {chapter}{\numberline {4}Data}{31}{chapter.4}
+\contentsline {section}{\numberline {4.1}ImageNet}{31}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Dataset}{31}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Preprocessing}{33}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Species}{35}{section.4.2}
+\contentsline {chapter}{\numberline {5}Results}{38}{chapter.5}
+\contentsline {section}{\numberline {5.1}Hardware and software}{38}{section.5.1}
+\contentsline {section}{\numberline {5.2}ResNet-50 and Inception v3 comparison}{38}{section.5.2}
+\contentsline {section}{\numberline {5.3}Performance}{39}{section.5.3}
+\contentsline {section}{\numberline {5.4}Memory footprint}{41}{section.5.4}
+\contentsline {section}{\numberline {5.5}Future work}{43}{section.5.5}
+\contentsline {chapter}{\numberline {6}Conclusion}{45}{chapter.6}
+\contentsline {chapter}{Bibliography}{46}{chapter*.42}

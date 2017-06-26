@@ -15,7 +15,7 @@
 \BOOKMARK [2][-]{subsection.2.3.3}{Data augmentation}{section.2.3}% 15
 \BOOKMARK [2][-]{subsection.2.3.4}{Backpropagation}{section.2.3}% 16
 \BOOKMARK [2][-]{subsection.2.3.5}{Vanishing gradient}{section.2.3}% 17
-\BOOKMARK [2][-]{subsection.2.3.6}{Batch normalization}{section.2.3}% 18
+\BOOKMARK [2][-]{subsection.2.3.6}{Batch Normalization}{section.2.3}% 18
 \BOOKMARK [0][-]{chapter.3}{Model}{}% 19
 \BOOKMARK [1][-]{section.3.1}{Implementation}{chapter.3}% 20
 \BOOKMARK [2][-]{subsection.3.1.1}{Keras}{section.3.1}% 21
@@ -24,16 +24,17 @@
 \BOOKMARK [2][-]{subsection.3.1.4}{Inception v3}{section.3.1}% 24
 \BOOKMARK [2][-]{subsection.3.1.5}{Pretrained parameters}{section.3.1}% 25
 \BOOKMARK [2][-]{subsection.3.1.6}{Improving generalization}{section.3.1}% 26
-\BOOKMARK [0][-]{chapter.4}{Data}{}% 27
-\BOOKMARK [1][-]{section.4.1}{ImageNet}{chapter.4}% 28
-\BOOKMARK [2][-]{subsection.4.1.1}{Dataset}{section.4.1}% 29
-\BOOKMARK [2][-]{subsection.4.1.2}{Preprocessing}{section.4.1}% 30
-\BOOKMARK [1][-]{section.4.2}{Species}{chapter.4}% 31
-\BOOKMARK [0][-]{chapter.5}{Results}{}% 32
-\BOOKMARK [1][-]{section.5.1}{Hardware and software}{chapter.5}% 33
-\BOOKMARK [1][-]{section.5.2}{ResNet-50 and Inception v3 comparison}{chapter.5}% 34
-\BOOKMARK [1][-]{section.5.3}{Performance}{chapter.5}% 35
-\BOOKMARK [1][-]{section.5.4}{Memory footprint}{chapter.5}% 36
-\BOOKMARK [1][-]{section.5.5}{Future work}{chapter.5}% 37
-\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 38
-\BOOKMARK [0][-]{chapter*.42}{Bibliography}{}% 39
+\BOOKMARK [1][-]{section.3.2}{Final model}{chapter.3}% 27
+\BOOKMARK [0][-]{chapter.4}{Data}{}% 28
+\BOOKMARK [1][-]{section.4.1}{ImageNet}{chapter.4}% 29
+\BOOKMARK [2][-]{subsection.4.1.1}{Dataset}{section.4.1}% 30
+\BOOKMARK [2][-]{subsection.4.1.2}{Preprocessing}{section.4.1}% 31
+\BOOKMARK [1][-]{section.4.2}{Species}{chapter.4}% 32
+\BOOKMARK [0][-]{chapter.5}{Results}{}% 33
+\BOOKMARK [1][-]{section.5.1}{Hardware and software}{chapter.5}% 34
+\BOOKMARK [1][-]{section.5.2}{ResNet-50 and Inception v3 comparison}{chapter.5}% 35
+\BOOKMARK [1][-]{section.5.3}{Performance}{chapter.5}% 36
+\BOOKMARK [1][-]{section.5.4}{Memory footprint}{chapter.5}% 37
+\BOOKMARK [1][-]{section.5.5}{Future work}{chapter.5}% 38
+\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 39
+\BOOKMARK [0][-]{chapter*.42}{Bibliography}{}% 40

@@ -86,7 +86,7 @@
 \maketitle
 
 % Ispis stranice s napomenom o umetanju izvornika rada. Uklonite naredbu \izvornik ako želite izbaciti tu stranicu.
-\izvornik
+% \izvornik
 
 % Dodavanje zahvale ili prazne stranice. Ako ne želite dodati zahvalu, naredbu ostavite radi prazne stranice.
 \zahvala{
@@ -99,9 +99,9 @@ I wish to thank my family for their support and encouragement throughout my stud
 
 \chapter{Introduction}
 \label{se:introduction}
-Since the dawn of time, people have tried to explain their surroundings. Life is all around us in many forms, and as such people have tried to categorize it by keen observation, both through its visual and genetic features. Today, it is organised into a taxonomic hierarchy of eight major taxonomic ranks. The number of species on Earth is approximated to be in the millions \citep{how_many_species_2011}. Great numbers of species make it difficult to identify them only based on images and often requires domain knowledge from the observer. Therefore, an algorithm with the capability to identify species on the field or from an image using only the image itself could provide great benefits for field researches.
+Since the dawn of time, people have tried to explain their surroundings. Life is all around us in many forms, and as such people have tried to categorize it by keen observation, both through its visual and genetic features. Today, it is organised into a taxonomic hierarchy of eight major taxonomic ranks. Phylogenetics is the study of relationships between species. The number of species on Earth is approximated to be in the millions \citep{how_many_species_2011}. Great numbers of species make it difficult to identify them only based on images and often requires domain knowledge from the observer. Therefore, an algorithm with the capability to identify species on the field or from an image using only the image itself could provide great benefits for field researches.
 
-Machine learning allows computers the ability to learn without being explicitly programmed \citep{samuel_studies_1959}. It, together with an increase in available annotated data (\cite{cifar}, \cite{imagenet}, \cite{kaggle}) has yielded great results in the area of deep learning - a class of machine learning algorithms. Deep learning algorithm's accuracy scales with the amount of data used by the algorithm, that together with the improvements in hardware - mainly general purpose graphic units (GPUs) - has yielded significant performance gains in the last couple of years. One of the most rapidly advancing fields of deep learning is image recognition \citep{krizhevsky_imagenet_2012, simonyan_very_2014, szegedy_going_2015, he_deep_2016} with new neural network architectures being developed almost on a yearly basis. The performance of deep neural networks on image recognition has achieved results previously thought impossible.
+Machine learning allows computers the ability to learn without being explicitly programmed \citep{samuel_studies_1959}. It, together with an increase in publicly available annotated data (\cite{cifar}, \cite{imagenet}, \cite{kaggle}) has yielded great results in the area of deep learning - a class of machine learning algorithms. Deep learning algorithm's accuracy scales with the amount of data used by the algorithm, that together with the improvements in hardware - mainly general purpose graphic units (GPUs) - has yielded significant performance gains in the last couple of years. One of the most rapidly advancing fields of deep learning is image recognition \citep{krizhevsky_imagenet_2012, simonyan_very_2014, szegedy_going_2015, he_deep_2016} with new neural network architectures being developed almost on a yearly basis. The performance of deep neural networks on image recognition has achieved results previously thought impossible.
 
 In this thesis, I propose a solution for a scalable classification of species from images, based on convolution neural networks and recent modern deep learning techniques.
 
@@ -518,12 +518,12 @@ To use the cross-entropy loss in the Backpropagation we have to calculate its gr
 On of the problems with using Backpropagation is the propagation of loss gradients in the neural networks. As the neural network is composed of smaller unites called neurons, its output is also a function composed of linear combinations and non-linear activation functions of previous layers. The Backpropagation algorithm calculates the gradient losses from the output to the front layers of the neural network - hence the name Backpropagation. The deeper the network, the more information is lost due to gradient decay - low gradient values. The vanished gradient means that the network is not efficiently training and leads to poor performance. One way to combat that is to use special activation functions \citep{clevert_fast_2015, xu_empirical_2015, he_delving_2015} or special architectures \citep{he_deep_2016} that deal with this problem. 
 
 
-\subsection{Batch normalization}
+\subsection{Batch Normalization}
 \label{se:batch_norm}
 
 Normalizing input data before it enters the machine learning algorithm usually increases the performance of the algorithm. It is easier for the model to learn its task when all of its inputs will be in a certain range. Input normalization in CNNs that use images for input will not yield significant performance improvements because the input for images are normalized by nature in the range of $0$ to $255$ RGB values (Section \ref{se:data}). 
 
-The second problem is the modularity of neural networks. Each layer feeds its outputs into the inputs of the next layer - making any input normalization futile. To combat this a new solution in a form of normalization layer has been introduced in 2015 called batch normalization \citep{ioffe_batch_2015}. It normalizes the data for the whole minibatch that is used in the forward pass of the backpropagation algorithm (Section \ref{se:backprop}). As the authors have shown, using batch normalization improves generalization, in some cases removes the need for Dropout (Section \ref{se:dropout}) and makes the neural network more robust to initial hyperparameter initialization.
+The second problem is the modularity of neural networks. Each layer feeds its outputs into the inputs of the next layer - making any input normalization futile. To combat this a new solution in a form of normalization layer has been introduced in 2015 called Batch Normalization \citep{ioffe_batch_2015}. It normalizes the data for the whole minibatch that is used in the forward pass of the backpropagation algorithm (Section \ref{se:backprop}). As the authors have shown, using Batch Normalization improves generalization, in some cases removes the need for Dropout (Section \ref{se:dropout}) and makes the neural network more robust to initial hyperparameter initialization.
 
 \chapter{Model}
 \label{se:model}
@@ -532,7 +532,7 @@ To make a scalable species classifier that works with specific hardware requirem
 
 \section{Implementation}
 
-There are a plethora of computational frameworks to choose to create a deep learning model; TensorFlow \citep{tensorflow}, Caffe2 \citep{caffe}, pyTroch \citep{pytorch}, Keras \citep{keras}, Theano \citep{theano}, CNTK \citep{cntk} and many more. I have chosen Keras as it has a high-level API for creating neural networks and provides pretrained models (more on this in Section \ref{se:pretrained_parameters}) which were crucial to train a high accuracy model on a weak GPU. Keras allows the user to choose a backend deep learning framework, at the time of writing this thesis there were two options - TensorFlow and Theano. TensorFlow was chosen as it is newer and has gained a lot of popularity in the past couple of months.
+There are a plethora of computational frameworks to choose to create a deep learning model; TensorFlow \citep{tensorflow}, Caffe2 \citep{caffe}, pyTroch \citep{pytorch}, Theano \citep{theano}, Keras \citep{keras}, CNTK \citep{cntk} and many more. I have chosen Keras as it has a high-level API for creating neural networks and provides pretrained models (more on this in Section \ref{se:pretrained_parameters}) which were crucial to train a high accuracy model on a weak GPU. Keras allows the user to choose a backend deep learning framework, at the time of writing this thesis there were two options - TensorFlow and Theano. TensorFlow was chosen as it is newer and has gained a lot of popularity in the past couple of months.
 
 \subsection{Keras}
 \label{se:keras}
@@ -605,12 +605,12 @@ ResNet's performance comes from a unique way in which it builds layers. ResNet i
   \label{fig:residual_layer}
 \end{figure}
 
-Figure \ref{fig:vgg_resnet_comparison} shows a direct comparison between VGG \citep{simonyan_very_2014} and ResNet architectures. One of the main benefits of using ResNet is a lower memory consumption on the GPU because of the lack of fully-connected (dense) layers at the end of the network. The fully-connected layers contain the most parameters, and removing them increases the number of convolution layers while lowering the number of parameters.
+Figure \ref{fig:vgg_resnet_comparison} shows a direct comparison between VGG \citep{simonyan_very_2014} and ResNet architectures. One of the main benefits of using ResNet is a lower memory consumption on the GPU because of the lack of fully-connected (dense) layers at the end of the network. The fully-connected layers contain the most parameters, and removing them increases the number of convolution layers while lowering the number of parameters. The Figure clearly shows that ResNet has more convolution layers and less fully-connected (denoted as fc in the Figure). This, as a result lower the memory consumption of ResNet. ResNet's residual connections allows for the model to achieve even higher performance than VGG \citep{he_deep_2016}.
 
 \begin{figure}
   \includegraphics[scale=0.7]{figures/resnet_vgg_comparison.png}
   \centering
-  \caption{A comparison of two popular CNN architectures - ResNet and VGG}
+  \caption{A comparison of CNN architectures, from lest to right VGG-19, ResNet-34 without residuals and ResNet-34}
   \label{fig:vgg_resnet_comparison}
 \end{figure}
 
@@ -699,6 +699,57 @@ validation_generator = test_datagen.flow_from_directory(
         class_mode='categorical')
         
 \end{lstlisting}
+
+\section{Final model}
+The final model uses concepts from this whole chapter. It has a base pretrained network - ResNet-50 \citep{he_deep_2016} - with the parameters being initialised from the ImageNet dataset \citep{imagenet}. An example of this with Keras \citep{keras} and Python was given in Section \ref{se:pretrained_parameters}. The reason for why ResNet-50 was chosen is explained in Section \ref{se:resnet_vs_inception}.
+
+The base network (ResNet-50) was not trained, to reduce the computational power needed to train the whole network. A smaller feed-forward neural network was added at the end of the base network to create the whole model (the code is shown below). The model uses Batch Normalization (explained in Section \ref{se:batch_norm}) to improve generalization and initial parameter robustness, as well as Dropout (Section \ref{se:dropout}) which works as a regularization. To improve the generalization performance further, all input data was augmented on every epoch (Section \ref{se:data_augmentation}). The activation function used in the feed-forward network is elu, proven to increase performance for very deep networks and to lower training time \citep{clevert_fast_2015}.
+
+The final model was trained with Adam \citep{kingma_adam:_2014} (Section \ref{se:backprop}). The initial learning rate was set to 0.001. No decay rate was used, instead the learning rate was manually lowered by the power of 10 every time the model was stuck on a certain score. This was done twice, resulting in the final learning rate to be 0.00001.
+
+\begin{lstlisting}[language=Python, caption=The model that was appended to the end of ResNet-50]
+
+from keras.applications import ResNet50
+
+from keras.layers import Input, Dense, Flatten, BatchNormalization, Activation, Dropout
+from keras.models import Sequential, Model
+from keras.optimizers import Adam
+from keras.activations import elu
+from keras.preprocessing.image import ImageDataGenerator, array_to_img, img_to_array, load_img
+
+from keras import backend as K
+K.set_image_dim_ordering('tf')
+
+IMG_DIM = 224
+INPUT_TENSOR = Input(shape=(IMG_DIM, IMG_DIM, 3))
+
+base_model = ResNet50(input_tensor=INPUT_TENSOR, include_top=False)
+
+for layer in base_model.layers:
+    layer.trainable = False
+
+top_model = Sequential()
+top_model.add(Flatten(input_shape=base_model.output_shape[1:]))
+
+top_model.add(Dense(512))
+top_model.add(BatchNormalization())
+top_model.add(Activation(elu))
+top_model.add(Dropout(0.3))
+
+top_model.add(Dense(512))
+top_model.add(BatchNormalization())
+top_model.add(Activation(elu))
+
+model = Model(input=base_model.input, output=top_model(base_model.output))
+
+model.compile(
+	loss='categorical_crossentropy',
+    optimizer=Adam(0.001),
+    metrics=['accuracy']
+)
+
+\end{lstlisting}
+
 
 \chapter{Data}
 
