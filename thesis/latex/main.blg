@@ -6,14 +6,24 @@ Database file #1: master_thesis.bib
 Warning--entry type for "imagenet" isn't style-file defined
 --line 125 of file master_thesis.bib
 Warning--entry type for "kaggle" isn't style-file defined
---line 133 of file master_thesis.bib
+--line 134 of file master_thesis.bib
 Warning--entry type for "cifar" isn't style-file defined
---line 140 of file master_thesis.bib
+--line 142 of file master_thesis.bib
 Warning--entry type for "kleene_representation_1951" isn't style-file defined
---line 149 of file master_thesis.bib
-I was expecting a `,' or a `}'---line 339 of file master_thesis.bib
+--line 152 of file master_thesis.bib
+I was expecting a `,' or a `}'---line 343 of file master_thesis.bib
  :  file = {Keras Documentation:/home/weenkus/.zotero/zotero/kbk3cfrw.default/zotero/storage/GCGHB9J6/keras.io.html:text/html}
  :                                                                                                                            .
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 360 of file master_thesis.bib
+ :  
+ :  title = {PyTorch - Tensors and Dynamic neural networks in Python with strong GPU acceleration.},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 368 of file master_thesis.bib
+ :  
+ :  title = {CNTK - Microsoft Cognitive Toolkit},
+(Error may have been on previous line)
 I'm skipping whatever remains of this entry
 Too many commas in name 1 of "Camilo Mora, Derek P. Tittensor, Sina Adl, Alastair G. B. Simpson, Boris Worm" for entry how_many_species_2011
 while executing---line 1325 of file fer.bst
@@ -23,26 +33,6 @@ Too many commas in name 1 of "Camilo Mora, Derek P. Tittensor, Sina Adl, Alastai
 while executing---line 1325 of file fer.bst
 Too many commas in name 1 of "Camilo Mora, Derek P. Tittensor, Sina Adl, Alastair G. B. Simpson, Boris Worm" for entry how_many_species_2011
 while executing---line 1325 of file fer.bst
-Warning--to sort, need author or key in cifar
-Warning--to sort, need author or key in imagenet
-Warning--to sort, need author or key in kaggle
-Warning--to sort, need author or key in tensorflow
-Warning--to sort, need author or key in caffe
-Warning--to sort, need author or key in pytorch
-Warning--to sort, need author or key in keras
-Warning--to sort, need author or key in theano
-Warning--to sort, need author or key in cntk
-Warning--to sort, need author or key in docker
-Warning--empty year in caffe
-Warning--empty year in cifar
-Warning--empty year in cntk
-Warning--empty year in docker
-Warning--empty year in imagenet
-Warning--empty year in kaggle
-Warning--empty year in keras
-Warning--empty year in pytorch
-Warning--empty year in tensorflow
-Warning--empty year in theano
 Too many commas in name 1 of "Camilo Mora, Derek P. Tittensor, Sina Adl, Alastair G. B. Simpson, Boris Worm" for entry how_many_species_2011
 while executing---line 1407 of file fer.bst
 Too many commas in name 1 of "Camilo Mora, Derek P. Tittensor, Sina Adl, Alastair G. B. Simpson, Boris Worm" for entry how_many_species_2011
@@ -53,6 +43,16 @@ Too many commas in name 1 of "Camilo Mora, Derek P. Tittensor, Sina Adl, Alastai
 while executing---line 1407 of file fer.bst
 Warning--empty journal in how_many_species_2011
 Warning--empty journal in clevert_fast_2015
+Warning--empty year in caffe
+Warning--empty year in theano
+Warning--empty year in pytorch
+Warning--empty year in keras
+Warning--empty year in cifar
+Warning--empty year in docker
+Warning--empty year in kaggle
+Warning--empty year in cntk
+Warning--empty year in tensorflow
+Warning--empty year in imagenet
 Warning--empty journal in hubel_receptive_1968
 Warning--empty journal in ioffe_batch_2015
 Warning--empty journal in kingma_adam:_2014
@@ -64,43 +64,43 @@ Warning--empty journal in xu_empirical_2015
 Warning--empty journal in deep_learning
 You've used 31 entries,
             2773 wiz_defined-function locations,
-            757 strings with 10983 characters,
-and the built_in function-call counts, 13415 in all, are:
-= -- 1251
-> -- 621
-< -- 20
-+ -- 221
-- -- 189
-* -- 1004
-:= -- 1859
-add.period$ -- 120
+            752 strings with 10838 characters,
+and the built_in function-call counts, 13905 in all, are:
+= -- 1255
+> -- 721
+< -- 30
++ -- 251
+- -- 219
+* -- 990
+:= -- 2093
+add.period$ -- 124
 call.type$ -- 31
-change.case$ -- 155
+change.case$ -- 163
 chr.to.int$ -- 30
-cite$ -- 103
+cite$ -- 83
 duplicate$ -- 660
-empty$ -- 1217
-format.name$ -- 222
-if$ -- 2941
+empty$ -- 1187
+format.name$ -- 262
+if$ -- 2965
 int.to.chr$ -- 2
 int.to.str$ -- 1
 missing$ -- 20
-newline$ -- 187
-num.names$ -- 88
-pop$ -- 442
+newline$ -- 191
+num.names$ -- 128
+pop$ -- 426
 preamble$ -- 1
-purify$ -- 124
+purify$ -- 134
 quote$ -- 0
-skip$ -- 516
+skip$ -- 530
 stack$ -- 0
-substring$ -- 402
+substring$ -- 392
 swap$ -- 92
 text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 341
-warning$ -- 31
-while$ -- 94
+warning$ -- 21
+while$ -- 124
 width$ -- 0
-write$ -- 422
-(There were 9 error messages)
+write$ -- 430
+(There were 11 error messages)

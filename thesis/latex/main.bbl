@@ -5,63 +5,10 @@
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[caf()]{caffe}
-Caffe 2 - a new lightweight, modular, and scalable deep learning framework.
-\newblock URL \url{http://caffe2.ai/}.
-\newblock Accessed 2017-06-01.
-
-\bibitem[cif()]{cifar}
-Cifar-10 and cifar-100 datasets.
-\newblock URL \url{https://www.cs.toronto.edu/~kriz/cifar.html}.
-\newblock Accessed 2017-04-15.
-
-\bibitem[cnt()]{cntk}
-Cntk - microsoft cognitive toolkit.
-\newblock URL \url{http://pytorch.org/}.
-\newblock Accessed 2017-06-01.
-
-\bibitem[doc()]{docker}
-Docker.
-\newblock URL \url{https://www.docker.com/}.
-\newblock Accessed 2017-06-20.
-
-\bibitem[ima()]{imagenet}
-Imagenet.
-\newblock URL \url{http://www.image-net.org/}.
-\newblock Accessed 2017-04-15.
-
-\bibitem[kag()]{kaggle}
-Kaggle.
-\newblock URL \url{https://www.kaggle.com/}.
-\newblock Accessed 2017-06-19.
-
-\bibitem[ker()]{keras}
-Keras - high-level neural networks api, written in python and capable of
-  running on top of either tensorflow, cntk or theano. it was developed with a
-  focus on enabling fast experimentation.
-\newblock URL \url{https://keras.io/}.
-
-\bibitem[pyt()]{pytorch}
-Pytorch - tensors and dynamic neural networks in python with strong gpu
-  acceleration.
-\newblock URL \url{https://www.microsoft.com/en-us/cognitive-toolkit//}.
-\newblock Accessed 2017-06-20.
-
-\bibitem[ten()]{tensorflow}
-Tensorflow - an open-source software library for machine intelligence.
-\newblock URL \url{https://www.tensorflow.org/}.
-\newblock Accessed 2017-06-01.
-
-\bibitem[the()]{theano}
-Theano 0.9.0 - python library that allows you to define, optimize, and evaluate
-  mathematical expressions involving multi-dimensional arrays efficiently.
-\newblock URL \url{http://deeplearning.net/software/theano/#}.
-\newblock Accessed 2017-06-01.
-
 \bibitem[Bottou(1998)]{bottou-98x}
 L\'{e}on Bottou.
 \newblock Online algorithms and stochastic approximations.
-\newblock U David Saad, urednik, \emph{Online Learning and Neural Networks}.
+\newblock In David Saad, editor, \emph{Online Learning and Neural Networks}.
   Cambridge University Press, Cambridge, UK, 1998.
 \newblock URL \url{http://leon.bottou.org/papers/bottou-98x}.
 \newblock revised, oct 2012.
@@ -84,8 +31,8 @@ Djork-Arné Clevert, Thomas Unterthiner, and Sepp Hochreiter.
 \bibitem[Fukushima(1989)]{eckmiller_hierarchical_1989}
 Kunihiko Fukushima.
 \newblock A hierarchical neural network model for selective attention.
-\newblock U Rolf Eckmiller and Christoph v.d. Malsburg, urednici, \emph{Neural
-  Computers}, stranice 81--90. Springer Berlin Heidelberg, 1989.
+\newblock In Rolf Eckmiller and Christoph v.d. Malsburg, editor, \emph{Neural
+  Computers}, pages 81--90. Springer Berlin Heidelberg, 1989.
 \newblock ISBN 978-3-540-50892-2 978-3-642-83740-1.
 \newblock URL \url{http://link.springer.com/10.1007/978-3-642-83740-1_10}.
 \newblock {DOI}: 10.1007/978-3-642-83740-1\_10.
@@ -94,8 +41,8 @@ Kunihiko Fukushima.
 Kunihiko Fukushima and Sei Miyake.
 \newblock Neocognitron: A self-organizing neural network model for a mechanism
   of visual pattern recognition.
-\newblock U \emph{Competition and cooperation in neural nets}, stranice
-  267--285. Springer, 1982.
+\newblock In \emph{Competition and cooperation in neural nets}, pages 267--285.
+  Springer, 1982.
 \newblock URL
   \url{http://link.springer.com/chapter/10.1007/978-3-642-46466-9_18}.
 
@@ -103,18 +50,77 @@ Kunihiko Fukushima and Sei Miyake.
 Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
 \newblock Delving deep into rectifiers: Surpassing human-level performance on
   imagenet classification.
-\newblock U \emph{Proceedings of the {IEEE} international conference on
-  computer vision}, stranice 1026--1034, 2015.
+\newblock In \emph{Proceedings of the {IEEE} international conference on
+  computer vision}, pages 1026--1034, 2015.
 \newblock URL
   \url{http://www.cv-foundation.org/openaccess/content_iccv_2015/html/He_Delving_Deep_into_ICCV_2015_paper.html}.
 
 \bibitem[He et~al.(2016)He, Zhang, Ren, and Sun]{he_deep_2016}
 Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
 \newblock Deep residual learning for image recognition.
-\newblock U \emph{Proceedings of the {IEEE} Conference on Computer Vision and
-  Pattern Recognition}, stranice 770--778, 2016.
+\newblock In \emph{Proceedings of the {IEEE} Conference on Computer Vision and
+  Pattern Recognition}, pages 770--778, 2016.
 \newblock URL
   \url{http://www.cv-foundation.org/openaccess/content_cvpr_2016/html/He_Deep_Residual_Learning_CVPR_2016_paper.html}.
+
+\bibitem[http://caffe2.ai/()]{caffe}
+http://caffe2.ai/.
+\newblock Caffe 2 - a new lightweight, modular, and scalable deep learning
+  framework.
+\newblock URL \url{http://caffe2.ai/}.
+\newblock Accessed 2017-06-01.
+
+\bibitem[http://deeplearning.net/software/theano/()]{theano}
+http://deeplearning.net/software/theano/.
+\newblock Theano 0.9.0 - python library that allows you to define, optimize,
+  and evaluate mathematical expressions involving multi-dimensional arrays
+  efficiently.
+\newblock URL \url{http://deeplearning.net/software/theano/}.
+\newblock Accessed 2017-06-01.
+
+\bibitem[http://pytorch.org/()]{pytorch}
+http://pytorch.org/.
+
+\bibitem[https://keras.io/()]{keras}
+https://keras.io/.
+\newblock Keras - high-level neural networks api, written in python and capable
+  of running on top of either tensorflow, cntk or theano. it was developed with
+  a focus on enabling fast experimentation.
+\newblock URL \url{https://keras.io/}.
+
+\bibitem[https://www.cs.toronto.edu/ kriz/cifar.html()]{cifar}
+https://www.cs.toronto.edu/ kriz/cifar.html.
+\newblock Cifar-10 and cifar-100 datasets.
+\newblock URL \url{https://www.cs.toronto.edu/~kriz/cifar.html}.
+\newblock Accessed 2017-04-15.
+
+\bibitem[https://www.docker.com/()]{docker}
+https://www.docker.com/.
+\newblock Docker.
+\newblock URL \url{https://www.docker.com/}.
+\newblock Accessed 2017-06-20.
+
+\bibitem[https://www.kaggle.com/()]{kaggle}
+https://www.kaggle.com/.
+\newblock Kaggle.
+\newblock URL \url{https://www.kaggle.com/}.
+\newblock Accessed 2017-06-19.
+
+\bibitem[https://www.microsoft.com/en-us/cognitive toolkit/()]{cntk}
+https://www.microsoft.com/en-us/cognitive toolkit/.
+
+\bibitem[https://www.tensorflow.org/()]{tensorflow}
+https://www.tensorflow.org/.
+\newblock Tensorflow - an open-source software library for machine
+  intelligence.
+\newblock URL \url{https://www.tensorflow.org/}.
+\newblock Accessed 2017-06-01.
+
+\bibitem[http://www.image net.org/()]{imagenet}
+http://www.image net.org/.
+\newblock Imagenet.
+\newblock URL \url{http://www.image-net.org/}.
+\newblock Accessed 2017-04-15.
 
 \bibitem[Hubel and Wiesel(1968)]{hubel_receptive_1968}
 D.~H. Hubel and T.~N. Wiesel.
@@ -147,7 +153,7 @@ Stephen~Cole Kleene.
   Hinton]{krizhevsky_imagenet_2012}
 Alex Krizhevsky, Ilya Sutskever, and Geoffrey~E. Hinton.
 \newblock Imagenet classification with deep convolutional neural networks.
-\newblock U \emph{Advances in neural information processing systems}, stranice
+\newblock In \emph{Advances in neural information processing systems}, pages
   1097--1105, 2012.
 \newblock URL
   \url{https://www.nvidia.cn/content/tesla/pdf/machine-learning/imagenet-classification-with-deep-convolutional-nn.pdf}.
@@ -185,8 +191,8 @@ Nitish Srivastava, Geoffrey~E. Hinton, Alex Krizhevsky, Ilya Sutskever, and
 Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir
   Anguelov, Dumitru Erhan, Vincent Vanhoucke, and Andrew Rabinovich.
 \newblock Going deeper with convolutions.
-\newblock U \emph{Proceedings of the {IEEE} Conference on Computer Vision and
-  Pattern Recognition}, stranice 1--9, 2015.
+\newblock In \emph{Proceedings of the {IEEE} Conference on Computer Vision and
+  Pattern Recognition}, pages 1--9, 2015.
 \newblock URL
   \url{http://www.cv-foundation.org/openaccess/content_cvpr_2015/html/Szegedy_Going_Deeper_With_2015_CVPR_paper.html}.
 
@@ -203,8 +209,8 @@ Zhicheng Yan, Vignesh Jagadeesh, Dennis {DeCoste}, Wei Di, and Robinson
   Piramuthu.
 \newblock Hd-cnn: Hierarchical deep convolutional neural network for image
   classification.
-\newblock U \emph{International Conference on Computer Vision ({ICCV})},
-  svezak~2, 2015{\natexlab{a}}.
+\newblock In \emph{International Conference on Computer Vision ({ICCV})},
+  volume~2, 2015{\natexlab{a}}.
 \newblock URL
   \url{https://pdfs.semanticscholar.org/1275/125b71b999b7c49bc554c6ec404a764eb299.pdf}.
 
@@ -214,8 +220,8 @@ Zhicheng Yan, Hao Zhang, Robinson Piramuthu, Vignesh Jagadeesh, Dennis
   {DeCoste}, Wei Di, and Yizhou Yu.
 \newblock {HD}-{CNN}: hierarchical deep convolutional neural networks for large
   scale visual recognition.
-\newblock U \emph{Proceedings of the {IEEE} International Conference on
-  Computer Vision}, stranice 2740--2748, 2015{\natexlab{b}}.
+\newblock In \emph{Proceedings of the {IEEE} International Conference on
+  Computer Vision}, pages 2740--2748, 2015{\natexlab{b}}.
 \newblock URL
   \url{http://www.cv-foundation.org/openaccess/content_iccv_2015/html/Yan_HD-CNN_Hierarchical_Deep_ICCV_2015_paper.html}.
 

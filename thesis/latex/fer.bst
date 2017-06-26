@@ -239,8 +239,8 @@ FUNCTION {format.editors}
     { "" }
     { editor format.names
       editor num.names$ #1 >
-        { ", urednici" * }
-        { ", urednik" * }
+        { ", editor" * }
+        { ", editor" * }
       if$
     }
   if$
@@ -429,12 +429,12 @@ FUNCTION {either.or.check}
 FUNCTION {format.bvolume}
 { volume empty$
     { "" }
-    { "svezak" volume tie.or.space.connect
+    { "volume" volume tie.or.space.connect
       series empty$
         'skip$
-        { " od " * series emphasize * }
+        { " from " * series emphasize * }
       if$
-      "svezak i broj" number either.or.check
+      "volume and number" number either.or.check
     }
   if$
 }
@@ -496,8 +496,8 @@ FUNCTION {format.pages}
 { pages empty$
     { "" }
     { pages multi.page.check
-        { "stranice" pages n.dashify tie.or.space.connect }
-        { "stranica" pages tie.or.space.connect }
+        { "pages" pages n.dashify tie.or.space.connect }
+        { "pages" pages tie.or.space.connect }
       if$
     }
   if$
@@ -556,7 +556,7 @@ FUNCTION {format.chapter.pages}
 { chapter empty$
     'format.pages
     { type empty$
-        { "poglavlje" }
+        { "chapter" }
         { type "l" change.case$ }
       if$
       chapter tie.or.space.connect
@@ -572,8 +572,8 @@ FUNCTION {format.in.ed.booktitle}
 { booktitle empty$
     { "" }
     { editor empty$
-        { "U " booktitle emphasize * }
-        { "U " format.editors * ", " * booktitle emphasize * }
+        { "In " booktitle emphasize * }
+        { "In " format.editors * ", " * booktitle emphasize * }
       if$
     }
   if$
@@ -627,10 +627,10 @@ FUNCTION {format.article.crossref}
 FUNCTION {format.book.crossref}
 { volume empty$
     { "empty volume in " cite$ * "'s crossref of " * crossref * warning$
-      "U "
+      "In "
     }
-    { "Svezak" volume tie.or.space.connect
-      " od " *
+    { "Volume" volume tie.or.space.connect
+      " from " *
     }
   if$
   editor empty$
@@ -663,13 +663,13 @@ FUNCTION {format.incoll.inproc.crossref}
               crossref * warning$
               ""
             }
-            { "U \emph{" booktitle * "}" * }
+            { "In \emph{" booktitle * "}" * }
           if$
         }
-        { "U " }
+        { "In " }
       if$
     }
-    { "U " }
+    { "In " }
   if$
   " \citet{" * crossref * "}" *
 }
