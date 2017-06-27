@@ -90,7 +90,7 @@
 
 % Dodavanje zahvale ili prazne stranice. Ako ne želite dodati zahvalu, naredbu ostavite radi prazne stranice.
 \zahvala{
-I would like to express my gratitude to my mentor Mirjana Domazet-Lošo who has given me encouragement and guidance throughout this project. 
+I would like to express my gratitude to my mentor Mirjana Domazet-Lošo who has given me encouragement and guidance throughout this project. \\
 
 I wish to thank my family for their support and encouragement throughout my study, without whom I would not be here today.
 }
@@ -439,7 +439,7 @@ One of the most important techniques in machine learning is regularization (Sect
 
 \subsection{Data augmentation}  \label{se:data_augmentation}
 
-Another popular regularization technique is called data augmentation. The model usually trains in tens or even hundreds of epochs - a signal epoch is when the training algorithm uses every data point in $X_{train}$ (one pass over $X_{train}$). Reusing the same data points can lead to overfitting. One approach to preventing that is to augment $X_{train}$ on every epoch. Usually the data is augmented with rotation, mirroring, cropping, blurring (all these effects can be seen in Figures \ref{fig:data_augmentation_figure} and \ref{fig:data_augmentation}). Both dropout and data augmentation are used in almost every state-of-the-art CNN model today. There are some exceptions due to a new technique called batch normalization \citep{ioffe_batch_2015}.
+Another popular regularization technique is called data augmentation. The model usually trains in tens or even hundreds of epochs - a signal epoch is when the training algorithm uses every data point in $X_{train}$ (one pass over $X_{train}$). Reusing the same data points can lead to overfitting. One approach to preventing that is to augment $X_{train}$ on every epoch. Usually the data is augmented with rotation, mirroring, cropping, blurring (all these effects can be seen in Figures \ref{fig:data_augmentation_figure} and \ref{fig:data_augmentation}). Both Dropout and data augmentation are used in almost every state-of-the-art CNN model today. There are some exceptions due to a new technique called Batch Normalization \citep{ioffe_batch_2015}.
 
 \begin{figure}
   \includegraphics[scale=0.7]{figures/data_augmentation.png}
@@ -461,7 +461,7 @@ To be able to train a convolutional neural network on huge datasets, an algorith
 
 \subsubsection{Gradient descent}
 
-Gradient descent is an iterative optimization algorithm. It uses the gradient (Section \ref{se:gradient}) of a function to find a point on a domain that minimises or maximises the function's value. Gradient descent does not guarantee to find the global maximum or minimum (Figure \ref{fig:local_and_global_function_values}). There have been several variations of the gradient descent algorithm that deal with the algorithm being stuck in local maximum or minimum, the most famous and most widely used for deep learning is Adam \citep{kingma_adam:_2014}.
+Gradient descent is an iterative optimization algorithm. It uses the gradient (Section \ref{se:gradient}) of a function to find a point on a domain that minimises or maximises the function's value. Gradient descent does not guarantee to find the global maximum or minimum (Figure \ref{fig:local_and_global_function_values}). There have been several variations of the Gradient descent algorithm that deal with the algorithm being stuck in local maximum or minimum, the most famous and most widely used for deep learning is Adam \citep{kingma_adam:_2014}.
 
 \begin{figure}
   \includegraphics[scale=0.5]{figures/local_global_maxima_minima.png}
@@ -523,7 +523,7 @@ On of the problems with using Backpropagation is the propagation of loss gradien
 
 Normalizing input data before it enters the machine learning algorithm usually increases the performance of the algorithm. It is easier for the model to learn its task when all of its inputs will be in a certain range. Input normalization in CNNs that use images for input will not yield significant performance improvements because the input for images are normalized by nature in the range of $0$ to $255$ RGB values (Section \ref{se:data}). 
 
-The second problem is the modularity of neural networks. Each layer feeds its outputs into the inputs of the next layer - making any input normalization futile. To combat this a new solution in a form of normalization layer has been introduced in 2015 called Batch Normalization \citep{ioffe_batch_2015}. It normalizes the data for the whole minibatch that is used in the forward pass of the backpropagation algorithm (Section \ref{se:backprop}). As the authors have shown, using Batch Normalization improves generalization, in some cases removes the need for Dropout (Section \ref{se:dropout}) and makes the neural network more robust to initial hyperparameter initialization.
+The second problem is the modularity of neural networks. Each layer feeds its outputs into the inputs of the next layer - making any input normalization futile. To combat this a new solution in a form of normalization layer has been introduced in 2015 called Batch Normalization \citep{ioffe_batch_2015}. It normalizes the data for the whole mini-batch that is used in the forward pass of the Backpropagation algorithm (Section \ref{se:backprop}). As the authors have shown, using Batch Normalization improves generalization, in some cases removes the need for Dropout (Section \ref{se:dropout}) and makes the neural network more robust to initial hyperparameter initialization.
 
 \chapter{Model}
 \label{se:model}
@@ -532,12 +532,12 @@ To make a scalable species classifier that works with specific hardware requirem
 
 \section{Implementation}
 
-There are a plethora of computational frameworks to choose to create a deep learning model; TensorFlow \citep{tensorflow}, Caffe2 \citep{caffe}, pyTroch \citep{pytorch}, Theano \citep{theano}, Keras \citep{keras}, CNTK \citep{cntk} and many more. I have chosen Keras as it has a high-level API for creating neural networks and provides pretrained models (more on this in Section \ref{se:pretrained_parameters}) which were crucial to train a high accuracy model on a weak GPU. Keras allows the user to choose a backend deep learning framework, at the time of writing this thesis there were two options - TensorFlow and Theano. TensorFlow was chosen as it is newer and has gained a lot of popularity in the past couple of months.
+There are a plethora of computational frameworks to choose to create a deep learning model; Caffe2 \citep{caffe}, Google's TensorFlow \citep{tensorflow}, Theano \citep{theano}, Keras \citep{keras}, pyTroch \citep{pytorch}, Microsoft's CNTK \citep{cntk}. I have chosen Keras as it has a high-level API for creating neural networks and provides pretrained models (more on this in Section \ref{se:pretrained_parameters}) which were crucial to train a high accuracy model on a weak GPU. Keras allows the user to choose a backend deep learning framework, at the time of writing this thesis there were two options - TensorFlow and Theano. TensorFlow was chosen as it is newer and has gained a lot of popularity in the past couple of months.
 
 \subsection{Keras}
 \label{se:keras}
 
-Keras provides a high level of abstraction when creating neural networks, giving the user a framework for rapid iteration and development. A simple example of the high-level API is given below. Using Keras we can create a two-layered feed-forward neural network in just a couple of lines of code. The "create\textunderscore model" function returns a model with two layers the first layer has 32 neurons, the second (also the last) has 10 - this means the classifier has 10 classes (the number of neurons in the last layer should always match the number of classes). The last layer uses the softmax activation function (Expression \ref{eq:softmax} for more details) to get class probabilities. The model also defines to type of gradient descent algorithm (Expression \ref{eq:gradient_descent}) - RMSProp, and the loss function categorical cross entropy (Expression \ref{eq:cross_entropy_loss}). The "train\textunderscore model" function takes the created model and trains it in 10 epochs with a minibatch size of 32 input data points (Section \ref{se:stochastic_gd}).
+Keras provides a high level of abstraction when creating neural networks, giving the user a framework for rapid iteration and development. A simple example of the high-level API is given below. Using Keras we can create a two-layered feed-forward neural network in just a couple of lines of code. The "create\textunderscore model" function returns a model with two layers the first layer has 32 neurons, the second (also the last) has 10 - this means the classifier has 10 classes (the number of neurons in the last layer should always match the number of classes). The last layer uses the softmax activation function (Expression \ref{eq:softmax} for more details) to get class probabilities. The model also defines to type of gradient descent algorithm (Expression \ref{eq:gradient_descent}) - RMSProp, and the loss function categorical cross entropy (Expression \ref{eq:cross_entropy_loss}). The "train\textunderscore model" function takes the created model and trains it in 10 epochs with a mini-batch size of 32 input data points (Section \ref{se:stochastic_gd}).
 
 
 
@@ -671,7 +671,7 @@ model.compile(loss='categorical_crossentropy',
 
 \subsection{Improving generalization}
 
-To improve the generalization of the model, batch normalization was added after every fully-connected layer in the network (see the code example above). Also, the input images were augmented (\ref{se:data_augmentation}). The $X_{test}$ had its images only rescaled, while $X_{train}$ and $X_{validation}$ were more aggressively augmented (random zoom, horizontal flip, rescale and sheered), this is shown in detail in the Figure \ref{fig:data_augmentation}.
+To improve the generalization of the model, Batch Normalization was added after every fully-connected layer in the network (see the code example above). Also, the input images were augmented (\ref{se:data_augmentation}). The $X_{test}$ had its images only rescaled, while $X_{train}$ and $X_{validation}$ were more aggressively augmented (random zoom, horizontal flip, rescale and sheered), this is shown in detail in the Figure \ref{fig:data_augmentation}.
 
 \begin{lstlisting}[language=Python, caption=Data augmentation of the input dataset (images)]
 
@@ -703,9 +703,9 @@ validation_generator = test_datagen.flow_from_directory(
 \section{Final model}
 The final model uses concepts from this whole chapter. It has a base pretrained network - ResNet-50 \citep{he_deep_2016} - with the parameters being initialised from the ImageNet dataset \citep{imagenet}. An example of this with Keras \citep{keras} and Python was given in Section \ref{se:pretrained_parameters}. The reason for why ResNet-50 was chosen is explained in Section \ref{se:resnet_vs_inception}.
 
-The base network (ResNet-50) was not trained, to reduce the computational power needed to train the whole network. A smaller feed-forward neural network was added at the end of the base network to create the whole model (the code is shown below). The model uses Batch Normalization (explained in Section \ref{se:batch_norm}) to improve generalization and initial parameter robustness, as well as Dropout (Section \ref{se:dropout}) which works as a regularization. To improve the generalization performance further, all input data was augmented on every epoch (Section \ref{se:data_augmentation}). The activation function used in the feed-forward network is elu, proven to increase performance for very deep networks and to lower training time \citep{clevert_fast_2015}.
+The base network (ResNet-50) was not trained, to reduce the computational power needed to train the whole network. A smaller feed-forward neural network was added at the end of the base network to create the whole model (the code is shown below). The model uses Batch Normalization (explained in Section \ref{se:batch_norm}) to improve generalization and initial parameter robustness, as well as Dropout (Section \ref{se:dropout}) which works as a regularization method. To improve the generalization performance further, all input data was augmented on every epoch (Section \ref{se:data_augmentation}). The activation function used in the feed-forward network is ELU, proven to increase performance for very deep networks and to lower training time \citep{clevert_fast_2015}.
 
-The final model was trained with Adam \citep{kingma_adam:_2014} (Section \ref{se:backprop}). The initial learning rate was set to 0.001. No decay rate was used, instead the learning rate was manually lowered by the power of 10 every time the model was stuck on a certain score. This was done twice, resulting in the final learning rate to be 0.00001.
+The final model was trained with Adam \citep{kingma_adam:_2014} (Section \ref{se:backprop}). The initial learning rate was set to 0.001. No decay rate was used, instead the learning rate was manually lowered by the power of 10 every time the model was stuck on a certain score. This was done twice, resulting in the final learning rate to be 0.00001 after training was done.
 
 \begin{lstlisting}[language=Python, caption=The model that was appended to the end of ResNet-50]
 
@@ -1123,7 +1123,7 @@ F1 & 0.80311 \\
 
 Using a pretrained model allows for faster training as the only parameters that change are the one's int the last layer of the network. A number of trainable and non-trainable parameters can be found in Table \ref{tb:model_params}.
 
-Each parameter is a neuron's connection weight - 32-bit float number. Trainable parameters need additional memory because each parameter has to have a gradient calculated for it (Backpropagation). Additionally some layers require more parameters, such as Batch normalization. 
+Each parameter is a neuron's connection weight - 32-bit float number. Trainable parameters need additional memory because each parameter has to have a gradient calculated for it (Backpropagation). Additionally some layers require more parameters, such as Batch Normalization. 
 
 \begin{table}
 \centering
